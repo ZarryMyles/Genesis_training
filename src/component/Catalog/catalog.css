@@ -1,0 +1,50 @@
+.text-color-dark-blue {
+  color: #262b30;
+  font-weight: bolder;
+}
+.bg-color-green {
+  background-color: #42d786;
+  color: #262b30;
+  font-weight: bold;
+}
+.btn-outline-green {
+  border-color: #42d786;
+  color: #42d786;
+}
+
+#CourseSearchInput {
+  background-color: #42d786;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: none;
+  color: #262b30;
+}
+#CourseSearchInput + button {
+  color: #42d786;
+  border-color: #42d786;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  font-weight: bold;
+  width: 50%;
+  outline: none;
+}
+#CourseSearchInput + button:hover {
+  background: #42d786;
+  border-left-width: 3px;
+  border-left-color: #262b30;
+  color: #262b30;
+}
+#discover-btn > a {
+  width: 150px;
+  color: #6268e1;
+  border-color: #6268e1;
+  font-weight: bold;
+}
+#discover-btn > a:hover {
+  background: #6268e1;
+  color: #262b30;
+}
+#searchOptionFIlter {
+  height: 39px;
+  min-width: 120px;
+}
