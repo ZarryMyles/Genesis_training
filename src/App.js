@@ -1,14 +1,11 @@
 import "./App.css";
 import React, { Component, Fragment } from "react";
+// Other components
+import Navbar from "./component/Navbar/Navbar";
 import Homepage from "./component/homepage/homepage";
 import Catalog from "./component/Catalog/catalog";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 function App() {
   return (
@@ -19,20 +16,20 @@ function App() {
           <Route path="/catalog" component={cat} />
         </Switch>
       </div>
-      </Router>
-    )
+    </Router>
+  );
 }
 const homep = () => (
   <Fragment>
+    <Navbar />
     <Homepage />
   </Fragment>
 );
 const cat = () => (
   <Fragment>
+    <Navbar />
     <Catalog />
   </Fragment>
 );
-
-
 
 export default App;
