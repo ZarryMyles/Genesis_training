@@ -65,13 +65,15 @@ Link {
 }
 @keyframes webscreenproject {
   0% {
-    transform: rotateX(-49deg) rotateY(-39deg) rotateZ(-21deg) scale(0);
+    transform: rotateX(-49deg) rotateY(-39deg) rotateZ(-21deg);
     transform-origin: 44% 43% -490px;
     height: 50px;
+    opacity: 0%;
   }
   100% {
-    transform: rotateX(-45deg) rotateY(-30deg) rotateZ(-21deg) scale(1);
+    transform: rotateX(-45deg) rotateY(-30deg) rotateZ(-21deg);
     transform-origin: 50% 50% 0px;
+    opacity: 100%;
   }
 }
 

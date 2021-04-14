@@ -1,15 +1,10 @@
-import React, { Fragment, useEffect } from "react";
-
+import React, { Fragment } from "react";
 import "./story1.css";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 // images
-import learningPathIMG from "../../../images/imgs/learning-path.png";
-import clientServerImg from "../../../images/imgs/client-server.png";
-
-export default function Story1() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+import learningPathIMG from "./learning-path.png";
+import clientServerImg from "./client-server.png";
+export default function story1() {
   return (
     <Router>
       <div id="story1-container" className="row mx-auto">
