@@ -4,6 +4,7 @@
 }
 #story1-header {
   color: whitesmoke;
+  /* background: #0c3c66; */
   background: #0c3c66;
 }
 #story1-header h1 {
@@ -31,9 +32,9 @@
   text-indent: 20px;
 }
 .section-block {
-  margin-top: 20px;
+  padding-top: 60px;
   border-bottom: 20px solid #0c3c66;
-  padding: 10px;
+  /* padding: 10px; */
 }
 #front-end-blocks,
 #front-end-blocks p {

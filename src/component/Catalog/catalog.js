@@ -2,69 +2,20 @@ import React, { Fragment } from "react";
 import "./catalog.css";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 // routes
-import Story1 from "../Courses/story1/story1";
+import Story1 from "../Courses/story1/Story1";
+// other components
+
 // images
-import GuySittingImg from "./images/webdev-guy-sitting.png";
-import WebScreenImg from "./images/webdev-screen.png";
+import GuySittingImg from "../../images/imgs/webdev-guy-sitting.png";
+import WebScreenImg from "../../images/imgs/webdev-screen.png";
 
 export default function catalog() {
   return (
     <Router>
       <div>
-        <div id="catelog-home">
-          <div id="catalog-header ">
-            <nav class="navbar navbar-expand-lg fixed-top">
-              <a class="navbar-brand text-light ml-4" href="/">
-                Website Name
-              </a>
-              <button
-                class="navbar-toggler "
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span class="navbar-toggler-icon-light"></span>
-              </button>
-
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto topnav">
-                  <li class="nav-item ">
-                    <Link to="/catalog" class="nav-link text-light" href="#">
-                      Home
-                    </Link>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-light" href="#catelog-browse">
-                      Discover
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link btn btn-outline-primary  mx-2 px-3 py-1"
-                      type="button"
-                      href="#"
-                    >
-                      Sign In
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link  btn btn-outline-success mx-2 px-3 py-1"
-                      type="button"
-                      href="#"
-                    >
-                      Sign Up
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-          </div>
-        </div>
+        <div id="catelog-home"></div>
       </div>
+      {/* <Link to="/catalog/story1"/> */}
       <Switch>
         <Route path="/catalog" exact component={CatelogBrowse} />
         <Route path="/catalog/story1" component={Story} />
