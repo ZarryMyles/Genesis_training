@@ -14,7 +14,7 @@ export default function catalog() {
         <div id="catelog-home">
           <div id="catalog-header ">
             <nav class="navbar navbar-expand-lg fixed-top">
-              <a class="navbar-brand text-light ml-4" href="#">
+              <a class="navbar-brand text-light ml-4" href="/">
                 Website Name
               </a>
               <button
@@ -32,7 +32,7 @@ export default function catalog() {
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto topnav">
                   <li class="nav-item ">
-                    <Link to="/" class="nav-link text-light" href="#">
+                    <Link to="/catalog" class="nav-link text-light" href="#">
                       Home
                     </Link>
                   </li>
@@ -63,12 +63,11 @@ export default function catalog() {
               </div>
             </nav>
           </div>
-          <Link to="/"></Link>
         </div>
       </div>
       <Switch>
-        <Route path="/" exact component={CatelogBrowse} />
-        <Route path="/story1" component={Story} />
+        <Route path="/catalog" exact component={CatelogBrowse} />
+        <Route path="/catalog/story1" component={Story} />
       </Switch>
     </Router>
   );
@@ -181,8 +180,40 @@ const CatelogBrowse = () => (
         </div>
       </div>
       <div id="courseList">
-        <div id="htmlCourses">
-          <Link to="/story1"> Story1 </Link>
+        <div
+          id="htmlCourses"
+          className="p-3 mx-5 d-flex flex-row justify-content-center"
+        >
+          <div className="course p-1 m-4">
+            <Link to="/catalog/story1">
+              {" "}
+              <div className="preview-img">
+                {" "}
+                <img src="" alt="preview img" srcset="" />
+              </div>
+              <h6 className="course-title text-center">HTML For Begginners </h6>
+            </Link>
+          </div>
+          <div className="course p-1 m-4">
+            <Link to="/catalog">
+              {" "}
+              <div className="preview-img">
+                {" "}
+                <img src="" alt="preview img" srcset="" />
+              </div>
+              <h6 className="course-title text-center">CSS </h6>
+            </Link>
+          </div>
+          <div className="course p-1 m-4">
+            <Link to="/catalog">
+              {" "}
+              <div className="preview-img">
+                {" "}
+                <img src="" alt="preview img" srcset="" />
+              </div>
+              <h6 className="course-title text-center">Bootstrap Grid </h6>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

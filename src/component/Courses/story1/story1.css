@@ -15,7 +15,8 @@
   font-weight: bolder;
 }
 .sections h2 {
-  color: antiquewhite;
+  color: #42d786;
+  font-weight: bold;
 }
 .sections h3 {
   margin-left: 20px;
@@ -30,6 +31,7 @@
   text-indent: 20px;
 }
 .section-block {
+  margin-top: 20px;
   border-bottom: 20px solid #0c3c66;
   padding: 10px;
 }
@@ -38,7 +40,7 @@
   margin-left: 20px;
 }
 .codeblock {
-  background: #0c3c66;
+  background: #243646;
   color: aliceblue;
   border-left: 5px solid white;
   padding: 10px 10px;
@@ -48,4 +50,26 @@
 }
 #html-basic-desc p {
   text-indent: 0;
+}
+.sections img {
+  background: #dce3eb;
+  padding: 15px;
+  border-radius: 25px;
+}
+.preview-img {
+  height: 100px;
+  width: 200px;
+  border-bottom: 2px solid white;
+  /* border-radius: 20px; */
+}
+#htmlCourses {
+  /* border: 2px solid white; */
+  border-radius: 20px;
+}
+.course {
+  border: 2px solid white;
+  border-radius: 20px;
+}
+.course img {
+  margin: auto;
 }
