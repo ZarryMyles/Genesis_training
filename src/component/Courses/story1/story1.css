@@ -1,0 +1,51 @@
+#story1-container {
+  background: #dce3eb;
+  margin-top: 100px;
+}
+#story1-header {
+  color: whitesmoke;
+  background: #0c3c66;
+}
+#story1-header h1 {
+  padding: 10px;
+}
+.sections {
+  color: #dce3eb;
+  padding: 10px 15px;
+  font-weight: bolder;
+}
+.sections h2 {
+  color: antiquewhite;
+}
+.sections h3 {
+  margin-left: 20px;
+  font-size: large;
+  color: aliceblue;
+}
+.sections h4 {
+  margin-left: 20px;
+  font-size: medium;
+}
+.sections p {
+  text-indent: 20px;
+}
+.section-block {
+  border-bottom: 20px solid #0c3c66;
+  padding: 10px;
+}
+#front-end-blocks,
+#front-end-blocks p {
+  margin-left: 20px;
+}
+.codeblock {
+  background: #0c3c66;
+  color: aliceblue;
+  border-left: 5px solid white;
+  padding: 10px 10px;
+}
+#req-msg-desc {
+  width: 50%;
+}
+#html-basic-desc p {
+  text-indent: 0;
+}

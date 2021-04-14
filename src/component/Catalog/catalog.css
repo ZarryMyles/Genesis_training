@@ -1,3 +1,6 @@
+Link {
+  text-decoration: none;
+}
 .text-color-dark-blue {
   color: #262b30;
   font-weight: bolder;
@@ -25,7 +28,7 @@
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   font-weight: bold;
-  width: 50%;
+  max-width: 50%;
   outline: none;
 }
 #CourseSearchInput + button:hover {
@@ -47,4 +50,40 @@
 #searchOptionFIlter {
   height: 39px;
   min-width: 120px;
+}
+#WebScreenImg {
+  top: 20px;
+  right: 100px;
+  transition: 0.5s ease-in-out;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  border: 2px solid #42d786;
+  transform: rotateX(-45deg) rotateY(-30deg) rotateZ(-21deg);
+  transform-origin: 50% 50% 0px;
+  animation: webscreenproject ease-in-out 0.9s;
+  animation-fill-mode: forwards;
+}
+@keyframes webscreenproject {
+  0% {
+    transform: rotateX(-49deg) rotateY(-39deg) rotateZ(-21deg);
+    transform-origin: 44% 43% -490px;
+    height: 50px;
+    opacity: 0%;
+  }
+  100% {
+    transform: rotateX(-45deg) rotateY(-30deg) rotateZ(-21deg);
+    transform-origin: 50% 50% 0px;
+    opacity: 100%;
+  }
+}
+
+#GuySittingImg {
+  bottom: 10px;
+  left: 100px;
+}
+#welcome-page {
+  margin: 100px 20px;
+}
+#catelog-browse {
+  margin-top: 150px;
 }
