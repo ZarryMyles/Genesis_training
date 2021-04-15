@@ -1,10 +1,13 @@
-import React, { Fragment } from "react";
-import "./story1.css";
+import React, { Fragment, useEffect } from "react";
+import "./css/story1.css";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 // images
-import learningPathIMG from "./learning-path.png";
-import clientServerImg from "./client-server.png";
-export default function story1() {
+// import learningPathIMG from "./learning-path.png";
+// import clientServerImg from "./client-server.png";
+export default function Story1() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Router>
       <div id="story1-container" className="row mx-auto">
@@ -97,7 +100,7 @@ export default function story1() {
                   </ul>
                 </div>
                 <div id="block2" className="d-flex flex-row ml-5">
-                  <img src={learningPathIMG} alt="" srcset="" />
+                  {/* <img src={learningPathIMG} alt="" srcset="" /> */}
                   <div id="version-control" className="p-5 mt-5">
                     <li>
                       Version Control System: These are used to keep track of
@@ -147,7 +150,7 @@ export default function story1() {
                   id="client-server-model"
                   className="d-flex flex-row p-5 ml-3"
                 >
-                  <img src={clientServerImg} alt="" className="ml-5" />
+                  {/* <img src={clientServerImg} alt="" className="ml-5" /> */}
                   <div id="clientserver-desc" className="ml-3 p-5 text-light">
                     <p>
                       The Client requests the server and the server provides the

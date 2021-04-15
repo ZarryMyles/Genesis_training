@@ -1,19 +1,16 @@
-Link {
-  text-decoration: none;
-}
-.text-color-dark-blue {
+/* .text-color-dark-blue {
   color: #262b30;
   font-weight: bolder;
-}
+} */
 .bg-color-green {
   background-color: #42d786;
   color: #262b30;
   font-weight: bold;
 }
-.btn-outline-green {
+/* .btn-outline-green {
   border-color: #42d786;
   color: #42d786;
-}
+} */
 
 #CourseSearchInput {
   background-color: #42d786;
@@ -57,10 +54,9 @@ Link {
   transition: 0.5s ease-in-out;
   perspective: 1000px;
   perspective-origin: 50% 50%;
-  border: 2px solid #42d786;
   transform: rotateX(-45deg) rotateY(-30deg) rotateZ(-21deg);
   transform-origin: 50% 50% 0px;
-  animation: webscreenproject ease-in-out 0.9s;
+  animation: webscreenproject ease-in-out 1.3s;
   animation-fill-mode: forwards;
 }
 @keyframes webscreenproject {
@@ -72,7 +68,6 @@ Link {
   100% {
     transform: rotateX(-45deg) rotateY(-30deg) rotateZ(-21deg) scale(1);
     transform-origin: 50% 50% 0px;
-    opacity: 100%;
   }
 }
 
@@ -83,6 +78,43 @@ Link {
 #welcome-page {
   margin: 100px 20px;
 }
-#catelog-browse {
+#catalog-browse {
   margin-top: 150px;
+}
+@media (max-width: 400px) {
+  #welcome-page {
+    margin: 50px 10px 20px 20px;
+  }
+  #catalog-browse {
+    margin-top: 10px;
+  }
+}
+#scrollDown img {
+  animation: scroll-down 3s ease-in-out 2.5s infinite;
+}
+@keyframes scroll-down {
+  0% {
+    transform: translate(0px, -2px);
+    -webkit-transform: translate(0px, -2px);
+    -moz-transform: translate(0px, -2px);
+    opacity: 100%;
+  }
+
+  50% {
+    transform: translate(0px, -80px);
+    -webkit-transform: translate(0px, -80px);
+    -moz-transform: translate(0px, -80px);
+    opacity: 20%;
+  }
+  75% {
+    transform: translate(0px, -2px);
+    -webkit-transform: translate(0px, -2px);
+    -moz-transform: translate(0px, -2px);
+  }
+  100% {
+    transform: translate(0px, -2px);
+    -webkit-transform: translate(0px, -2px);
+    -moz-transform: translate(0px, -2px);
+    opacity: 100%;
+  }
 }

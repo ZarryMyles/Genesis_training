@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// css
+import "./css/navbar.css";
 export default function navbar() {
   return (
     <div>
-      <div id="catalog-header ">
-        <nav class="navbar navbar-expand-lg fixed-top">
+      <div>
+        <nav class="navbar navbar-expand-lg fixed-top " id="navbar-container">
           <a class="navbar-brand text-light ml-4" href="/">
             Website Name
           </a>
@@ -23,18 +25,21 @@ export default function navbar() {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto topnav">
               <li class="nav-item ">
-                <Link to="/catalog" class="nav-link text-light" href="#">
+                <a class="nav-link text-light my-1" href="/">
                   Home
-                </Link>
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="#catelog-browse">
+                <a
+                  class="nav-link text-light my-1"
+                  href="/catalog#catelog-browse"
+                >
                   Discover
                 </a>
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link btn btn-outline-primary  mx-2 px-3 py-1"
+                  class="nav-link btn btn-outline-primary  mx-2 my-1 px-3 py-1"
                   type="button"
                   href="#"
                 >
@@ -43,7 +48,7 @@ export default function navbar() {
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link  btn btn-outline-success mx-2 px-3 py-1"
+                  class="nav-link  btn btn-outline-success mx-2 my-1 px-3 py-1"
                   type="button"
                   href="#"
                 >

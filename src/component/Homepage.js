@@ -1,8 +1,7 @@
 import React from "react";
-import Catalog from "../Catalog/catalog";
 import { Link } from "react-router-dom";
 
-export default function homepage() {
+export default function Homepage() {
   return (
     <div className="mt-5 pt-4">
       <Link to="/catalog">Catalog</Link>

@@ -1,9 +1,9 @@
 import "./App.css";
 import React, { Component, Fragment } from "react";
 // Other components
-import Navbar from "./component/Navbar/Navbar";
-import Homepage from "./component/homepage/homepage";
-import Catalog from "./component/Catalog/catalog";
+import Navbar from "./component/Navbar";
+import Homepage from "./component/Homepage";
+import Catalog from "./component/Catalog";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 

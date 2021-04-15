@@ -1,0 +1,20 @@
+[
+  {
+    "courseId": 1,
+    "name": "HTML FOR BEGINNERS",
+    "preview_img": "images/course_preview_img/html-preview.jpg",
+    "link": "null"
+  },
+  {
+    "courseId": 2,
+    "name": "CSS",
+    "preview_img": "images/course_preview_img/css-preview.jpg",
+    "link": "null"
+  },
+  {
+    "courseId": 3,
+    "name": "BOOTSTRAP GRID",
+    "preview_img": "images/course_preview_img/bootstrap-preview.jpg",
+    "link": "null"
+  }
+]
