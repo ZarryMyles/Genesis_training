@@ -32,23 +32,23 @@ export default function navbar() {
               <li class="nav-item">
                 <a
                   class="nav-link text-light my-1"
-                  href="/catalog#catelog-browse"
+                  href="/catalog#catalog-browse"
                 >
                   Discover
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item my-auto mx-2">
                 <a
-                  class="nav-link btn btn-outline-primary  mx-2 my-1 px-3 py-1"
+                  class="nav-link btn btn-outline-primary   px-3 py-1"
                   type="button"
                   href="#"
                 >
                   Sign In
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item my-auto mx-2">
                 <a
-                  class="nav-link  btn btn-outline-success mx-2 my-1 px-3 py-1"
+                  class="nav-link  btn btn-outline-success px-3 py-1"
                   type="button"
                   href="#"
                 >

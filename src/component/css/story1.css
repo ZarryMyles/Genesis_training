@@ -42,12 +42,12 @@ Link {
 #front-end-blocks p {
   margin-left: 20px;
 }
-.codeblock {
+/* .codeblock {
   background: #243646;
   color: aliceblue;
   border-left: 5px solid white;
   padding: 10px 10px;
-}
+} */
 #req-msg-desc {
   width: 50%;
 }
@@ -69,10 +69,7 @@ Link {
   overflow: hidden;
   border-radius: 10px;
 }
-.course-title {
-  color: #42d786;
-  background-color: #0c3c66;
-}
+
 .course:hover .course-title {
   background-color: antiquewhite;
   color: #0c3c66;

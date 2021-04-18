@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+#course-display-wrapper {
+}
+.course-title {
+  font-size: 40px;
+}
+.codeblock {
+  background: #243646;
+  color: aliceblue;
+  border-left: 5px solid white;
+  padding: 10px 10px;
+}
+.codeblock > div {
+  background-color: #243646;
+}
+.color-green {
+  color: #42d786;
+  font-weight: bold;
+}
+.sectionBlocks h3 {
+  color: #42d786;
+  font-weight: bold;
+}
+.sectionBlocks h4 {
+  font-weight: bold;
+  color: aliceblue;
+}
+.sections h4 {
+  margin-left: 20px;
+  font-size: medium;
+}
+.sectionBlocks {
+  /* margin-top: 20px; */
+  border-bottom: 2px solid #0c3c66;
+  padding: 10px;
+}
+
+.collapsible-trigger {
+  color: white;
+  font-size: 25px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.collapsible-trigger-opened {
+  color: #42d786;
+  font-size: 25px;
+  font-weight: bolder;
+  cursor: pointer;
+  padding-bottom: 20px;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}

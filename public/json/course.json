@@ -3,18 +3,18 @@
     "courseId": 1,
     "name": "HTML FOR BEGINNERS",
     "preview_img": "images/course_preview_img/html-preview.jpg",
-    "link": "/course/:html_for_beginners"
+    "link": "null"
   },
   {
     "courseId": 2,
     "name": "CSS",
     "preview_img": "images/course_preview_img/css-preview.jpg",
-    "link": "/course/:css"
+    "link": "null"
   },
   {
     "courseId": 3,
     "name": "BOOTSTRAP GRID",
     "preview_img": "images/course_preview_img/bootstrap-preview.jpg",
-    "link": "/course/:bootstrap_grid"
+    "link": "null"
   }
 ]

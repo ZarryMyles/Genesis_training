@@ -1,0 +1,72 @@
+[
+  {
+    "courseId": 1,
+    "title": "HTML FOR BEGINNERS",
+    "description": "",
+    "requirements": "A browser like the one you are using currently to view this :) . \n A code editor , VS Code is prefered. \n Install Live server and Prettifier extensions.",
+    "sectionBlocks": [
+      {
+        "position": 1,
+        "type": "normal",
+        "heading": "Front-End and Back-End",
+        "description": null,
+        "imagePath": null,
+        "bulletPoints": [
+          {
+            "header": "As the name suggests it locates the resource, the resource could be any of the folowing",
+            "content": "The front end deals with the \"front\" of a website or application, meaning its design and coding that keep the website working properly.\nThe back end, however, refers to everything on the server-side of a website or application, such as important data.\n A full stack developer is a programmer who works within software development and is knowledgeable in both the front-end and back-end of an application."
+          }
+        ],
+        "subHeading": [
+          {
+            "heading": "Front-End",
+            "content": "HTML :  Its the structure of the website. Used to define the layout of the webpage.\n CSS : To animate and style the layouts and contents like the font, shape of a picture and so on.\n JavaScript(JS) : To add fucntionaility to the website, to make components respond in a website , like increasing the no.of likes on click of a button and displaying the information based on user logged in. Unlike CSS and HTML this is a programming language."
+          }
+        ],
+        "moreData": null,
+        "mini-codeblock": null
+      },
+      {
+        "position": 2,
+        "type": "with image",
+        "heading": "Path For Learning",
+        "description": null,
+        "imagePath": [
+          "images/course-images/html_for_beginners/learning-path.png"
+        ],
+        "bulletPoints": [
+          {
+            "header": null,
+            "content": "Learn HTML and CSS \nJavaScript\nFrameworks : Frameworks and libraries have reusable codes to make the development faster and easier For example : reactJS, Angular, Vue\nVersion Control System: These are used to keep track of project history while working on it as a team with many contributors or just you\nGit is the most popular and the best version control system"
+          }
+        ],
+        "moreData": null,
+        "mini-codeblock": null
+      },
+      {
+        "position": 3,
+        "type": "with image",
+        "heading": "How the Web Works",
+        "description": "The web address entered in a browser is URL (Uniform resource locator). Such as https://www.youtube.com/watch?v=dQw4w9WgXcQ .",
+        "imagePath": [
+          "images/course-images/html_for_beginners/client-server.png"
+        ],
+        "bulletPoints": [
+          {
+            "header": "As the name suggests it locates the resource, the resource could be any of the folowing",
+            "content": "Image\nVideo\nWebpage\nFonts"
+          }
+        ],
+        "more-data": [
+          "When a url is entered in the browser it requests the resource from the computer the url targets to.",
+          "The browser is the client and the target computer is the server."
+        ],
+        "mini-codeblock": {
+          "header": "HTTP REQUEST MESSAGE",
+          "code": "GET /index.html HTTP/1.1\nHost: www.sampleweb.com\nAccept-language: en-us",
+          "description": "Client is requesting to GET a page INDEX.HTML of the host www.sampleweb.com using HTTP version 1.1 using the client language english-US"
+        }
+      }
+    ]
+  }
+]

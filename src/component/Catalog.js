@@ -3,14 +3,14 @@ import "./css/catalog.css";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 // routes
 import Story1 from "./Story1";
-import CourseList from "./CourseLIst";
+import CourseList from "./CourseList";
 // images
 import GuySittingImg from "../images/img/webdev-guy-sitting.png";
 import WebScreenImg from "../images/img/webdev-screen.png";
 import ScrollDownImg from "../images/icons/scrolldown.png";
 export default function Catalog() {
   return (
-    <Router>
+    <div>
       <div>
         <div id="catelog-home"></div>
       </div>
@@ -18,7 +18,7 @@ export default function Catalog() {
         <Route path="/catalog" exact component={CatelogBrowse} />
         <Route path="/catalog/story1" component={Story} />
       </Switch>
-    </Router>
+    </div>
   );
 }
 const Story = () => <Story1 />;
@@ -61,7 +61,7 @@ const CatelogBrowse = () => (
           <input
             id="CourseSearchInput"
             type="text"
-            class="form-control col-md-6 col-7 "
+            class="form-control col-md-6 col-7 d-none d-md-block"
             placeholder="Course Name"
             aria-describedby="button-addon2"
           />
@@ -92,9 +92,9 @@ const CatelogBrowse = () => (
       </div>
     </div>
 
-    <div id="catalog-browse" className="mx-auto m">
-      <div id="searchInputs" className="row mx-auto">
-        <div class="input-group justify-content-center ">
+    <div id="catalog-browse" className="mx-auto ">
+      <div id="searchInputs" className="mx-auto">
+        <div class="input-group justify-content-center mx-auto">
           <div class="input-group mb-md-3 mb-1 col-md-4 col-6 ">
             <input
               type="text"
@@ -108,22 +108,14 @@ const CatelogBrowse = () => (
             class="form-select bg-color-green mx-md-5 rounded p-2"
             id="searchOptionFIlter"
           >
-            <option selected className="text-light">
-              Choose....
-            </option>
-            <option value="1" className="text-light">
-              JS
-            </option>
-            <option className="text-light" value="2">
-              CSS
-            </option>
-            <option className="text-light" value="3">
-              HTML
-            </option>
+            <option selected>Choose....</option>
+            <option value="1">JS</option>
+            <option value="2">CSS</option>
+            <option value="3">HTML</option>
           </select>
         </div>
-        <CourseList />
       </div>
+      <CourseList />
     </div>
   </Fragment>
 );

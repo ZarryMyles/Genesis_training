@@ -2,19 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 // reading json
 import courseData from "../json/course.json";
+import CourseDisplay from "./CourseDisplay";
 // import img from "../../public/images/course_preview_img/html-preview.jpg";
 export default function CourseLIst() {
   function coursePreview(course) {
+    let coursePath = course.link;
     let image_path = course.preview_img;
-
-    console.log(image_path);
-
     return (
       <div className="course  m-2">
-        <Link to="/catalog/story1">
-          {" "}
+        <Link
+          to={coursePath}
+          onClick={coursedisplay}
+          style={{ textDecoration: "none" }}
+        >
           <div className="preview-img-container overflow-hidden">
-            {" "}
             <div
               id="preview-img"
               style={{
@@ -24,11 +25,10 @@ export default function CourseLIst() {
                 backgroundImage: `url('${image_path}')`,
                 maxWidth: "100%",
                 minHeight: "100%",
-                // borderRadius: "15px",
               }}
             ></div>
           </div>
-          <h6 className="course-title text-center py-1">{course.name}</h6>
+          <h6 className="course-list-title text-center py-1">{course.name}</h6>
         </Link>
       </div>
     );
@@ -44,3 +44,4 @@ export default function CourseLIst() {
     </div>
   );
 }
+const coursedisplay = () => <CourseDisplay courseId={1} />;

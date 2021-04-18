@@ -1,0 +1,174 @@
+[
+  {
+    "courseId": 1,
+    "courseTag": "html_for_beginners",
+    "title": "HTML FOR BEGINNERS",
+    "description": "",
+    "requirements": "A browser like the one you are using currently to view this :) . \n A code editor , VS Code is prefered. \n Install Live server and Prettifier extensions.",
+    "sectionBlocks": [
+      {
+        "heading": "REQUIREMENTS",
+        "bulletPoints": [
+          {
+            "header": "",
+            "content": "A browser like the one you are using currently to view this :) . \n A code editor , VS Code is prefered. \n Install Live server and Prettifier extensions."
+          }
+        ]
+      },
+      {
+        "position": 1,
+        "type": "normal",
+        "heading": "Front-End and Back-End",
+        "description": null,
+        "imagePath": null,
+        "bulletPoints": [
+          {
+            "header": "",
+            "content": "The front end deals with the \"front\" of a website or application, meaning its design and coding that keep the website working properly.\nThe back end, however, refers to everything on the server-side of a website or application, such as important data.\n A full stack developer is a programmer who works within software development and is knowledgeable in both the front-end and back-end of an application."
+          }
+        ],
+        "subHeading": [
+          {
+            "header": "Front-End",
+            "content": "HTML :  Its the structure of the website. Used to define the layout of the webpage.\n CSS : To animate and style the layouts and contents like the font, shape of a picture and so on.\n JavaScript(JS) : To add fucntionaility to the website, to make components respond in a website , like increasing the no.of likes on click of a button and displaying the information based on user logged in. Unlike CSS and HTML this is a programming language."
+          }
+        ],
+        "moreData": null,
+        "mini-codeblock": null
+      },
+      {
+        "position": 2,
+        "type": "with image",
+        "heading": "Path For Learning",
+        "description": null,
+        "imagePath": [
+          "images/course-images/html_for_beginners/learning-path.png"
+        ],
+        "bulletPoints": [
+          {
+            "header": null,
+            "content": "Learn HTML and CSS \nJavaScript\nFrameworks : Frameworks and libraries have reusable codes to make the development faster and easier For example : reactJS, Angular, Vue\nVersion Control System: These are used to keep track of project history while working on it as a team with many contributors or just you\nGit is the most popular and the best version control system"
+          }
+        ],
+        "moreData": null,
+        "mini-codeblock": null
+      },
+      {
+        "position": 3,
+        "type": "with image and code",
+        "heading": "How the Web Works",
+        "description": "The web address entered in a browser is URL (Uniform resource locator). Such as https://www.youtube.com/watch?v=dQw4w9WgXcQ .",
+        "imagePath": [
+          "images/course-images/html_for_beginners/client-server.png"
+        ],
+        "bulletPoints": [
+          {
+            "header": "As the name suggests it locates the resource, the resource could be any of the folowing",
+            "content": "Image\nVideo\nWebpage\nFonts"
+          }
+        ],
+        "subHeading": [
+          {
+            "header": "",
+            "content": "The Client requests the server and the server provides the resource the requests message is based on a protocol(HTTP or HTTPS)\nHTTPS is HTTP with encryption and hence is more secure. It encrypts the messages exchanged between the client and server."
+          }
+        ],
+        "moreData": [
+          "When a url is entered in the browser it requests the resource from the computer the url targets to.",
+          "The browser is the client and the target computer is the server."
+        ],
+        "miniCodeblock": [
+          {
+            "header": "HTTP REQUEST MESSAGE",
+            "code": "GET /index.html HTTP/1.1\nHost: www.sampleweb.com\nAccept-language: en-us",
+            "description": "Client is requesting to GET a page INDEX.HTML of the host www.sampleweb.com using HTTP version 1.1 using the client language english-US"
+          },
+          {
+            "header": "HTTP REQUEST MESSAGE",
+            "code": "HTTP/1.1 200 OK \nDATE: 1 JAN 2021 09:00\nContent-Type: text/html\n<!DOCTYPE html>\n<html>\n.....\n</html>",
+            "description": "Version of http used : 1.1 , status code (200 OK) which means successful\nDate and time of response : 1 Jan 2021 09:00\ntype of content server is sending to client : text/htmlThe requested resource , in this case its a html file.\nThis html file may contains links or urls to othr resources such as web elements or images , once these resources are requested and recieved the browser renders the webpage."
+          }
+        ]
+      },
+      {
+        "position": 4,
+        "type": "with code",
+        "heading": "HTML BASICS",
+        "description": null,
+        "imagePath": null,
+        "bulletPoints": [
+          {
+            "header": "Follow these steps to make a new webpage :",
+            "content": "Create a new folder and open the folder on the code editor.\nMake a file with the extension of .html.\nMake a file with the extension of .css\nUse the live server extension which appears on the bottom right, or right click and choose go live"
+          }
+        ],
+        "subHeading": [
+          {
+            "header": "HTML Template",
+            "content": "The body of the HTML file begins with <!DOCTYPE html>.\n"
+          },
+          {
+            "header": "HTML has a head and body.",
+            "content": "Head gives browser the info of the page\nTitle,styling files etc.\nBody contains the layout and all the contents of the website thats visible to the client or user.  "
+          },
+          {
+            "header": "Additional Information",
+            "content": "Most of the HTML tags have an opening and closing tag.\n<tag_name>content</tag_name>\nSelf closing tags can be used instead of such as some frameworks dont support tags without a closing tag.\nExample of self closing tags : </br>, </img>"
+          }
+        ],
+        "moreData": ["", ""],
+        "miniCodeblock": null,
+        "codeBlock": null,
+        "iframe": [
+          {
+            "height": "300px",
+            "width": "80%",
+            "src": "https://codepen.io/richinrix/embed/qBRywOj?height=265&theme-id=dark&default-tab=html,result",
+            "titleCode": "qBRywOj"
+          }
+        ]
+      },
+      {
+        "position": 5,
+        "type": "with code",
+        "heading": "HEAD TAG",
+        "description": null,
+        "imagePath": null,
+        "bulletPoints": [
+          {
+            "header": "",
+            "content": "charset : Used to define the character set used , UTF-8 Represents most of the popluar formats\nviewport : The visible area of the webpage\nkeywords : For better targeting of the webpage on searching on browsers\ndescription : Description of the webpage is shown in the search result page of a browser"
+          }
+        ],
+        "subHeading": null,
+        "moreData": null,
+        "miniCodeblock": null,
+        "codeBlock": [
+          {
+            "header": "Head Tag ",
+            "code": "<head>\n<meta charset='UTF-8'>\n<meta http-equiv='X-UA-Compatible' content='IE=edge'>\n<meta name='viewport' content='width=device-width, initial-scale=1.0'>\n <meta name='keywords' content='Learning HTML,CSS'>\n<meta name='description' content='this appears on the search engine results as description'>\n<title>Document</title>\n</head>",
+            "description": null
+          }
+        ]
+      },
+      {
+        "position": 6,
+        "type": "with code",
+        "heading": "HTML TEXT ELEMENTS",
+        "description": null,
+        "imagePath": null,
+        "bulletPoints": [],
+        "subHeading": null,
+        "moreData": null,
+        "miniCodeblock": [
+          {
+            "header": "Other Text Elements",
+            "code": "<p>\n<strong>\nBatman donot kill\n</strong>\n</p>",
+            "description": "<p> is a paragraph element.\n<strong> is used for showing the importance of the text. By default the styling is set to bold.\n<em> is emphasizing. By default the styling is set to italics.\n<b> and <i> is bold and italics but is adivised not to use as HTML should be used for making the structure and laying out the template and not styling.\nCSS styling can be used to change the default styling of the elements"
+          }
+        ],
+        "codeBlock": null
+      }
+    ]
+  }
+]

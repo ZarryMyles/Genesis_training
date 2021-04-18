@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 // images
 // import learningPathIMG from "./learning-path.png";
 // import clientServerImg from "./client-server.png";
+import Sidebar from "./CourseSidebar";
 export default function Story1() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -12,7 +13,8 @@ export default function Story1() {
     <Router>
       <div id="story1-container" className="row mx-auto">
         <div id="story1-navbar" className="col-2">
-          <Route component={navbar} />
+          {/* {navbar()} */}
+          <Sidebar />
         </div>
         <div id="story1-content" className="col-10">
           <header id="story1-header" className="text-center ">
@@ -274,21 +276,23 @@ export default function Story1() {
                   </p>
                 </div>
                 <h3 className="ml-5">Basic HTML code: </h3>
-                <div style={{ width: "30%" }} className="ml-5 p-3 codeblock">
-                  &lt;!DOCTYPE html&gt; <br /> &lt;html lang="en"&gt;
-                  <br /> &lt;head&gt;
-                  <br />
-                  &emsp; &lt;title&gt;Document&lt;/title&gt;
-                  <br />
-                  &lt;/head&gt;
-                  <br /> &emsp;&emsp;&lt;body&gt;
-                  <br />
-                  &emsp;&emsp;&emsp;&lt;p&gt;Batman&lt;/p&gt;
-                  <br />
-                  &emsp;&emsp;&emsp;&lt;p&gt;Do you bleed?&lt;/p&gt; <br />
-                  &emsp;&emsp;&lt;/body&gt;
-                  <br /> &lt;/html&gt;
-                  <br />
+                <div>
+                  <iframe
+                    height="265"
+                    style={{ width: "60%" }}
+                    scrolling="no"
+                    title="qBRywOj"
+                    src="https://codepen.io/richinrix/embed/qBRywOj?height=265&theme-id=dark&default-tab=html,result"
+                    frameborder="no"
+                    loading="lazy"
+                    allowtransparency="true"
+                    allowfullscreen="true"
+                  >
+                    See the Pen{" "}
+                    <a href="https://codepen.io/richinrix/pen/qBRywOj">
+                      qBRywOj
+                    </a>{" "}
+                  </iframe>
                 </div>
               </div>
             </div>
@@ -509,28 +513,32 @@ export default function Story1() {
 
 const navbar = () => (
   <Fragment>
-    <h3 className="text-white text-center"> Navigation </h3>
-    <ul class="nav flex-column">
-      <li class="nav-item">
-        <a class="nav-link " href="#requirements-section">
-          Requirements
-        </a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link " href="#Front-Back-end-section">
-          Front End and Back End
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="#learning-path-section">
-          Learning Path
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="#web-working">
-          How the Web Works
-        </a>
-      </li>
-    </ul>
+    <div className="wrapper d-flex">
+      <div className="siderbar">
+        <h3 className="text-white text-center "> Navigation </h3>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link " href="#requirements-section">
+              Requirements
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link " href="#Front-Back-end-section">
+              Front End and Back End
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#learning-path-section">
+              Learning Path
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#web-working">
+              How the Web Works
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </Fragment>
 );

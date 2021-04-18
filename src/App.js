@@ -1,35 +1,47 @@
 import "./App.css";
 import React, { Component, Fragment } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Other components
 import Navbar from "./component/Navbar";
 import Homepage from "./component/Homepage";
 import Catalog from "./component/Catalog";
+import CourseDisplay from "./component/CourseDisplay";
+import CourseSidebar from "./component/CourseSidebar";
+//
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/" exact component={homep} />
-          <Route path="/catalog" component={cat} />
+          <Route path="/" exact component={homepage} />
+          <Route path="/catalog" component={catalog} />
+          <Route path="/course/:coursename" component={coursedisplay} />
         </Switch>
       </div>
     </Router>
   );
 }
-const homep = () => (
+const homepage = () => (
   <Fragment>
     <Navbar />
     <Homepage />
   </Fragment>
 );
-const cat = () => (
+const catalog = () => (
   <Fragment>
     <Navbar />
     <Catalog />
   </Fragment>
 );
-
+const coursedisplay = () => (
+  <Fragment>
+    <Navbar />{" "}
+    <div className="mt-5 row pt-5 mx-auto">
+      <CourseSidebar />
+      <CourseDisplay />
+    </div>
+  </Fragment>
+);
 export default App;
