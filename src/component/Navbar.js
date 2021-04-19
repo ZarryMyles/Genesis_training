@@ -4,61 +4,34 @@ import { Link } from "react-router-dom";
 import "./css/navbar.css";
 export default function navbar() {
   return (
-    <div>
-      <div>
-        <nav class="navbar navbar-expand-lg fixed-top " id="navbar-container">
-          <a class="navbar-brand text-light ml-4" href="/">
-            Website Name
-          </a>
-          <button
-            class="navbar-toggler "
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon-light"></span>
+    <header>
+      <div className="container">
+        <nav className="navbar navbar-expand-lg navbar-dark fixed-top mnavbar">
+          <a className="navbar-brand gen" href="#">Genesis Tutorials</a>
+          <button className="navbar-toggler mnavbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto topnav">
-              <li class="nav-item ">
-                <a class="nav-link text-light my-1" href="/">
-                  Home
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="d-flex align-items-end navbar-nav ml-lg-auto mnavbar-nav">
+              <li className="nav-item active mnav-i">
+                <a className="nav-link mnav-link" href="#">Home<span className="sr-only">(current)
+                  </span>
                 </a>
               </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link text-light my-1"
-                  href="/catalog#catalog-browse"
-                >
-                  Discover
-                </a>
+              <li className="nav-item mnav-i">
+                <a className="nav-link mnav-link" href="#">Catalog</a>
               </li>
-              <li class="nav-item my-auto mx-2">
-                <a
-                  class="nav-link btn btn-outline-primary   px-3 py-1"
-                  type="button"
-                  href="#"
-                >
-                  Sign In
-                </a>
+              <li className="nav-item mnav-i">
+                <a className="nav-link mnav-link" href="#">Contact</a>
               </li>
-              <li class="nav-item my-auto mx-2">
-                <a
-                  class="nav-link  btn btn-outline-success px-3 py-1"
-                  type="button"
-                  href="#"
-                >
-                  Sign Up
-                </a>
-              </li>
-            </ul>
+              <li className="nav-item mnav-i">
+                <a className="nav-link mnav-link" href="#">Sign In</a>
+              </li> 
+            </ul>       
           </div>
         </nav>
       </div>
-    </div>
+    </header>
   );
 }

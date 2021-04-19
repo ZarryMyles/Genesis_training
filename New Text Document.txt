@@ -1,0 +1,91 @@
+    <div className="gay">
+      <section id="header">
+        <div className="container-fluid">
+          <nav className="navbar navbar-expand-lg fixed-top navbar-dark">
+            <div className="container-fluid">
+              <a href="#" className="navbar-brand">Genesis Tutorials</a>
+              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+              </button>
+
+              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav ml-auto">
+                  <li className="nav-item">
+                    <a href="./" className="nav-link">Home</a>
+                  </li>
+                  <li className="nav-item">
+                    <a href="./catalog" className="nav-link">Catalog</a>
+                  </li>
+                  <li className="nav-item">
+                    <a href="#" className="nav-link">Home</a>
+                  </li>
+                  <li className="nav-item">
+                    <a href="#" className="nav-link">Home</a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </nav>
+        </div>
+      </section>
+    </div>
+
+
+
+#header {
+  /* position: absolute; */
+  z-index: 0;
+  width: 100%;
+}
+.navbar {
+  padding: 50px 0;
+  opacity: 0.8;
+}
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.5em;
+}
+.navbar-dark .navbar-brand {
+  color: #dcdde1;
+}
+.nav-item {
+  font-weight: 600;
+  text-transform: uppercase;
+  padding-left: 10px;
+}
+.navbar-dark .navbar-nav .nav-item .nav-link:hover {
+  background: #dcdde1;
+  color: #262626;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. My motivation to run the club at my campus is to help and spread the word of emerging technologies and guide students to learn and be ready to make the most amazing solutions. Also to provide a platform where students can express their ideas and find the best people to make the idea a reality.
+
+2. I have lead projects concerning startups and have good exposure as to how a project should be distributed and how people of different skill sets can be utilized for a specific task at hand. I have completed 3+ projects.
+
+3. The technology I adore and use the most is Flutter. As Flutter gives me the flexibility to literally reach a lot of platforms with a single code base. And the almost native-like performance makes it amazing. Also involved is a huge community, which is very active and there is no shortage of new developments in the framework. And with the release of Flutter 2.0, it has become a very powerful tool for startups and huge companies alike. Now, I have been working on Flutter for almost a year now. And I have completed 4+ projects for startups, small businesses. 
+I am proficient in 
+ I. Creating UI elements
+ ii. Animations
+ iii. State Management frameworks like Getx, Provider, RiverPod
+ iv. API Integration
+
+4. Script
+Hello, I'm Mahanth from Sri Venkateshwara college of engineering and I am pursuing my bachelor's in Engg, with Computer Science being my major. I have always had respect for tech communities, Since they give students a great platform to learn, grow and network with some amazing people. 
+
+Now, lemme tell you why I think I would be the perfect person to lead a DSC at my campus. I love talking to people with similar interests, and I love guiding them through things I know. Also adding to this I love to motivate students to make projects and get real-world insights as to how the industry works, and also mentor them in making their dream ideas come true. I would love to make that happen.
+
+And Since, our college is a Tier 2 college, students are generally unaware of the opportunities coming their way, I would like to be the bridge between that and spread the opportunities to excel at their chosen careers. To conclude I would love to lead the GDSC local chapter at my campus to reach more students and help them in becoming the best versions of themselves. Thank You.

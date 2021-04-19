@@ -1,13 +1,20 @@
-#navbar-container {
-  /* background-color: #c6ced6; */
-  border-bottom: 2px solid #6268e1;
+.mnavbar {
+  margin: 0;
+  opacity: 0.9;
+  border-bottom: 1px aliceblue solid;
+  height: 50px;
+  background-color: #262b30;
 }
-/* #navbarSupportedContent {
-  background-color: #c6ced6;
+.mnav-i {
+  font-weight: 800;
+  text-transform: uppercase;
 }
-#navbarSupportedContent ul {
-  background-color: #c6ced6;
-} */
-/* .navbar-item {
-  background-color: #c6ced6;
-} */
+
+.mnavbar-nav .mnav-link {
+  color: #fff;
+}
+.mnavbar-toggler {
+  border: 2px solid black;
+  border-radius: 0;
+  outline: none;
+}

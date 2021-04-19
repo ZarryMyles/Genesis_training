@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("../fonts/Baufra-Medium.woff") /*---Media Queries --*/ @media
+  (max-width: 992px) {
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 576px) {
+}
+
+.contnav {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  opacity: 0.9;
+}
+#hnavbar {
+  background-color: white;
+}
+#introText {
+  color: #dae3f1;
+  padding: 15px;
+}
+#mainHead {
+  font-family: "Baufra";
+}
+#neo {
+  color: #08d108;
+}
+#paragraphsHome {
+  font-family: "Montserrat", sans-serif;
+}
+
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+  padding: 1rem;
+}

@@ -25,7 +25,6 @@ function App() {
 }
 const homepage = () => (
   <Fragment>
-    <Navbar />
     <Homepage />
   </Fragment>
 );
