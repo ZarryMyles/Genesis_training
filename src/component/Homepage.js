@@ -22,7 +22,7 @@ export default function Homepage() {
                             <a className="nav-link" href="#">  Home</a>
                         </li>
                         <li className="nav-item ">
-                            <a className="nav-link" href="#">  Catalog</a>
+                            <a className="nav-link" href="/Catalog">  Catalog</a>
                         </li>
                         <li className="nav-item ">
                             <a className="nav-link" href="#">  Contact</a>
