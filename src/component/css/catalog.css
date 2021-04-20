@@ -1,17 +1,19 @@
-/* .text-color-dark-blue {
-  color: #262b30;
-  font-weight: bolder;
-} */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@font-face {
+  font-family: Baufra-Bold;
+  src: url("./Baufra-Bold.ttf");
+}
 .bg-color-green {
   background-color: #42d786;
   color: #262b30;
   font-weight: bold;
 }
-/* .btn-outline-green {
-  border-color: #42d786;
-  color: #42d786;
-} */
-
+.catalog-header {
+  font-family: Baufra-Bold;
+}
+.catalog-content {
+  font-family: "Montserrat", sans-serif;
+}
 #CourseSearchInput {
   background-color: #42d786;
   border-top-right-radius: 0;
@@ -81,14 +83,7 @@
 #catalog-browse {
   margin-top: 150px;
 }
-@media (max-width: 400px) {
-  #welcome-page {
-    margin: 50px 10px 20px 20px;
-  }
-  #catalog-browse {
-    margin-top: 10px;
-  }
-}
+
 #scrollDown img {
   animation: scroll-down 3s ease-in-out 2.5s infinite;
 }
@@ -130,9 +125,71 @@
 .course:hover .course-list-title {
   background-color: antiquewhite;
   color: #0c3c66;
-  font-weight: bold;
+  font-weight: bolder;
   text-decoration: none;
 }
 .course img {
   margin: auto;
+}
+
+.preview-img-container {
+  height: 150px;
+  width: 250px;
+  border-bottom: 1px solid white;
+  transition-duration: 0.1s;
+}
+.preview-img-container:hover {
+  height: 160px;
+  width: 280px;
+}
+
+/* responsiveness */
+@media (max-width: 1024px) {
+  #WebScreenImg {
+    visibility: hidden;
+  }
+  #GuySittingImg {
+    bottom: 35%;
+    left: 20%;
+  }
+  .preview-img-container {
+    height: 100px;
+    width: 200px;
+  }
+}
+@media (max-width: 768px) {
+  #scrollDown img {
+    height: 0;
+    visibility: hidden;
+  }
+  #catalog-browse {
+    margin-top: 0px;
+  }
+  #welcome-page {
+    margin-bottom: 0;
+  }
+  #catalog-input {
+    visibility: hidden;
+  }
+  .discover-btn {
+    padding: 0;
+    visibility: hidden;
+  }
+}
+@media (max-width: 380px) {
+  .input-group {
+    visibility: hidden;
+  }
+  .preview-img-container {
+    height: 50px;
+  }
+  .catalog-content {
+    font-size: 10px;
+  }
+  .catalog-header {
+    font-size: 20px;
+  }
+  #welcome-page {
+    height: 100px;
+  }
 }

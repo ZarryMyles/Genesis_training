@@ -104,11 +104,11 @@
         ],
         "subHeading": [
           {
-            "header": "HTML Template",
+            "header": "",
             "content": "The body of the HTML file begins with <!DOCTYPE html>.\n"
           },
           {
-            "header": "HTML has a head and body.",
+            "header": "HTML has a head and a body.",
             "content": "Head gives browser the info of the page\nTitle,styling files etc.\nBody contains the layout and all the contents of the website thats visible to the client or user.  "
           },
           {
@@ -121,6 +121,7 @@
         "codeBlock": null,
         "iframe": [
           {
+            "header": "",
             "height": "300px",
             "width": "80%",
             "src": "https://codepen.io/richinrix/embed/qBRywOj?height=265&theme-id=dark&default-tab=html,result",
@@ -146,6 +147,7 @@
         "codeBlock": [
           {
             "header": "Head Tag ",
+            "width": "60%",
             "code": "<head>\n<meta charset='UTF-8'>\n<meta http-equiv='X-UA-Compatible' content='IE=edge'>\n<meta name='viewport' content='width=device-width, initial-scale=1.0'>\n <meta name='keywords' content='Learning HTML,CSS'>\n<meta name='description' content='this appears on the search engine results as description'>\n<title>Document</title>\n</head>",
             "description": null
           }
@@ -158,16 +160,194 @@
         "description": null,
         "imagePath": null,
         "bulletPoints": [],
-        "subHeading": null,
+        "subHeading": [
+          {
+            "header": "Entities",
+            "content": "To use symbols that have a default value in HTML as a text we use entities.\nExample : <HTML> cant be directly written inside a paragraph or header tag or anyother tag as the brackets < , >are read as tags.\n\nTo use these brackets and other sympobls we use entities in place of em.\n->   &lt; is '<' (lesser than )\n->   &gt; is '>' (greater than )\n->   So to write <HTML> , you will have to write &lt;HTML&gt;"
+          }
+        ],
         "moreData": null,
         "miniCodeblock": [
           {
             "header": "Other Text Elements",
-            "code": "<p>\n<strong>\nBatman donot kill\n</strong>\n</p>",
+            "code": "<p>\n<strong>\nBatman doesn't kill\n</strong>\n</p>",
             "description": "<p> is a paragraph element.\n<strong> is used for showing the importance of the text. By default the styling is set to bold.\n<em> is emphasizing. By default the styling is set to italics.\n<b> and <i> is bold and italics but is adivised not to use as HTML should be used for making the structure and laying out the template and not styling.\nCSS styling can be used to change the default styling of the elements"
+          },
+          {
+            "header": "Hyperlinks",
+            "code": "<a href='./about.html'cabout></a>\n\n<a href='https://google.com target='_blank' >Google</a>'\n\n<a href='./images/img1' download>download-img<a>",
+            "description": "By defualt the text wrapped in an anchor tag <a></a> is set to blue color and is underlined. The mouse pointer changes whne you hover over it.\nYou can wrap an image tag with an anchor element to link the image to an hyperlink\nYou can use 'id' in the place of hyperlink to make the page move to the portion of HTML with the id='that_element' on click of the anchor elemnt too. Use : href='#id_name'\nOn using href='#' , on click the webpage goes to begining of the webpage\ntarget='_blank' attribute can be added to make the hyperlink open a new tab\nhref+'mailto:your_mailid@mail.com' can be used to open the mail client with the send address as the given address."
           }
         ],
-        "codeBlock": null
+        "codeBlock": null,
+        "miniIframe": [
+          {
+            "header": "Heading Tags",
+            "description": "There are 6 heading values and the size decreases from H1 to H6.\nHeading elements should be used based on hierarchial importance and not based on size.",
+            "height": "300px",
+            "width": "60%",
+            "codeTitle": "eYgRwNb",
+            "src": "https://codepen.io/richinrix/embed/eYgRwNb?height=265&theme-id=dark&default-tab=html,result"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "courseId": 2,
+    "courseTag": "css",
+    "title": "CSS IN 20 MINUTES",
+    "description": "CSS is a styling language and not a programming language. It is mainly creativity focused.",
+    "requirements": "A browser like the one you are using currently to view this :) . \n A code editor , VS Code is prefered. \n Install Live server and Prettifier extensions.",
+    "sectionBlocks": [
+      {
+        "heading": "REQUIREMENTS",
+        "bulletPoints": [
+          {
+            "header": "",
+            "content": "A browser like the one you are using currently to view this :) . \n A code editor , VS Code is prefered. \n Install Live server and Prettifier extensions."
+          }
+        ]
+      },
+      {
+        "position": 1,
+        "type": "normal",
+        "heading": "Selector",
+        "description": null,
+        "imagePath": null,
+        "bulletPoints": [
+          {
+            "header": "",
+            "content": "Element selector (using HTML elements)\nClass selectors (giving a class name to HTML elements and one element can have multiple classes)\n.class_name{   'stylings is done here'  }\nId selector ( elements can have only 1 id) \tsyntax : #id_name{\t}"
+          }
+        ],
+        "subHeading": [
+          {
+            "header": "Selector combinations",
+            "content": "To apply a property to all the elements use star (*).\t *{ prop }\nTo select a tag within a parent tag you write the child tag after a space.\n\t\tparent_tag child_tag{ statements }\nSame can be done using ID and CLASS names\nTo share the same properties for multiple elements we write the selectors side by side seperated by commas \t element1,element2 { property }\n"
+          }
+        ],
+        "moreData": null,
+        "miniCodeblock": [
+          {
+            "header": "Syntax",
+            "code": "selector {\nproperty1: value;\nproperty2: value;\n}",
+            "description": null
+          }
+        ]
+      },
+      {
+        "position": 2,
+        "type": "with image",
+        "heading": "Loading a css style",
+        "description": null,
+        "imagePath": null,
+        "bulletPoints": [
+          {
+            "header": "Style Element",
+            "content": "Its better than inline but still not ideal.\nIts by using the style tag within the head element."
+          },
+          {
+            "header": "Inline Styling",
+            "content": "This is a bad practice as HTML is meant for content only and not styling."
+          },
+          {
+            "header": "External CSS File ",
+            "content": "External file CSS file is made with the extension .css and is linked to the HTML file to load the stylings from the file.\nIts written in the head element\n<head>\n<link rel=“stylesheet” href=“style.css”/>\n</head>\nAfter linking the css file to html document through this the css styling is written in the css file. "
+          }
+        ],
+        "subHeading": null,
+        "moreData": null,
+        "miniCodeblock": [
+          {
+            "header": "Syntax",
+            "code": "<head>\n<style>\n.blue{\ncolor:blue;\n}\n</style>\n</head>",
+            "description": "This is not reusable and is accessible only in the HTML file"
+          },
+          {
+            "header": "Inline CSS",
+            "code": "<h1 style=“color:blue”>\nBlue TItle \n</h1>",
+            "description": "This is a bad practice as HTML is meant for content only and not styling."
+          },
+          {
+            "header": "External CSS File",
+            "code": "<head>\n<link rel=“stylesheet” href=“style.css”/>\n</head>",
+            "description": "It also has a relation attribute , in case of css the relation attribute is a stylesheet.\nThe href attribute points to the css file location."
+          }
+        ]
+      },
+      {
+        "position": 3,
+        "type": "with code",
+        "heading": "CSS Usage",
+        "description": "If multiple styling is given for the same property of an element , then the latest or the bottom most one is preferred over the rest.",
+        "imagePath": null,
+        "bulletPoints": [
+          {
+            "header": "Basic Rules",
+            "content": "Inline stylings overrides all stylings\n By default elements inherit the parent elements stylings\bSome elements have their on default stylings like h tags have margins and a tags have blue color and underlines."
+          }
+        ],
+        "subHeading": [
+          {
+            "header": "Preference of selectors",
+            "content": "Id selector is preferred over the remaining selectors\nClass selector is preferred over html element selectors\n #ID > .Class > Element_name "
+          }
+        ],
+        "moreData": null,
+        "miniCodeblock": [
+          {
+            "header": "Using hexadecimal values :",
+            "code": "h1 { \ncolor: #5B6839\n}",
+            "description": "#000000 to #ffffff,each 2 pair decides a color(3 total pairs) from RGB (Red Green Blue) spectrum."
+          },
+          {
+            "header": "Using RGB",
+            "code": "h1 { \ncolor : rgb(255,103,120)\n}",
+            "description": "In this you directly mention the RGB values , you can enter a fourth value to represent opacity."
+          }
+        ]
+      },
+      {
+        "position": 4,
+        "type": "with code",
+        "heading": "Margin And Padding",
+        "description": null,
+        "imagePath": null,
+        "bulletPoints": [
+          {
+            "header": "Follow these steps to make a new webpage :",
+            "content": "Create a new folder and open the folder on the code editor.\nMake a file with the extension of .html.\nMake a file with the extension of .css\nUse the live server extension which appears on the bottom right, or right click and choose go live"
+          }
+        ],
+        "subHeading": [
+          {
+            "header": "Padding",
+            "content": "It is the space between the content and the border of the element.\n Used to add space from the content to the border."
+          },
+          {
+            "header": "Margin",
+            "content": "It is the spacing outside the border of the element.\nIt is used to space between elements.\nBody contains the layout and all the contents of the website thats visible to the client or user.  "
+          }
+        ],
+        "moreData": null,
+        "miniCodeblock": [
+          {
+            "header": "Syntax",
+            "code": "padding : 10px;\npadding : 10px 20px;\npadding : 10px 10px 10px 10px;",
+            "description": "The same space on all four sides from the content.\nTop and bottom spacing for the first value,Left and right spacing for the 2nd value.\nTop ,Bottom ,Left and Right Values respectively."
+          }
+        ],
+        "codeBlock": null,
+        "iframe": [
+          {
+            "header": "",
+            "height": "300px",
+            "width": "80%",
+            "src": "https://codepen.io/richinrix/embed/PoWdvOw?height=265&theme-id=dark&default-tab=css,result",
+            "titleCode": "PoWdvOw"
+          }
+        ]
       }
     ]
   }

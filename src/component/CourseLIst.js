@@ -9,7 +9,7 @@ export default function CourseLIst() {
     let coursePath = course.link;
     let image_path = course.preview_img;
     return (
-      <div className="course  m-2">
+      <div className="course  m-5">
         <Link
           to={coursePath}
           onClick={coursedisplay}
@@ -23,7 +23,7 @@ export default function CourseLIst() {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundImage: `url('${image_path}')`,
-                maxWidth: "100%",
+                minWidth: "100%",
                 minHeight: "100%",
               }}
             ></div>
@@ -37,7 +37,7 @@ export default function CourseLIst() {
     <div className="mx-auto">
       <div
         id="CourseView"
-        className="p-3 mx-5 d-flex  flex-md-wrap justify-content-center"
+        className="p-3 mx d-flex  flex-md-wrap justify-content-center"
       >
         {courseData.map((course) => coursePreview(course))}
       </div>

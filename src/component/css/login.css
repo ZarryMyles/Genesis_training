@@ -1,0 +1,208 @@
+.text-green {
+  color: #42d786;
+}
+.text-blue {
+  color: #6268e1;
+}
+.login-container {
+  position: relative;
+}
+#LoginUndrawImg {
+  position: absolute;
+  bottom: -100px;
+  right: 20px;
+  width: 350px;
+}
+.login-info {
+  margin-top: 10%;
+  border-radius: 25px;
+  height: 400px;
+  width: 30%;
+  border-radius: 26px;
+}
+.user-inputs {
+  /* background: linear-gradient(145deg, #464951, #4649517c); */
+  background: linear-gradient(145deg, #292e33, #22272b);
+  box-shadow: 8px 8px 16px #1f2327, -8px -8px 16px #2d3339;
+  border-radius: 25px;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.user-inputs > input {
+  border-radius: 6px;
+  background: #262b30;
+  /* box-shadow: 14px 14px 28px #1f2327, -14px -14px 28px #2d3339; */
+  box-shadow: inset 14px 14px 28px #1f2327, inset -14px -14px 28px #2d3339;
+  border: none;
+  outline: none;
+}
+.user-inputs > input:focus {
+  box-shadow: inset 14px 14px 28px #1f2327, inset -14px -14px 28px #2d3339;
+}
+.userImg {
+  position: absolute;
+  width: 100px;
+  top: -60px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #292e33, #22272b);
+  box-shadow: 17px 17px 34px #1f2327, -17px -17px 34px #2d3339;
+}
+.bg-outline-btn {
+  width: 100px;
+  height: 35px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+.logging-btn-green {
+  color: #1f2327;
+  background-color: #42d786;
+  border: 2px solid #42d786;
+}
+.logging-btn-green:hover {
+  color: #42d786;
+  background-color: #1f2327;
+  border-color: #42d786;
+}
+.logging-btn-blue {
+  color: #1f2327;
+  background-color: #6268e1;
+  border: 2px solid #6268e1;
+}
+.logging-btn-blue:hover {
+  color: #6268e1;
+  background-color: #1f2327;
+  border-color: #6268e1;
+}
+.toggle-switch-container {
+  background: none;
+  height: 120px;
+  width: 250px;
+  position: absolute;
+  /* top: 10px;
+  right: 100px; */
+  top: 160px;
+  right: -125px;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+.login-checkbox-text {
+  position: absolute;
+  top: 15px;
+  color: #6268e1;
+  font-weight: bold;
+  padding: 5px;
+}
+input[type="checkbox"] {
+  position: absolute;
+  -webkit-appearance: none;
+  height: 30px;
+  width: 65px;
+  /* box-shadow: -7px -7px 15px #ffffffa6, 7px 7px 15px rgba(70, 70, 70, 0.12),
+    inset -7px -7px 15px rgba(255, 255, 255, 0.65),
+    inset 7px 7px 15px rgba(70, 70, 70, 0.12); */
+  box-shadow: -3px -3px 6px #ffffff4b, 3px 3px 6px #4646461f,
+    inset -3px -3px 6px #ffffff4b, inset 3px 3px 6px #4646461f;
+  border-radius: 40px;
+  left: 15px;
+  outline: none;
+  border: 5px solid #ececec;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:before,
+input[type="checkbox"]:after {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  transition: 0.3s;
+}
+
+input[type="checkbox"]:before {
+  height: 18px;
+  width: 18px;
+  /* background-color: #ebe5e5;
+  box-shadow: 20px 20px 60px #c9c9c9, -20px -20px 60px #ffffff; */
+  box-shadow: -3px -3px 6px #ffffffa6, 3px 3px 6px rgba(70, 70, 70, 0.12),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.65),
+    inset 3px 3px 6px rgba(70, 70, 70, 0.12);
+  background-color: #ececec;
+  box-shadow: 10px 10px 30px #15171a, -10px -10px 30px #292f34;
+  border-radius: 50%;
+  left: 2px;
+}
+
+input[type="checkbox"]:after {
+  height: 15px;
+  width: 15px;
+  background-color: #6268e1;
+  border-radius: 50%;
+  right: -30px;
+}
+
+input[type="checkbox"]:checked:before {
+  left: 35px;
+}
+
+input[type="checkbox"]:checked:after {
+  background-color: #55f696;
+}
+.mobile-btn-disp {
+  position: absolute;
+  left: 23%;
+}
+/* tab landscape */
+@media (max-width: 1024px) {
+  .login-info {
+    margin-top: 15%;
+    border-radius: 25px;
+    height: 400px;
+    width: 80%;
+    border-radius: 26px;
+  }
+
+  #LoginUndrawImg {
+    visibility: hidden;
+  }
+  .toggle-switch-container {
+    top: -20px;
+    right: -150px;
+  }
+}
+/* ipad potrait */
+@media (max-width: 768px) {
+  .login-info {
+    margin-top: 30%;
+    border-radius: 25px;
+    height: 600px;
+    width: 80%;
+    border-radius: 26px;
+  }
+  .mobile-btn-disp {
+    left: 15%;
+    top: 50px;
+  }
+}
+@media (max-width: 380px) {
+  .login-info {
+    margin-top: 45%;
+    border-radius: 25px;
+    height: 400px;
+    width: 80%;
+    border-radius: 26px;
+  }
+  .mobile-btn-disp {
+    left: 38%;
+    top: 110%;
+  }
+  .toggle-switch-container {
+    top: -100px;
+    right: -10px;
+  }
+}

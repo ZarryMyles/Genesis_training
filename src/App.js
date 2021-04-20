@@ -7,7 +7,8 @@ import Homepage from "./component/Homepage";
 import Catalog from "./component/Catalog";
 import CourseDisplay from "./component/CourseDisplay";
 import CourseSidebar from "./component/CourseSidebar";
-//
+import Login from "./component/Login";
+//others
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" exact component={homepage} />
           <Route path="/catalog" component={catalog} />
           <Route path="/course/:coursename" component={coursedisplay} />
+          <Route path="/login" component={loginUser} />
         </Switch>
       </div>
     </Router>
@@ -39,9 +41,14 @@ const coursedisplay = () => (
   <Fragment>
     <Navbar />{" "}
     <div className="mt-5 row pt-5 mx-auto">
-      <CourseSidebar />
+      {/* <CourseSidebar /> */}
       <CourseDisplay />
     </div>
+  </Fragment>
+);
+const loginUser = () => (
+  <Fragment>
+    <Login />
   </Fragment>
 );
 export default App;

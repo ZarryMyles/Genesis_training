@@ -8,6 +8,8 @@ import CourseList from "./CourseList";
 import GuySittingImg from "../images/img/webdev-guy-sitting.png";
 import WebScreenImg from "../images/img/webdev-screen.png";
 import ScrollDownImg from "../images/icons/scrolldown.png";
+import SearchIconImg from "../images/icons/search-icon.png";
+
 export default function Catalog() {
   return (
     <div>
@@ -50,14 +52,14 @@ const CatelogBrowse = () => (
         id="CatelogDesc"
         className="text-light my-md-5 my-3 col-12  col-md-6 "
       >
-        <h2 className="mx-4">Lorem ipsum dolor sit amet.</h2>
-        <p className=" mx-4 py-3 lh-base">
+        <h2 className="mx-4 catalog-header">Lorem ipsum dolor sit amet.</h2>
+        <p className=" mx-4 py-3 lh-base catalog-content">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla harum
           neque eius similique facere libero, hic repellat nemo aspernatur sequi
           sit voluptatem sed doloribus quos voluptate modi veniam, voluptates
           cum non veritatis ipsa consequatur quisquam?
         </p>
-        <div class="input-group mx-4 mx my-5 row ">
+        <div id="catalog-input" class="input-group mx-4 mx my-5 row ">
           <input
             id="CourseSearchInput"
             type="text"
@@ -85,7 +87,7 @@ const CatelogBrowse = () => (
           <img
             src={ScrollDownImg}
             alt="scroll-down"
-            width="80px"
+            width="55px"
             className="mx-md-auto  d-none d-md-block"
           />
         </a>
@@ -97,22 +99,18 @@ const CatelogBrowse = () => (
         <div class="input-group justify-content-center mx-auto">
           <div class="input-group mb-md-3 mb-1 col-md-4 col-6 ">
             <input
+              id="CourseSearchInput"
               type="text"
               class="form-control text-color-dark-blue"
               placeholder="Search for course"
               aria-label="Search for course"
               aria-describedby="button-addon2"
+              style={{
+                borderTopRightRadius: "5px",
+                borderBottomRightRadius: "5px",
+              }}
             />
           </div>
-          <select
-            class="form-select bg-color-green mx-md-5 rounded p-2"
-            id="searchOptionFIlter"
-          >
-            <option selected>Choose....</option>
-            <option value="1">JS</option>
-            <option value="2">CSS</option>
-            <option value="3">HTML</option>
-          </select>
         </div>
       </div>
       <CourseList />

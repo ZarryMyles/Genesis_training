@@ -41,7 +41,7 @@ export default function navbar() {
                 <a
                   class="nav-link btn btn-outline-primary   px-3 py-1"
                   type="button"
-                  href="#"
+                  href="/login"
                 >
                   Sign In
                 </a>

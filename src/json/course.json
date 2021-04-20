@@ -7,7 +7,7 @@
   },
   {
     "courseId": 2,
-    "name": "CSS",
+    "name": "CSS in 20 Minutes",
     "preview_img": "images/course_preview_img/css-preview.jpg",
     "link": "/course/:css"
   },
@@ -16,5 +16,35 @@
     "name": "BOOTSTRAP GRID",
     "preview_img": "images/course_preview_img/bootstrap-preview.jpg",
     "link": "/course/:bootstrap_grid"
+  },
+  {
+    "courseId": 4,
+    "name": "CSS Units",
+    "preview_img": "images/course_preview_img/css-units.png",
+    "link": "/course/:css_units"
+  },
+  {
+    "courseId": 5,
+    "name": "CSS Display Property",
+    "preview_img": "images/course_preview_img/css-flexcontainer.png",
+    "link": "/course/:css"
+  },
+  {
+    "courseId": 6,
+    "name": "CSS Positions",
+    "preview_img": "images/course_preview_img/css-positions.jpg",
+    "link": "/course/:bootstrap_grid"
+  },
+  {
+    "courseId": 7,
+    "name": "CSS Grid Layout",
+    "preview_img": "images/course_preview_img/css-gridlayout.jpg",
+    "link": "/course/:css_units"
+  },
+  {
+    "courseId": 8,
+    "name": "CSS Media Query",
+    "preview_img": "images/course_preview_img/css-mediaqueries.jpg",
+    "link": "/course/:css_units"
   }
 ]

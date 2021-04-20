@@ -1,6 +1,3 @@
-Link {
-  text-decoration: none;
-}
 #story1-container {
   background: #dce3eb;
   margin-top: 100px;
@@ -54,28 +51,9 @@ Link {
 #html-basic-desc p {
   text-indent: 0;
 }
+
 .sections img {
   background: #dce3eb;
   padding: 15px;
   border-radius: 25px;
-}
-.preview-img-container {
-  height: 100px;
-  width: 200px;
-  overflow: hidden;
-  border-bottom: 1px solid white;
-}
-.course {
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.course:hover .course-title {
-  background-color: antiquewhite;
-  color: #0c3c66;
-  font-weight: bold;
-  text-decoration: none;
-}
-.course img {
-  margin: auto;
 }

@@ -3,18 +3,42 @@
     "courseId": 1,
     "name": "HTML FOR BEGINNERS",
     "preview_img": "images/course_preview_img/html-preview.jpg",
-    "link": "null"
+    "link": "/course/:html_for_beginners"
   },
   {
     "courseId": 2,
-    "name": "CSS",
+    "name": "CSS in 20 Minutes",
     "preview_img": "images/course_preview_img/css-preview.jpg",
-    "link": "null"
+    "link": "/course/:css"
   },
   {
     "courseId": 3,
     "name": "BOOTSTRAP GRID",
     "preview_img": "images/course_preview_img/bootstrap-preview.jpg",
-    "link": "null"
+    "link": "/course/:bootstrap_grid"
+  },
+  {
+    "courseId": 4,
+    "name": "CSS Units",
+    "preview_img": "images/course_preview_img/css-units.png",
+    "link": "/course/:css_units"
+  },
+  {
+    "courseId": 2,
+    "name": "CSS in 20 Minutes",
+    "preview_img": "images/course_preview_img/css-preview.jpg",
+    "link": "/course/:css"
+  },
+  {
+    "courseId": 3,
+    "name": "BOOTSTRAP GRID",
+    "preview_img": "images/course_preview_img/bootstrap-preview.jpg",
+    "link": "/course/:bootstrap_grid"
+  },
+  {
+    "courseId": 4,
+    "name": "CSS Units",
+    "preview_img": "images/course_preview_img/css-units.png",
+    "link": "/course/:css_units"
   }
 ]

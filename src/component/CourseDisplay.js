@@ -1,11 +1,21 @@
 import React, { useEffect } from "react";
 import Collapsible from "react-collapsible";
 import courseContent from "../json/courseContent.json";
-
+import axios from "axios";
 import "./css/coursedisplay.css";
 export default function CourseDisplay(props) {
+  let courseNo = 1;
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    let courseSample;
+    // axios
+    //   .get("http://localhost:3000/json/courseContent.json")
+    //   .then((res) => JSON.parse(res))
+    //   .then((courseSample) => {
+    //     console.log(courseSample);
+    //   });
+    // console.log(courseSample);
   }, []);
 
   // function divideSegments() {}
@@ -55,24 +65,58 @@ export default function CourseDisplay(props) {
       </div>
     );
   }
+  function displayMiniIframe(iframe) {
+    return (
+      <div className="mx-auto">
+        <h5>{iframe.header}</h5>
+        <div className="row">
+          <iframe
+            className="col-8"
+            height={iframe.height}
+            style={{ width: iframe.width, margin: "auto" }}
+            scrolling="no"
+            title="eYgRwNb"
+            src={iframe.src}
+            frameborder="no"
+            loading="lazy"
+            allowtransparency="true"
+            allowfullscreen="true"
+          >
+            See the Pen{" "}
+            <a href={"https://codepen.io/richinrix/pen/" + iframe.titleCode}>
+              {iframe.titleCode}
+            </a>
+          </iframe>
+          <div className="col-4 my-auto">
+            {iframe.description
+              .split("\n")
+              .map((line) => displayBulletPoints(line))}
+          </div>
+        </div>
+      </div>
+    );
+  }
   function displayIframe(iframe) {
     return (
-      <iframe
-        height={iframe.height}
-        style={{ width: iframe.width, margin: "auto" }}
-        scrolling="no"
-        title="eYgRwNb"
-        src={iframe.src}
-        frameborder="no"
-        loading="lazy"
-        allowtransparency="true"
-        allowfullscreen="true"
-      >
-        See the Pen{" "}
-        <a href={"https://codepen.io/richinrix/pen/" + iframe.titleCode}>
-          {iframe.titleCode}
-        </a>
-      </iframe>
+      <div className="mx-auto">
+        <h5>{iframe.header}</h5>
+        <iframe
+          height={iframe.height}
+          style={{ width: iframe.width, margin: "auto" }}
+          scrolling="no"
+          title="eYgRwNb"
+          src={iframe.src}
+          frameborder="no"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen{" "}
+          <a href={"https://codepen.io/richinrix/pen/" + iframe.titleCode}>
+            {iframe.titleCode}
+          </a>
+        </iframe>
+      </div>
     );
   }
   function displayMiniCodeBlock(codeblock) {
@@ -87,8 +131,10 @@ export default function CourseDisplay(props) {
         <div id="codeDescription" className="col-8 my-auto mx-auto">
           <p>
             {codeblock.description
-              .split("\n")
-              .map((line) => displayBulletPoints(line))}
+              ? codeblock.description
+                  .split("\n")
+                  .map((line) => displayBulletPoints(line))
+              : ""}
           </p>
         </div>
       </div>
@@ -96,15 +142,15 @@ export default function CourseDisplay(props) {
   }
   function displayCodeBlock(codeblock) {
     return (
-      <div className="m-2 mt-3 py-3">
-        <div id="code" className="">
+      <div className="m-2 my-3 py-3">
+        <div id="code" className="mb-4">
           <h5 className="">{codeblock.header}</h5>
-          <div className=" p-3 codeblock">
+          <div className=" p-3 codeblock" style={{ width: codeblock.width }}>
             {codeblock.code.split("\n").map((line) => displayLine(line))}
           </div>
         </div>
         <div id="codeDescription" className="">
-          <p>
+          <p className="ml-3">
             {codeblock.description
               ? codeblock.description
                   .split("\n")
@@ -145,7 +191,7 @@ export default function CourseDisplay(props) {
             {/* first set of bullet points */}
             {section.bulletPoints.map((subsection) => {
               return (
-                <div>
+                <div className="bullet-points">
                   <h6>{subsection.header}</h6>
                   {subsection.content
                     .split("\n")
@@ -184,6 +230,9 @@ export default function CourseDisplay(props) {
                   displayCodeBlock(codeblock)
                 )
               : ""}
+            {section.miniIframe
+              ? section.miniIframe.map((iframe) => displayMiniIframe(iframe))
+              : ""}
             {section.iframe
               ? section.iframe.map((iframe) => displayIframe(iframe))
               : ""}
@@ -195,22 +244,14 @@ export default function CourseDisplay(props) {
   return (
     <div id="course-display-wrapper" className="col-8  mb-5 mx-auto">
       <h2 className="text-light text-center my-3 course-title">
-        {courseContent[0].title}
+        {courseContent[courseNo].title}
       </h2>
       <div className="">
-        <div className="">
-          <div id="description">{courseContent[0].description}</div>
-          <div id="requirements">
-            <h3 className="color-green ">Requirements</h3>
-            <ul className="text-light">
-              {courseContent[0].requirements
-                .split("\n")
-                .map((req) => displayBulletPoints(req))}
-            </ul>
-          </div>
+        <div className="text-light text-center mt-4">
+          <div id="description">{courseContent[courseNo].description}</div>
         </div>
         <div id="sectionBlocksWrapper" className="text-light">
-          {courseContent[0].sectionBlocks.map((section) =>
+          {courseContent[courseNo].sectionBlocks.map((section) =>
             displaySectionBlocks(section)
           )}
         </div>
