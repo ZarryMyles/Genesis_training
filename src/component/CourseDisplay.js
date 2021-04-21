@@ -1,24 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Collapsible from "react-collapsible";
-import courseContent from "../json/courseContent.json";
+import sampleData from "../json/courseContent.json";
 import axios from "axios";
 import "./css/coursedisplay.css";
 export default function CourseDisplay(props) {
-  let courseNo = 1;
+  const [courseName, SetCourseName] = useState(props.coursename);
+  const [courseContent, SetCourseContent] = useState(sampleData[0]);
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    let courseSample;
-    // axios
-    //   .get("http://localhost:3000/json/courseContent.json")
-    //   .then((res) => JSON.parse(res))
-    //   .then((courseSample) => {
-    //     console.log(courseSample);
-    //   });
-    // console.log(courseSample);
+    getData();
   }, []);
 
-  // function divideSegments() {}
+  let getData = async () => {
+    await fetch(`/json/courseContent.json`).then((response) => {
+      response.json().then((settings) => {
+        // instead of setting state you can use it any other way
+        let coursetagFilter = settings.filter((value) => {
+          return value.courseTag == courseName;
+        });
+        console.log("api : ", coursetagFilter[0]);
+        SetCourseContent(coursetagFilter[0]);
+      });
+    });
+  };
+
   function displayBulletPoints(point) {
     return <li className="py-1">{point}</li>;
   }
@@ -30,8 +35,8 @@ export default function CourseDisplay(props) {
       <div
         className="mx-auto"
         style={{
-          height: "300px",
-          width: "400px",
+          height: "404px",
+          width: "581px",
         }}
       >
         <div
@@ -41,19 +46,12 @@ export default function CourseDisplay(props) {
             backgroundPosition: "center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-            backgroundImage: `url('${path}')`,
-            maxWidth: "100%",
-            minHeight: "100%",
-            border: "1px solid white",
+            backgroundImage: `url('../${path}')`,
+            width: "100%",
+            height: "100%",
           }}
-        >
-          <p>{path}</p>
-        </div>
-        {/* <img
-        src={`url('${section.imagePath[0]}')`}
-        alt={section.imagePath[0]}
-        srcset=""
-      /> */}
+        ></div>
+        {/* <img src={`url('${path}')`} alt={path} srcset="" /> */}
       </div>
     );
   }
@@ -177,7 +175,7 @@ export default function CourseDisplay(props) {
     return (
       <div id={section.position} className="sectionBlocks  ">
         <Collapsible
-          trigger={section.heading}
+          trigger={"> " + section.heading}
           classParentString="collapsible-section"
           triggerClassName="collapsible-trigger"
           triggerOpenedClassName="collapsible-trigger-opened"
@@ -244,18 +242,20 @@ export default function CourseDisplay(props) {
   return (
     <div id="course-display-wrapper" className="col-8  mb-5 mx-auto">
       <h2 className="text-light text-center my-3 course-title">
-        {courseContent[courseNo].title}
+        <span id="leftBracket">&#123;</span> {courseContent.title}{" "}
+        <span id="rightBracket">&#125;</span>
       </h2>
       <div className="">
         <div className="text-light text-center mt-4">
-          <div id="description">{courseContent[courseNo].description}</div>
+          <div id="description">{courseContent.description}</div>
         </div>
         <div id="sectionBlocksWrapper" className="text-light">
-          {courseContent[courseNo].sectionBlocks.map((section) =>
+          {courseContent.sectionBlocks.map((section) =>
             displaySectionBlocks(section)
           )}
         </div>
       </div>
     </div>
   );
+  // return "";
 }

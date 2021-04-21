@@ -8,6 +8,7 @@ import Catalog from "./component/Catalog";
 import CourseDisplay from "./component/CourseDisplay";
 import CourseSidebar from "./component/CourseSidebar";
 import Login from "./component/Login";
+import TestId from "./component/Testid";
 //others
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/catalog" component={catalog} />
           <Route path="/course/:coursename" component={coursedisplay} />
           <Route path="/login" component={loginUser} />
+          <Route path="/test/:id" component={TestId} />
         </Switch>
       </div>
     </Router>
@@ -27,7 +29,7 @@ function App() {
 }
 const homepage = () => (
   <Fragment>
-    <Navbar />
+    {/* <Navbar /> */}
     <Homepage />
   </Fragment>
 );
@@ -37,12 +39,12 @@ const catalog = () => (
     <Catalog />
   </Fragment>
 );
-const coursedisplay = () => (
+const coursedisplay = (props) => (
   <Fragment>
     <Navbar />{" "}
-    <div className="mt-5 row pt-5 mx-auto">
+    <div className="row pt-5 mx-auto">
       {/* <CourseSidebar /> */}
-      <CourseDisplay />
+      <CourseDisplay coursename={props.match.params.coursename} />
     </div>
   </Fragment>
 );
@@ -51,4 +53,5 @@ const loginUser = () => (
     <Login />
   </Fragment>
 );
+
 export default App;

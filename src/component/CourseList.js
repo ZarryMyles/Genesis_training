@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// reading json
-import courseData from "../json/course.json";
+
 import CourseDisplay from "./CourseDisplay";
-// import img from "../../public/images/course_preview_img/html-preview.jpg";
+
 export default function CourseLIst() {
+  const [courseList, setCourseList] = useState([]);
+  useEffect(() => {
+    getData();
+  }, []);
+  let getData = async () => {
+    await fetch(`/json/course.json`).then((response) => {
+      response.json().then((list) => {
+        setCourseList(list);
+      });
+    });
+  };
   function coursePreview(course) {
     let coursePath = course.link;
     let image_path = course.preview_img;
@@ -39,9 +49,9 @@ export default function CourseLIst() {
         id="CourseView"
         className="p-3 mx d-flex  flex-md-wrap justify-content-center"
       >
-        {courseData.map((course) => coursePreview(course))}
+        {courseList.map((course) => coursePreview(course))}
       </div>
     </div>
   );
 }
-const coursedisplay = () => <CourseDisplay courseId={1} />;
+const coursedisplay = () => <CourseDisplay />;

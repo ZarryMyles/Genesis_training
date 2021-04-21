@@ -195,7 +195,7 @@
   },
   {
     "courseId": 2,
-    "courseTag": "css",
+    "courseTag": "css_in_20_minutes",
     "title": "CSS IN 20 MINUTES",
     "description": "CSS is a styling language and not a programming language. It is mainly creativity focused.",
     "requirements": "A browser like the one you are using currently to view this :) . \n A code editor , VS Code is prefered. \n Install Live server and Prettifier extensions.",

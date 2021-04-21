@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 // images
 import LoginImg from "../images/img/undraw-login.png";
@@ -7,6 +7,20 @@ import UserImg from "../images/icons/user-icon.png";
 import "./css/login.css";
 export default function Login() {
   const [signInStatus, SetStatus] = useState(true);
+  let users;
+  useEffect(() => {
+    getData();
+  });
+
+  let getData = async () => {
+    await fetch(`/json/userLogin.json`).then((response) => {
+      response.json().then((data) => {
+        users = data;
+        console.log(users);
+      });
+    });
+  };
+
   function toggleStat() {
     SetStatus((prevStat) => !prevStat);
   }
@@ -29,7 +43,7 @@ export default function Login() {
           />
           <input
             className="mx-auto text-light text-center  my-4  px-3 py-2"
-            type="text"
+            type="password"
             placeholder="enter your password"
           />
 
@@ -55,12 +69,12 @@ export default function Login() {
           />
           <input
             className="mx-auto text-light text-center  my-4  px-3 py-2"
-            type="text"
+            type="password"
             placeholder="enter your password"
           />
           <input
             className="mx-auto text-light text-center  my-4  px-3 py-2"
-            type="text"
+            type="password"
             placeholder="confirm your password"
           />
           <button
@@ -75,23 +89,6 @@ export default function Login() {
   }
   return (
     <div className="login-container">
-      {/* <div className="mobile-btn-disp d-block d-lg-none">
-        {signInStatus ? (
-          <button
-            className=" bg-outline-btn logging-btn-blue "
-            onClick={toggleStat}
-          >
-            Sign In
-          </button>
-        ) : (
-          <button
-            className=" bg-outline-btn logging-btn-blue"
-            onClick={toggleStat}
-          >
-            Sign Up
-          </button>
-        )}
-      </div> */}
       <div class="toggle-switch-container ">
         <div className="login-checkbox-text">
           {signInStatus ? (
