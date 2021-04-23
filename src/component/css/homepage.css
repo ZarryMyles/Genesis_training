@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-@import url("../fonts/Baufra-Medium.woff") /*---Media Queries --*/ @media
-  (max-width: 992px) {
+@font-face {
+  font-family: Baufra-Bold;
+  src: url("../fonts/Baufra-Bold.ttf");
+}
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
 }
 @media (max-width: 768px) {
 }
@@ -21,7 +26,7 @@
   padding: 15px;
 }
 #mainHead {
-  font-family: "Baufra";
+  font-family: "Baufra-Bold";
 }
 #neo {
   color: #08d108;

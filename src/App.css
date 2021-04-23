@@ -9,6 +9,8 @@ ul {
   text-decoration: none;
   list-style: none;
 }
-#HomepageNav {
-  background-color: #22262b !important;
+#HomepageNav,
+#navbarSupportedContent,
+#navUl {
+  background-color: #5c6268 !important;
 }

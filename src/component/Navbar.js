@@ -6,7 +6,7 @@ export default function navbar(props) {
   return (
     <header>
       <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-dark fixed-top mnavbar">
+        <nav className="navbar navbar-expand-lg navbar-dark fixed-top mnavbar" id="HomepageNav">
           <a className="navbar-brand gen" href="#">
             Genesis Tutorials
           </a>
@@ -23,13 +23,13 @@ export default function navbar(props) {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="d-flex align-items-end navbar-nav ml-lg-auto mnavbar-nav">
-              <li className="nav-item active mnav-i">
+            <ul className="d-flex align-items-end navbar-nav ml-lg-auto mnavbar-nav" id="navUl">
+              <li className="nav-item active mnav-i" id="navUl">
                 <a className="nav-link mnav-link" href="/">
                   Home<span className="sr-only">(current)</span>
                 </a>
               </li>
-              <li className="nav-item mnav-i">
+              <li className="nav-item mnav-i" id="navUl">
                 <a
                   className="nav-link mnav-link"
                   href={"/catalog/" + props.username}
@@ -37,19 +37,19 @@ export default function navbar(props) {
                   Catalog
                 </a>
               </li>
-              <li className="nav-item mnav-i">
+              <li className="nav-item mnav-i" id="navUl">
                 <a className="nav-link mnav-link" href="#">
                   Contact
                 </a>
               </li>
               {props.username === undefined ? (
-                <li className="nav-item mnav-i">
+                <li className="nav-item mnav-i" id="navUl">
                   <a className="nav-link mnav-link" href="/login">
                     Sign In{console.log("undefined username", props.username)}
                   </a>
                 </li>
               ) : (
-                <li className="nav-item mnav-i">
+                <li className="nav-item mnav-i" id="navUl">
                   <a
                     className="nav-link mnav-link"
                     href={"/profile/" + props.username}
