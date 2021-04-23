@@ -350,5 +350,184 @@
         ]
       }
     ]
+  },
+  {
+    "courseId": 3,
+    "courseTag": "css_display_units_position",
+    "title": "CSS -Display , Units and Position",
+    "description": "",
+    "requirements": "A browser like the one you are using currently to view this :) . \n A code editor , VS Code is prefered. \n Install Live server and Prettifier extensions.",
+    "sectionBlocks": [
+      {
+        "heading": "REQUIREMENTS",
+        "bulletPoints": [
+          {
+            "header": "",
+            "content": "A browser like the one you are using currently to view this :) . \n A code editor , VS Code is prefered. \n Install Live server and Prettifier extensions."
+          }
+        ]
+      },
+      {
+        "position": 1,
+        "type": "normal",
+        "heading": "Display Properties",
+        "description": null,
+        "imagePath": null,
+        "bulletPoints": [
+          {
+            "header": "There are 4 main Display types in HTML and CSS",
+            "content": "Block\n Inline\n Inline-block\n None \n"
+          }
+        ],
+        "subHeading": [
+          {
+            "header": "Block Display",
+            "content": "The block display type takes up the entire width of the page.\n It forces a new line above and below it.\n The height and width of block elements can be defined but the width will be set to 100% by default.\n Divs are blocks by default.\n"
+          },
+          {
+            "header": "Inline Display",
+            "content": "The elements that are defined by inline type are scalable and only takes up space that is required by it’s contents.\n You can have multiple inline elements in the same line.\n They cannot be resized as they only take up essential space.\n Spans are inline by default.\n"
+          },
+
+          {
+            "header": "Inline-block Display",
+            "content": "Here, the elements are shown to take up only the space required by the contents but in reality take up the entire line by default.\n A good Example are Images. They can be resized but they still take up the entire width like blocks by default.\n"
+          },
+
+          {
+            "header": "None Display",
+            "content": "This type removes the element from the visible display of the screen.\n It can be used to hide elements temporarily\n"
+          }
+        ],
+        "moreData": null,
+        "miniCodeblock": null
+      },
+      {
+        "position": 2,
+        "type": "with image",
+        "heading": "CSS Units",
+        "description": null,
+        "imagePath": null,
+        "bulletPoints": [
+          {
+            "header": "",
+            "content": ""
+          }
+        ],
+        "subHeading": [
+          {
+            "header": "Percent",
+            "content": "its relative of the parent element.\n"
+          },
+          {
+            "header": "View width",
+            "content": "its relative to the viewing screen\n 1vw is 1% of the entire viewable screen width\n 1vh = -----||----- \n"
+          },
+
+          {
+            "header": "rem and em",
+            "content": "rem=root element,\n 1rem is equal to size of the font of root element \n font-size=10px,2rem=2xthat \n rem is always same throughout the page as its based on the root \n\n 1em is equal to size of the font of the parent element \n em is based on the parent \n its useful to size elements based on the font of the text it has \n"
+          }
+        ],
+        "moreData": null,
+        "miniCodeblock": null
+      }
+    ]
+  },
+
+  {
+    "courseId": 4,
+    "courseTag": "css_in_20_minutes",
+    "title": "CSS Grid Layout",
+    "description": "CSS is a styling language and not a programming language. It is mainly creativity focused.",
+    "requirements": "A browser like the one you are using currently to view this :) . \n A code editor , VS Code is prefered. \n Install Live server and Prettifier extensions.",
+    "sectionBlocks": [
+      {
+        "heading": "REQUIREMENTS",
+        "bulletPoints": [
+          {
+            "header": "",
+            "content": "A browser like the one you are using currently to view this :) . \n A code editor , VS Code is prefered. \n Install Live server and Prettifier extensions."
+          }
+        ]
+      },
+      {
+        "position": 1,
+        "type": "normal",
+        "heading": "Display props",
+        "description": null,
+        "imagePath": null,
+        "bulletPoints": null,
+        "subHeading": null,
+        "moreData": null,
+        "miniCodeblock": [
+          {
+            "header": "",
+            "code": "display:grid",
+            "description": "its similar to flex box \n whn used all the child elements are in a grid \n we can mention the no. of columns and the space it consumes \n"
+          },
+
+          {
+            "header": "",
+            "code": "display:grid \n grid-template-columns:70% 30%;\n",
+            "description": "this means the first column occupied by the child elem is 70% of the parent div while the next column is of 30%. \n if there are more than 2 child elems it will folow this pattern of 2 columns for multiple rows .\n The row height will be the highest height of all the elems in that row. \n"
+          },
+
+          {
+            "header": "spacing",
+            "code": "grid-column-gap:1em\n grid-row-gap:1em; \n grid-gap:1em; \n",
+            "description": "This adds gap of 1em between each column or row as mentioned in first 2 lines.\n \n If the same space is needed for both row and column then the third option can be used , when its used the first 2 need not be used.\n"
+          },
+
+          {
+            "header": "fractions",
+            "code": "grid-template-columns:1fr 1fr 2fr;\n",
+            "description": "3 columns\n divides into 4 fractions \n first 2 column elems occupies 1 fraction each and 3rd col elements occupy 2 fractions of space \n these are preferred over percentage. \n"
+          },
+
+          {
+            "header": "",
+            "code": "grid-template-columns:repeat(4,1fr);\n",
+            "description": "4 cols \n a pattern of 1fr and 2fr till the end of cols \n"
+          },
+
+          {
+            "header": "row spacing",
+            "code": "grid-auto-rows:300px;\n",
+            "description": "each row will be of 300px height \n if the content of a elem exceed the 300px height limit it goes beyond the grid. \n"
+          },
+
+          {
+            "header": "",
+            "code": "grid-auto-rows:minmax(100px,auto);\n",
+            "description": "here the minimum height of the row will be 100px \n maximum height will be of the elem with the highest content. \n"
+          },
+
+          {
+            "header": "Aligning",
+            "code": "justify-items: start/center/end/stretch;\n align-items:start/center/end/stretch/self;\n",
+            "description": "To align the entire grid items.\n"
+          },
+
+          {
+            "header": "",
+            "code": "align-self: start/end;\n justify-self:end; \n",
+            "description": "You can align each individual item in the grid within its space.\n"
+          },
+
+          {
+            "header": "grid-column and grid-row",
+            "code": "grid:column:start/end;\n",
+            "description": ""
+          },
+
+          {
+            "header": "",
+            "code": ".parent{\n display:grid; \n  grid-template-column:1fr 1fr 1fr 1fr; \n grid-auto-rows:200px; \n } \n .child1{ \n grid-column:1/3; \n grid-row:1/3; \n } \n ",
+            "description": "Theres a grid of 4 cols each row \n the first child with classname child1 will occupy from col 1 to col3 of in its row , and from row 1 to row2 \n "
+          }
+        ]
+      }
+    ]
   }
 ]

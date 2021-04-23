@@ -157,6 +157,25 @@
     width: 200px;
   }
 }
+@media (max-width: 812px) {
+  #scrollDown img {
+    height: 0;
+    visibility: hidden;
+  }
+  #catalog-browse {
+    margin-top: 0px;
+  }
+  #welcome-page {
+    margin-bottom: 0;
+  }
+  #catalog-input {
+    visibility: hidden;
+  }
+  .discover-btn {
+    padding: 0;
+    visibility: hidden;
+  }
+}
 @media (max-width: 768px) {
   #scrollDown img {
     height: 0;
@@ -176,20 +195,34 @@
     visibility: hidden;
   }
 }
-@media (max-width: 380px) {
-  .input-group {
+@media (max-width: 678px) {
+  #scrollDown img {
+    height: 0;
     visibility: hidden;
   }
-  .preview-img-container {
-    height: 50px;
-  }
-  .catalog-content {
-    font-size: 10px;
-  }
-  .catalog-header {
-    font-size: 20px;
+  #catalog-browse {
+    margin-top: 0px;
   }
   #welcome-page {
-    height: 100px;
+    margin-bottom: 0;
+  }
+  #catalog-input {
+    visibility: hidden;
+  }
+  .discover-btn {
+    padding: 0;
+    visibility: hidden;
+  }
+}
+@media (max-width: 360px) {
+  /* .preview-img-container:hover {
+    height: 150px;
+    width: 250px;
+  } */
+  .course:hover .course-list-title {
+    background-color: antiquewhite;
+    color: #0c3c66;
+    font-weight: bold;
+    text-decoration: none;
   }
 }

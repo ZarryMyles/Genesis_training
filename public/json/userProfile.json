@@ -1,0 +1,84 @@
+[
+  {
+    "userId": 1,
+    "name": "Bruce Wayne",
+    "username": "batman",
+    "email": "bruce@gmail.com",
+    "password": "catwoman",
+    "score": 45,
+    "completedCourses": [
+      {
+        "name": "HTML for beginners",
+        "courseId": 1,
+        "score": 12,
+        "completed": true
+      },
+      {
+        "name": "CSS Gridd",
+        "courseId": 2,
+        "score": 18,
+        "completed": true
+      },
+      {
+        "name": "CSS Display",
+        "courseId": 3,
+        "score": 12,
+        "completed": false
+      }
+    ]
+  },
+  {
+    "userId": 2,
+    "name": "Barry Alan",
+    "username": "flash",
+    "email": "barry@gmail.com",
+    "password": "iris",
+    "completedCourses": [
+      {
+        "name": "HTML for beginners",
+        "courseId": 1,
+        "score": 12,
+        "completed": true
+      },
+      {
+        "name": "CSS Gridd",
+        "courseId": 2,
+        "score": 18,
+        "completed": true
+      },
+      {
+        "name": "CSS Display",
+        "courseId": 3,
+        "score": 12,
+        "completed": false
+      }
+    ]
+  },
+  {
+    "userId": 3,
+    "name": "Oliver Queen",
+    "username": "arrow",
+    "email": "oliver@gmail.com",
+    "password": "canary",
+    "completedCourses": [
+      {
+        "name": "HTML for beginners",
+        "courseId": 1,
+        "score": 12,
+        "completed": true
+      },
+      {
+        "name": "CSS Gridd",
+        "courseId": 2,
+        "score": 18,
+        "completed": true
+      },
+      {
+        "name": "CSS Display",
+        "courseId": 3,
+        "score": 12,
+        "completed": false
+      }
+    ]
+  }
+]

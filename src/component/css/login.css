@@ -206,3 +206,6 @@ input[type="checkbox"]:checked:after {
     right: -10px;
   }
 }
+.wrongpassword > div {
+  background-color: transparent;
+}

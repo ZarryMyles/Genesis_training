@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 // css
 import "./css/navbar.css";
-export default function navbar() {
+export default function navbar(props) {
   return (
     <header>
       <div className="container">
@@ -30,7 +30,10 @@ export default function navbar() {
                 </a>
               </li>
               <li className="nav-item mnav-i">
-                <a className="nav-link mnav-link" href="/catalog">
+                <a
+                  className="nav-link mnav-link"
+                  href={"/catalog/" + props.username}
+                >
                   Catalog
                 </a>
               </li>
@@ -39,11 +42,22 @@ export default function navbar() {
                   Contact
                 </a>
               </li>
-              <li className="nav-item mnav-i">
-                <a className="nav-link mnav-link" href="/login">
-                  Sign In
-                </a>
-              </li>
+              {props.username === undefined ? (
+                <li className="nav-item mnav-i">
+                  <a className="nav-link mnav-link" href="/login">
+                    Sign In{console.log("undefined username", props.username)}
+                  </a>
+                </li>
+              ) : (
+                <li className="nav-item mnav-i">
+                  <a
+                    className="nav-link mnav-link"
+                    href={"/profile/" + props.username}
+                  >
+                    Profile
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         </nav>

@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import "./css/catalog.css";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 // routes
-import Story1 from "./Story1";
+
 import CourseList from "./CourseList";
 // images
 import GuySittingImg from "../images/img/webdev-guy-sitting.png";
@@ -10,21 +10,18 @@ import WebScreenImg from "../images/img/webdev-screen.png";
 import ScrollDownImg from "../images/icons/scrolldown.png";
 import SearchIconImg from "../images/icons/search-icon.png";
 
-export default function Catalog() {
+export default function Catalog(props) {
   return (
     <div>
       <div>
         <div id="catelog-home"></div>
       </div>
-      <Switch>
-        <Route path="/catalog" exact component={CatelogBrowse} />
-        <Route path="/catalog/story1" component={Story} />
-      </Switch>
+      <Route path="/catalog/:username" exact component={CatelogBrowse} />
     </div>
   );
 }
-const Story = () => <Story1 />;
-const CatelogBrowse = () => (
+
+const CatelogBrowse = (props) => (
   <Fragment>
     <div id="welcome-page" className="row mx-auto">
       <div
@@ -97,7 +94,7 @@ const CatelogBrowse = () => (
     <div id="catalog-browse" className="mx-auto ">
       <div id="searchInputs" className="mx-auto">
         <div class="input-group justify-content-center mx-auto">
-          <div class="input-group mb-md-3 mb-1 col-md-4 col-6 ">
+          <div class="input-group mb-md-3 mb-1 col-md-4 col-sm-2 ">
             <input
               id="CourseSearchInput"
               type="text"

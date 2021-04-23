@@ -17,7 +17,8 @@ export default function CourseLIst() {
   };
   function coursePreview(course) {
     let coursePath = course.link;
-    let image_path = course.preview_img;
+    // image path temporary fix
+    let image_path = "http://localhost:3000/" + course.preview_img;
     return (
       <div className="course  m-5">
         <Link
@@ -47,7 +48,7 @@ export default function CourseLIst() {
     <div className="mx-auto">
       <div
         id="CourseView"
-        className="p-3 mx d-flex  flex-md-wrap justify-content-center"
+        className="p-3 mx d-flex  flex-wrap justify-content-center"
       >
         {courseList.map((course) => coursePreview(course))}
       </div>

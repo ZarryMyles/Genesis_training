@@ -74,3 +74,22 @@
 .bullet-points {
   padding: 5px 0;
 }
+@media (max-width: 768px) {
+  .course-title {
+    font-size: 25px;
+  }
+  .collapsible-trigger {
+    font-size: 20px;
+  }
+  .codeblock {
+    overflow: hidden;
+  }
+}
+@media (max-width: 376px) {
+  .course-title {
+    font-size: 16px;
+  }
+  .collapsible-trigger {
+    font-size: 15px;
+  }
+}

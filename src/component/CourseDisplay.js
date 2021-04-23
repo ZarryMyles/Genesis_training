@@ -192,8 +192,10 @@ export default function CourseDisplay(props) {
                 <div className="bullet-points">
                   <h6>{subsection.header}</h6>
                   {subsection.content
-                    .split("\n")
-                    .map((point) => displayBulletPoints(point))}
+                    ? subsection.content
+                        .split("\n")
+                        .map((point) => displayBulletPoints(point))
+                    : ""}
                 </div>
               );
             })}

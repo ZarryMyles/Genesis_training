@@ -1,0 +1,54 @@
+.profile-display {
+  width: fit-content;
+}
+#username {
+  text-transform: capitalize;
+}
+.pointsImg > img {
+  border-radius: 50%;
+}
+#points-display {
+  margin: 20px;
+  font-family: Baufra-Bold;
+  width: 500px;
+  border-radius: 15px;
+  border: 2px solid white;
+}
+.points-quote {
+  margin-left: 120px;
+}
+.points-quote > h6 {
+  border-radius: 10px;
+  border: 2px solid #6268e1;
+}
+.completed-test-list {
+}
+.test-name > div {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+#courses-details {
+  width: 500px;
+  height: fit-content;
+  align-self: center;
+  border-radius: 15px;
+  border: 2px solid white;
+  margin: 20px;
+  padding: 10px;
+}
+#courses-details > div > div {
+  margin: 5px auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+#CompletedCourses {
+  width: 80%;
+  height: fit-content;
+  align-self: center;
+  border-radius: 15px;
+  border: 2px solid white;
+  margin: 20px;
+  padding: 10px;
+}

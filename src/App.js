@@ -9,6 +9,7 @@ import CourseDisplay from "./component/CourseDisplay";
 import CourseSidebar from "./component/CourseSidebar";
 import Login from "./component/Login";
 import TestId from "./component/Testid";
+import Profile from "./component/Profile";
 //others
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -18,10 +19,15 @@ function App() {
       <div className="App">
         <Switch>
           <Route path="/" exact component={homepage} />
-          <Route path="/catalog" component={catalog} />
+          {/* <Route path="/catalog" component={catalog} /> */}
+          <Route path="/catalog/:username" component={catalog} />
+          {/* {["/catalog", "/catalog/:username"].map((path) => (
+            <Route path={path} component={catalog} />
+          ))} */}
           <Route path="/course/:coursename" component={coursedisplay} />
           <Route path="/login" component={loginUser} />
           <Route path="/test/:id" component={TestId} />
+          <Route path="/profile/:username" component={profile} />
         </Switch>
       </div>
     </Router>
@@ -33,10 +39,17 @@ const homepage = () => (
     <Homepage />
   </Fragment>
 );
-const catalog = () => (
+const catalog = (props) => (
   <Fragment>
-    <Navbar />
-    <Catalog />
+    {console.log("catalog", props.match.params.username)}
+    <Navbar username={props.match.params.username} />
+    <Catalog
+      username={
+        props.match.params.username === undefined
+          ? "catalog"
+          : props.match.params.username
+      }
+    />
   </Fragment>
 );
 const coursedisplay = (props) => (
@@ -51,6 +64,12 @@ const coursedisplay = (props) => (
 const loginUser = () => (
   <Fragment>
     <Login />
+  </Fragment>
+);
+const profile = (props) => (
+  <Fragment>
+    <Navbar username={props.match.params.username} />
+    <Profile username={props.match.params.username} />
   </Fragment>
 );
 
