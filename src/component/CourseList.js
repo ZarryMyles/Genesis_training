@@ -9,15 +9,16 @@ export default function CourseLIst() {
     getData();
   }, []);
   let getData = async () => {
-    await fetch(`/json/course.json`).then((response) => {
-      response.json().then((list) => {
-        setCourseList(list);
-      });
-    });
+    await fetch("https://genesis-strapi-mongodb.herokuapp.com/courses/").then(
+      (response) => {
+        response.json().then((list) => {
+          setCourseList(list);
+        });
+      }
+    );
   };
   function coursePreview(course) {
     let coursePath = course.link;
-    // image path temporary fix
     let image_path = "../" + course.preview_img;
     return (
       <div className="course  m-5">

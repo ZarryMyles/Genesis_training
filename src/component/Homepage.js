@@ -6,7 +6,7 @@ import readerpic from "../images/img/reader.png";
 export default function Homepage() {
   return (
     <div>
-      {/* Navigation Bar */}
+      {/* Navigation Bar
       <div className="contnav">
         <nav
           className="navbar navbar-expand-md  bg-primary sticky-top"
@@ -54,7 +54,7 @@ export default function Homepage() {
             </div>
           </div>
         </nav>
-      </div>
+      </div> */}
       {/* Main Body */}
       <div className="container-fluid padding">
         <div
