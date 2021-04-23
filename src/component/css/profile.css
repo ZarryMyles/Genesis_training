@@ -1,6 +1,6 @@
 .profile-display {
   width: fit-content;
-  margin-right: 50px;
+  margin-right: 20px;
   border-radius: 15px;
   background: #6268e1;
 }
@@ -61,7 +61,6 @@
   background: #262b30;
   box-shadow: -19px 19px 38px #202428, 19px -19px 38px #2c3238;
   border-radius: 15px;
-  /* border: 2px solid white; */
   width: 80%;
 }
 #CompletedCourses {
@@ -69,10 +68,11 @@
   height: fit-content;
   justify-content: center;
   justify-self: center;
-
   margin: 20px;
   padding: 10px;
 }
 #CompletedCourses > img {
   border-radius: 10px;
+}
+#CompletedCourses > img:hover {
 }

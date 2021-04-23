@@ -1,5 +1,10 @@
 [
   {
+    "userId": 0,
+    "name": "Not User",
+    "username": "user"
+  },
+  {
     "userId": 1,
     "name": "Bruce Wayne",
     "username": "batman",

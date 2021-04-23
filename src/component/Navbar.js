@@ -6,7 +6,10 @@ export default function navbar(props) {
   return (
     <header>
       <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-dark fixed-top mnavbar" id="HomepageNav">
+        <nav
+          className="navbar navbar-expand-lg navbar-dark fixed-top mnavbar"
+          id="HomepageNav"
+        >
           <a className="navbar-brand gen" href="#">
             Genesis Tutorials
           </a>
@@ -23,7 +26,10 @@ export default function navbar(props) {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="d-flex align-items-end navbar-nav ml-lg-auto mnavbar-nav" id="navUl">
+            <ul
+              className="d-flex align-items-end navbar-nav ml-lg-auto mnavbar-nav"
+              id="navUl"
+            >
               <li className="nav-item active mnav-i" id="navUl">
                 <a className="nav-link mnav-link" href="/">
                   Home<span className="sr-only">(current)</span>
@@ -32,17 +38,19 @@ export default function navbar(props) {
               <li className="nav-item mnav-i" id="navUl">
                 <a
                   className="nav-link mnav-link"
-                  href={"/catalog/" + props.username}
+                  href={
+                    "/catalog/" + (props.username ? props.username : "user")
+                  }
                 >
                   Catalog
                 </a>
               </li>
-              <li className="nav-item mnav-i" id="navUl">
+              {/* <li className="nav-item mnav-i" id="navUl">
                 <a className="nav-link mnav-link" href="#">
                   Contact
                 </a>
-              </li>
-              {props.username === undefined ? (
+              </li> */}
+              {props.username === undefined || props.username === "user" ? (
                 <li className="nav-item mnav-i" id="navUl">
                   <a className="nav-link mnav-link" href="/login">
                     Sign In{console.log("undefined username", props.username)}

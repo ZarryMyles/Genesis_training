@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./css/profile.css";
 // images
@@ -11,21 +11,22 @@ import EditImg from "../images/icons/edit-icon.png";
 export default function Profile(props) {
   const [user, setUser] = useState();
   const [courselist, setcourslist] = useState();
-  let getData = async () => {
-    await fetch(`/json/userProfile.json`).then((response) => {
-      response.json().then((settings) => {
-        let userFilter = settings.filter((user) => {
-          return user.username == props.username;
+  useEffect(() => {
+    let getData = async () => {
+      await fetch(`/json/userProfile.json`).then((response) => {
+        response.json().then((settings) => {
+          let userFilter = settings.filter((user) => {
+            return user.username == props.username;
+          });
+          setUser(userFilter[0]);
         });
-        setUser(userFilter[0]);
       });
-    });
-    await fetch(`/json/course.json`).then((response) => {
-      response.json().then((list) => {
-        setcourslist(list);
+      await fetch(`/json/course.json`).then((response) => {
+        response.json().then((list) => {
+          setcourslist(list);
+        });
       });
-    });
-
+    };
     // await fetch(`/json/courseList.json`).then((response) => {
     //   response.json().then((settings) => {
     //     // instead of setting state you can use it any other way.
@@ -37,45 +38,10 @@ export default function Profile(props) {
     //     setCompletedCourseData(courseListFilter[0]);
     //   });
     // });
-  };
-  getData();
-  function courseCompleted(course) {
-    let coursePath = course.link;
-    let image_path = "../" + course.preview_img;
-    if (user.completedCourseId.includes(course.courseId)) {
-      return (
-        <div className="p-3">
-          <Link
-            to={coursePath}
-            // onClick={coursedisplay}
-            style={{ textDecoration: "none" }}
-          >
-            <div className="preview-img-container overflow-hidden">
-              <div
-                id="preview-img"
-                style={{
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                  backgroundImage: `url('${image_path}')`,
-                  minWidth: "100%",
-                  minHeight: "100%",
-                  borderTopLeftRadius: "20px",
-                  borderTopRightRadius: "20px",
-                }}
-              ></div>
-            </div>
-            <h6 className="course-list-title text-center py-1">
-              {course.name}
-            </h6>
-          </Link>
-        </div>
-      );
-    }
-  }
-
-  return (
-    <div className="d-flex mt-5 mx-2 pt-4 p-1">
+    getData();
+  }, []);
+  function displayProfileCard() {
+    return (
       <div>
         <div className="profile-display d-flex flex-column p-2">
           <div id="userProfileImg">
@@ -92,7 +58,43 @@ export default function Profile(props) {
           </h3>
         </div>
       </div>
-      <div className="profileWrapper  d-flex flex-wrap justify-content-center m-3">
+    );
+  }
+  function courseCompleted(course) {
+    let coursePath = course.link;
+    let image_path = "../" + course.preview_img;
+    if (user.completedCourseId.includes(course.courseId)) {
+      return (
+        <Link
+          to={coursePath}
+          // onClick={coursedisplay}
+          style={{ textDecoration: "none", padding: "5px" }}
+        >
+          <div className="preview-img-container overflow-hidden">
+            <div
+              id="preview-img"
+              style={{
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundImage: `url('${image_path}')`,
+                minWidth: "100%",
+                minHeight: "100%",
+                borderTopLeftRadius: "20px",
+                borderTopRightRadius: "20px",
+              }}
+            ></div>
+          </div>
+          <h6 className="course-list-title text-center py-1">{course.name}</h6>
+        </Link>
+      );
+    }
+  }
+
+  return (
+    <div className="d-flex mt-5 mx-2 pt-4 p-1">
+      {displayProfileCard()}
+      <div className="profileWrapper  d-flex flex-wrap justify-content-center m-2">
         <div id="points-display" className="p-3">
           <div className="score-img-quote d-flex ">
             <div className="pointsImg align-self-center">
