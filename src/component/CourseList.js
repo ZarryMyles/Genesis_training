@@ -18,7 +18,7 @@ export default function CourseLIst() {
   function coursePreview(course) {
     let coursePath = course.link;
     // image path temporary fix
-    let image_path = "http://localhost:3000/" + course.preview_img;
+    let image_path = "../" + course.preview_img;
     return (
       <div className="course  m-5">
         <Link

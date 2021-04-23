@@ -1,8 +1,19 @@
 .profile-display {
   width: fit-content;
+  margin-right: 50px;
+  border-radius: 15px;
+  background: #6268e1;
 }
 #username {
+  background: #6268e1;
+
   text-transform: capitalize;
+}
+#userProfileImg > img {
+  background: #6268e1;
+}
+#username > img {
+  background: #6268e1;
 }
 .pointsImg > img {
   border-radius: 50%;
@@ -12,17 +23,18 @@
   font-family: Baufra-Bold;
   width: 500px;
   border-radius: 15px;
-  border: 2px solid white;
+  /* border: 2px solid white; */
+  background: #262b30;
+  box-shadow: -19px 19px 38px #202428, 19px -19px 38px #2c3238;
 }
 .points-quote {
-  margin-left: 120px;
+  margin-left: 155px;
 }
 .points-quote > h6 {
   border-radius: 10px;
   border: 2px solid #6268e1;
 }
-.completed-test-list {
-}
+
 .test-name > div {
   width: 400px;
   display: flex;
@@ -33,7 +45,9 @@
   height: fit-content;
   align-self: center;
   border-radius: 15px;
-  border: 2px solid white;
+  background: #262b30;
+  box-shadow: -19px 19px 38px #202428, 19px -19px 38px #2c3238;
+  /* border: 2px solid white; */
   margin: 20px;
   padding: 10px;
 }
@@ -43,12 +57,22 @@
   display: flex;
   justify-content: space-between;
 }
-#CompletedCourses {
-  width: 80%;
-  height: fit-content;
-  align-self: center;
+.completedCourse-wrapper {
+  background: #262b30;
+  box-shadow: -19px 19px 38px #202428, 19px -19px 38px #2c3238;
   border-radius: 15px;
-  border: 2px solid white;
+  /* border: 2px solid white; */
+  width: 80%;
+}
+#CompletedCourses {
+  width: 90%;
+  height: fit-content;
+  justify-content: center;
+  justify-self: center;
+
   margin: 20px;
   padding: 10px;
+}
+#CompletedCourses > img {
+  border-radius: 10px;
 }

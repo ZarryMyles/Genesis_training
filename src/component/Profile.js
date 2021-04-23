@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./css/profile.css";
 // images
 import ProfileImg from "../images/icons/profile-pic.png";
@@ -9,7 +10,7 @@ import EditImg from "../images/icons/edit-icon.png";
 
 export default function Profile(props) {
   const [user, setUser] = useState();
-
+  const [courselist, setcourslist] = useState();
   let getData = async () => {
     await fetch(`/json/userProfile.json`).then((response) => {
       response.json().then((settings) => {
@@ -17,19 +18,70 @@ export default function Profile(props) {
           return user.username == props.username;
         });
         setUser(userFilter[0]);
-        // console.log(user);
       });
     });
+    await fetch(`/json/course.json`).then((response) => {
+      response.json().then((list) => {
+        setcourslist(list);
+      });
+    });
+
+    // await fetch(`/json/courseList.json`).then((response) => {
+    //   response.json().then((settings) => {
+    //     // instead of setting state you can use it any other way.
+    //     let courseListFilt;
+    //     let courseListFilter = settings.filter((value) => {
+    //       return value.courseId == courseName;
+    //     });
+    //     console.log("api : ", coursetagFilter[0]);
+    //     setCompletedCourseData(courseListFilter[0]);
+    //   });
+    // });
   };
   getData();
+  function courseCompleted(course) {
+    let coursePath = course.link;
+    let image_path = "../" + course.preview_img;
+    if (user.completedCourseId.includes(course.courseId)) {
+      return (
+        <div className="p-3">
+          <Link
+            to={coursePath}
+            // onClick={coursedisplay}
+            style={{ textDecoration: "none" }}
+          >
+            <div className="preview-img-container overflow-hidden">
+              <div
+                id="preview-img"
+                style={{
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                  backgroundImage: `url('${image_path}')`,
+                  minWidth: "100%",
+                  minHeight: "100%",
+                  borderTopLeftRadius: "20px",
+                  borderTopRightRadius: "20px",
+                }}
+              ></div>
+            </div>
+            <h6 className="course-list-title text-center py-1">
+              {course.name}
+            </h6>
+          </Link>
+        </div>
+      );
+    }
+  }
+
   return (
     <div className="d-flex mt-5 mx-2 pt-4 p-1">
       <div>
-        <div className="profile-display d-flex flex-column p-3">
+        <div className="profile-display d-flex flex-column p-2">
           <div id="userProfileImg">
             <img src={ProfileImg} alt="profile-pic" height="150px" />
           </div>
-          <h3 id="username" className="text-light mx-auto">
+          <h3 id="username" className="text-light text-center ">
             {user ? user.name : ""}{" "}
             <img
               src={EditImg}
@@ -40,7 +92,7 @@ export default function Profile(props) {
           </h3>
         </div>
       </div>
-      <div className="profileWrapper  d-flex flex-wrap">
+      <div className="profileWrapper  d-flex flex-wrap justify-content-center m-3">
         <div id="points-display" className="p-3">
           <div className="score-img-quote d-flex ">
             <div className="pointsImg align-self-center">
@@ -97,8 +149,15 @@ export default function Profile(props) {
             </div>
           </div>
         </div>
-        <div id="CompletedCourses">
-          <div></div>
+        <div className="completedCourse-wrapper p-3">
+          <h4 className="text-light text-center">
+            You have finished these so far . . . more to go!
+          </h4>
+          <div id="CompletedCourses" className="d-flex flex-wrap">
+            {user && courselist
+              ? courselist.map((course) => courseCompleted(course))
+              : ""}
+          </div>
         </div>
       </div>
     </div>
