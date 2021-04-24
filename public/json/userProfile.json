@@ -7,22 +7,23 @@
     "password": "catwoman",
     "score": 45,
     "completedCourseId": [3, 4, 2],
+    "currentCourseId": [1, 5],
     "completedCourses": [
       {
         "name": "HTML for beginners",
-        "courseId": 1,
+        "courseId": 3,
         "score": 12,
         "completed": true
       },
       {
         "name": "CSS Gridd",
-        "courseId": 2,
+        "courseId": 4,
         "score": 18,
         "completed": true
       },
       {
         "name": "CSS Display",
-        "courseId": 3,
+        "courseId": 2,
         "score": 12,
         "completed": false
       },
@@ -40,7 +41,8 @@
     "username": "flash",
     "email": "barry@gmail.com",
     "password": "iris",
-    "completedCourseId": [1, 2, 3],
+    "currentCourseId": [1, 2],
+    "completedCourseId": [4, 5, 3],
     "completedCourses": [
       {
         "name": "HTML for beginners",
@@ -69,7 +71,8 @@
     "email": "oliver@gmail.com",
     "password": "canary",
     "score": 15,
-    "completedCourseId": [3, 4, 5],
+    "currentCourseId": [1, 5],
+    "completedCourseId": [3, 4],
     "completedCourses": [
       {
         "name": "HTML for beginners",
@@ -82,12 +85,6 @@
         "courseId": 4,
         "score": 18,
         "completed": true
-      },
-      {
-        "name": "CSS Display",
-        "courseId": 5,
-        "score": 12,
-        "completed": false
       }
     ]
   }

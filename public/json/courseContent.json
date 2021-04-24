@@ -206,6 +206,10 @@
           {
             "header": "",
             "content": "A browser like the one you are using currently to view this :) . \n A code editor , VS Code is prefered. \n Install Live server and Prettifier extensions."
+          },
+          {
+            "header": "Follow these steps to make a new webpage :",
+            "content": "Create a new folder and open the folder on the code editor.\nMake a file with the extension of .html.\nMake a file with the extension of .css\nUse the live server extension which appears on the bottom right, or right click and choose go live"
           }
         ]
       },
@@ -314,12 +318,7 @@
         "heading": "Margin And Padding",
         "description": null,
         "imagePath": null,
-        "bulletPoints": [
-          {
-            "header": "Follow these steps to make a new webpage :",
-            "content": "Create a new folder and open the folder on the code editor.\nMake a file with the extension of .html.\nMake a file with the extension of .css\nUse the live server extension which appears on the bottom right, or right click and choose go live"
-          }
-        ],
+        "bulletPoints": [],
         "subHeading": [
           {
             "header": "Padding",
@@ -353,7 +352,7 @@
   },
   {
     "courseId": 3,
-    "courseTag": "css_display_units_position",
+    "courseTag": "css_units",
     "title": "CSS -Display , Units and Position",
     "description": "",
     "requirements": "A browser like the one you are using currently to view this :) . \n A code editor , VS Code is prefered. \n Install Live server and Prettifier extensions.",

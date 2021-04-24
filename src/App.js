@@ -54,7 +54,7 @@ const catalog = (props) => (
 );
 const coursedisplay = (props) => (
   <Fragment>
-    <Navbar />{" "}
+    <Navbar username={props.match.params.username} />
     <div className="row pt-5 mx-auto">
       {/* <CourseSidebar /> */}
       <CourseDisplay coursename={props.match.params.coursename} />

@@ -25,7 +25,11 @@ export default function CourseDisplay(props) {
   };
 
   function displayBulletPoints(point) {
-    return <li className="py-1">{point}</li>;
+    return (
+      <li className="py-1" style={{ listStyle: "disc" }}>
+        {point}
+      </li>
+    );
   }
   function displayPargraph(text) {
     return <p className="pt-1">{text}</p>;

@@ -28,7 +28,7 @@
   box-shadow: -19px 19px 38px #202428, 19px -19px 38px #2c3238;
 }
 .points-quote {
-  margin-left: 155px;
+  margin-left: 150px;
 }
 .points-quote > h6 {
   border-radius: 10px;
@@ -73,6 +73,4 @@
 }
 #CompletedCourses > img {
   border-radius: 10px;
-}
-#CompletedCourses > img:hover {
 }
