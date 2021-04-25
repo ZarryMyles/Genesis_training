@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./css/profile.css";
 // images
 import ProfileImg from "../images/icons/profile-pic.png";
-import PointsGif from "../images/icons/points.gif";
 import PointsImg from "../images/icons/points.png";
 import PointsBallImg from "../images/icons/points-ball.png";
 import EditImg from "../images/icons/edit-icon.png";

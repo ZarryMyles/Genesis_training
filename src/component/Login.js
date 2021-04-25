@@ -31,7 +31,7 @@ export default function Login(props) {
   }
   function handleKeypress(e) {
     let key = e.keyCode || e.which;
-    if (key == 13) {
+    if (key === 13) {
       submitHandler();
     }
   }
@@ -45,10 +45,10 @@ export default function Login(props) {
   function submitHandler() {
     if (userMail && password) {
       let userInfo = users.filter((user) => {
-        return user.email == userMail;
+        return user.email === userMail;
       });
       console.log(userMail, password, userInfo[0]);
-      if (userInfo[0] !== undefined && password == userInfo[0].password) {
+      if (userInfo[0] !== undefined && password === userInfo[0].password) {
         userInfo = userInfo[0];
         console.log(userInfo);
         setUsername(userInfo.username);

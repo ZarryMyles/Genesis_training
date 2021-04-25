@@ -16,7 +16,7 @@ export default function CourseDisplay(props) {
       response.json().then((settings) => {
         // instead of setting state you can use it any other way
         let coursetagFilter = settings.filter((value) => {
-          return value.courseTag == courseName;
+          return value.courseTag === courseName;
         });
         console.log("api : ", coursetagFilter[0]);
         SetCourseContent(coursetagFilter[0]);
