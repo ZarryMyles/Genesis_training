@@ -28,7 +28,7 @@
   box-shadow: -19px 19px 38px #202428, 19px -19px 38px #2c3238;
 }
 .points-quote {
-  margin-left: 150px;
+  margin-left: 200px;
 }
 .points-quote > h6 {
   border-radius: 10px;
@@ -41,7 +41,7 @@
   justify-content: space-between;
 }
 #courses-details {
-  width: 500px;
+  width: 300px;
   height: fit-content;
   align-self: center;
   border-radius: 15px;
@@ -73,4 +73,13 @@
 }
 #CompletedCourses > img {
   border-radius: 10px;
+}
+#editProfileIcon:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1024) {
+  #CompletedCourses {
+    /* width: 200%; */
+  }
 }

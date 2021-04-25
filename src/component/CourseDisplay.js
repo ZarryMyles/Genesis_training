@@ -36,23 +36,17 @@ export default function CourseDisplay(props) {
   }
   function displayImage(path) {
     return (
-      <div
-        className="mx-auto"
-        style={{
-          height: "404px",
-          width: "581px",
-        }}
-      >
+      <div className="mx-auto" style={{}}>
         <div
           id="section-img"
-          className="my-4"
+          className="my-4 mx-auto"
           style={{
             backgroundPosition: "center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundImage: `url('../${path}')`,
-            width: "100%",
-            height: "100%",
+            height: "404px",
+            width: "581px",
           }}
         ></div>
         {/* <img src={`url('${path}')`} alt={path} srcset="" /> */}

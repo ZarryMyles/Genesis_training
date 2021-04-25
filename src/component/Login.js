@@ -13,6 +13,7 @@ export default function Login(props) {
   const [username, setUsername] = useState();
   const [redirect, setredirect] = useState(false);
   const [wrongPassword, setWrongpassword] = useState(false);
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
   let users;
   useEffect(() => {
     getData();
@@ -22,7 +23,6 @@ export default function Login(props) {
     await fetch(`/json/userLogin.json`).then((response) => {
       response.json().then((data) => {
         users = data;
-        console.log(users);
       });
     });
   };
@@ -32,7 +32,7 @@ export default function Login(props) {
   function handleKeypress(e) {
     let key = e.keyCode || e.which;
     if (key == 13) {
-      submitHandler();
+      loginHandler();
     }
   }
   function displayWrongPassword() {
@@ -42,7 +42,15 @@ export default function Login(props) {
       </div>
     );
   }
-  function submitHandler() {
+  function displayPasswordMismatch() {
+    return (
+      <div className="wrongpassword my-3">
+        <div className="text-danger">Your Passwords donot match!</div>
+      </div>
+    );
+  }
+  // redirecting to catalog on logging in
+  function loginHandler() {
     if (userMail && password) {
       let userInfo = users.filter((user) => {
         return user.email == userMail;
@@ -50,9 +58,7 @@ export default function Login(props) {
       console.log(userMail, password, userInfo[0]);
       if (userInfo[0] !== undefined && password == userInfo[0].password) {
         userInfo = userInfo[0];
-        console.log(userInfo);
         setUsername(userInfo.username);
-
         setredirect(true);
       } else setWrongpassword(true);
     }
@@ -62,17 +68,38 @@ export default function Login(props) {
     console.log(path);
     return <Redirect to={path} />;
   }
+  function signingUp() {
+    password !== confirmPassword
+      ? setPasswordsMatch(false)
+      : setPasswordsMatch(true);
+      if (userMail && password && username && password && confirmPassword) {
+        let userInfo = users.filter((user) => {
+          return user.email == userMail;
+        });
+        console.log(userMail, password, userInfo[0]);
+        if (userInfo[0] !== undefined && password == userInfo[0].password) {
+          userInfo = userInfo[0];
+          setUsername(userInfo.username);
+          setredirect(true);
+        } else setWrongpassword(true);
+      }
+    
+  }
 
-  // sign in and sign Up buttons
+
+
+
+  // sign in and sign Up input screens
   function signIn() {
     return (
       <div className="login-info mx-auto">
-        <div className="user-inputs text-light d-flex flex-column ">
+        <div className="user-inputs user-inputs-login text-light d-flex flex-column ">
           <img className="userImg " src={UserImg} alt="" srcset="" />
+
           <input
             className="mx-auto text-light text-center my-4  px-3 py-2"
             type="text"
-            placeholder="enter your  email id"
+            placeholder="Enter your  email id"
             onChange={(e) => setUserMail(e.target.value)}
             name="userMail"
             onKeyPress={(e) => handleKeypress(e)}
@@ -80,7 +107,7 @@ export default function Login(props) {
           <input
             className="mx-auto text-light text-center  my-4  px-3 py-2"
             type="password"
-            placeholder="enter your password"
+            placeholder="Enter your password"
             onChange={(e) => setPassword(e.target.value)}
             onKeyPress={(e) => handleKeypress(e)}
             name="password"
@@ -88,7 +115,7 @@ export default function Login(props) {
 
           <button
             className="bg-outline-btn logging-btn-green  mt-3"
-            onClick={submitHandler}
+            onClick={loginHandler}
           >
             Sign In
           </button>
@@ -100,36 +127,49 @@ export default function Login(props) {
   function signUp() {
     return (
       <div className="login-info mx-auto">
-        <div className="user-inputs text-light d-flex flex-column ">
+        <div className="user-inputs user-inputs-signup text-light d-flex flex-column ">
           <img className="userImg " src={UserImg} alt="" srcset="" />
           <input
             className="mx-auto text-light text-center my-4  px-3 py-2"
             type="text"
-            placeholder="enter your email id"
+            placeholder="Enter your  username"
+            onChange={(e) => setUsername(e.target.value)}
+            name="userName"
+            onKeyPress={(e) => handleKeypress(e)}
+          />
+          <input
+            className="mx-auto text-light text-center my-4  px-3 py-2"
+            type="text"
+            placeholder="Enter your email id"
             onChange={(e) => setUserMail(e.target.value)}
             name="email"
           />
           <input
             className="mx-auto text-light text-center  my-4  px-3 py-2"
             type="password"
-            placeholder="enter your password"
+            placeholder="Enter your password"
             onChange={(e) => setPassword(e.target.value)}
             name="password"
           />
           <input
             className="mx-auto text-light text-center  my-4  px-3 py-2"
             type="password"
-            placeholder="confirm your password"
+            placeholder="Confirm your password"
             onChange={(e) => setConfirmPassword(e.target.value)}
             name="confirmPassword"
           />
-          <button className=" bg-outline-btn logging-btn-blue  mt-3">
+          <button
+            className=" bg-outline-btn logging-btn-blue  mt-3"
+            onClick={signingUp}
+          >
             Sign Up
           </button>
+          {!passwordsMatch ? displayPasswordMismatch() : ""}
         </div>
       </div>
     );
   }
+  // login screen container
   function loginScreen() {
     return (
       <div>
@@ -154,6 +194,7 @@ export default function Login(props) {
       </div>
     );
   }
+
   return (
     <div className="login-container">
       {redirect ? redirectingPage() : loginScreen()}

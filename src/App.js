@@ -19,11 +19,7 @@ function App() {
       <div className="App">
         <Switch>
           <Route path="/" exact component={homepage} />
-          {/* <Route path="/catalog" component={catalog} /> */}
           <Route path="/catalog/:username" component={catalog} />
-          {/* {["/catalog", "/catalog/:username"].map((path) => (
-            <Route path={path} component={catalog} />
-          ))} */}
           <Route path="/course/:coursename" component={coursedisplay} />
           <Route path="/login" component={loginUser} />
           <Route path="/test/:id" component={TestId} />
@@ -54,7 +50,8 @@ const catalog = (props) => (
 );
 const coursedisplay = (props) => (
   <Fragment>
-    <Navbar username={props.match.params.username} />
+    {/* need to send user info to nav so it updates even whn course is opened */}
+    <Navbar />
     <div className="row pt-5 mx-auto">
       {/* <CourseSidebar /> */}
       <CourseDisplay coursename={props.match.params.coursename} />
