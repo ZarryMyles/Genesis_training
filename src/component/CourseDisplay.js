@@ -12,7 +12,9 @@ export default function CourseDisplay(props) {
   }, []);
 
   let getData = async () => {
-    await fetch(`/json/courseContent.json`).then((response) => {
+    await fetch(
+      `https://genesis-strapi-mongodb.herokuapp.com/course-contents`
+    ).then((response) => {
       response.json().then((settings) => {
         // instead of setting state you can use it any other way
         let coursetagFilter = settings.filter((value) => {

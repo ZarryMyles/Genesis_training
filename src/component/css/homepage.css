@@ -27,12 +27,22 @@
 }
 #mainHead {
   font-family: "Baufra-Bold";
-}
-#neo {
-  color: #08d108;
+  padding-top: 30px;
+  padding-right: 10px;
 }
 #paragraphsHome {
+  padding-top: 10px;
   font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+}
+
+#imgReader {
+  padding-top: 60px;
+  width: 150px;
+}
+
+#readerpic {
+  width: 500px;
 }
 
 /*--- Bootstrap Padding Fix --*/
