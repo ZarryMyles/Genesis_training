@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./css/profile.css";
 // images
+import IMAGES from "./Images";
 import ProfileImg from "../images/icons/profile-pic.png";
-import PointsImg from "../images/icons/points.png";
-import PointsBallImg from "../images/icons/points-ball.png";
 import EditImg from "../images/icons/edit-icon.png";
 
 export default function Profile(props) {
@@ -39,6 +38,7 @@ export default function Profile(props) {
     };
     getData();
   }, []);
+
   function displayProfileCard() {
     return (
       <div>
@@ -47,11 +47,12 @@ export default function Profile(props) {
             <img src={ProfileImg} alt="profile-pic" height="150px" />
           </div>
           <h3 id="username" className="text-light text-center ">
-            {user ? user.name : ""}{" "}
+            {user ? user.username : ""}{" "}
             <img
+              id="editProfileIcon"
               src={EditImg}
               alt="edit-icon"
-              width="20px"
+              width="30px"
               className="my-auto"
             />
           </h3>
@@ -89,15 +90,28 @@ export default function Profile(props) {
       </Link>
     );
   }
+  function userLevelImg(score) {
+    if (score < 50) return IMAGES.userLevel1;
+    else if (score < 100) return IMAGES.userLevel2;
+    else if (score < 150) return IMAGES.userLevel3;
+    else if (score < 200) return IMAGES.userLevel4;
+  }
+  function testScoreImg(score) {
+    if (score < 5) return IMAGES.stars0;
+    else if (score < 10) return IMAGES.stars1;
+    else if (score < 15) return IMAGES.stars2;
+    else if (score > 15) return IMAGES.stars3;
+  }
   function displayPointsCard() {
     return (
       <div id="points-display" className="p-3">
         <div className="score-img-quote d-flex ">
           <div className="pointsImg align-self-center">
-            <img src={PointsImg} alt="points-gif" height="50px" />
-          </div>
-          <div id="scoreNo" className="text-light align-self-center p-2">
-            <h2>{user ? userscore : "00"}</h2>
+            <img
+              src={userLevelImg(user ? userscore : 0)}
+              alt="user-badge"
+              height="50px"
+            />
           </div>
           <div className="points-quote text-light align-self-center ">
             <h6 className="p-2 my-auto">Keep up the good work!</h6>
@@ -105,7 +119,7 @@ export default function Profile(props) {
         </div>
         <div className="latest-tests mt-1 p-1">
           <div className="d-flex flex-column align-items-center">
-            <h6 className="text-light">Recent Completed Tests</h6>
+            <h5 className="text-light">Recent Tests</h5>
             <div className="completed-test-list  text-light">
               <div className="test-name d-flex flex-column ">
                 {user
@@ -114,10 +128,9 @@ export default function Profile(props) {
                         <div>
                           <span>{name}</span>{" "}
                           <span className="text-primary">
-                            {score}
                             <img
                               className="ml-1 "
-                              src={PointsBallImg}
+                              src={testScoreImg(score)}
                               alt="score"
                               height="25px"
                             />{" "}
@@ -134,7 +147,7 @@ export default function Profile(props) {
     );
   }
   return (
-    <div className="d-flex mt-5 mx-2 pt-4 p-1 mb-5">
+    <div className="d-md-flex  mt-5 mx-2 pt-4 p-1 mb-5 pb-5">
       {displayProfileCard()}
       <div className="profileWrapper  d-flex flex-wrap justify-content-center m-2">
         {displayPointsCard()}

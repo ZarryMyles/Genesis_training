@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import CourseDisplay from "./CourseDisplay";
 
-export default function CourseLIst() {
+export default function CourseLIst(props) {
   const [courseList, setCourseList] = useState([]);
   useEffect(() => {
     getData();

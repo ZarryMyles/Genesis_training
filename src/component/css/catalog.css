@@ -16,10 +16,11 @@
 }
 #CourseSearchInput {
   background-color: #42d786;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
   border: none;
   color: #262b30;
+}
+.courselist-search-input {
+  background: antiquewhite;
 }
 #CourseSearchInput + button {
   color: #42d786;
@@ -121,7 +122,9 @@
   overflow: hidden;
   border-radius: 10px;
 }
-
+.course-list-title {
+  text-transform: uppercase;
+}
 .course:hover .course-list-title {
   background-color: antiquewhite;
   color: #0c3c66;

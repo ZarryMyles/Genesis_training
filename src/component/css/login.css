@@ -21,26 +21,27 @@
   border-radius: 26px;
 }
 .user-inputs {
-  /* background: linear-gradient(145deg, #464951, #4649517c); */
   background: linear-gradient(145deg, #292e33, #22272b);
   box-shadow: 8px 8px 16px #1f2327, -8px -8px 16px #2d3339;
   border-radius: 25px;
-  height: 100%;
   width: 100%;
   align-items: center;
   justify-content: center;
 }
+.user-inputs-signup {
+  height: 480px;
+}
+.user-inputs-login {
+  height: 100%;
+}
 .user-inputs > input {
   border-radius: 6px;
   background: #262b30;
-  /* box-shadow: 14px 14px 28px #1f2327, -14px -14px 28px #2d3339; */
   box-shadow: inset 14px 14px 28px #1f2327, inset -14px -14px 28px #2d3339;
   border: none;
   outline: none;
 }
-.user-inputs > input:focus {
-  box-shadow: inset 14px 14px 28px #1f2327, inset -14px -14px 28px #2d3339;
-}
+
 .userImg {
   position: absolute;
   width: 100px;
