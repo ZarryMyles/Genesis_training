@@ -57,14 +57,16 @@ export default function Catalog(props) {
               class="form-control col-md-6 col-7 d-none d-md-block"
               placeholder="Course Name"
               aria-describedby="button-addon2"
+              onChange={(e) => setSearchInput(e.target.value)}
             />
-            <button
-              class="btn btn-outline col-3 p-1"
+
+            <a
+              href="#catalogSearchInput"
               type="button"
-              id="button-addon2"
+              class="btn btn-outline col-3 p-1"
             >
               Search
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -88,6 +90,7 @@ export default function Catalog(props) {
       <div class="input-group justify-content-center mx-auto">
         <div class="input-group mb-md-3 mb-1 col-md-4 col-sm-2 ">
           <input
+            id="catalogSearchInput"
             type="text"
             class="form-control text-color-dark-blue courselist-search-input"
             placeholder="Search for course"
@@ -96,8 +99,8 @@ export default function Catalog(props) {
             onChange={(e) => setSearchInput(e.target.value)}
           />
         </div>
-        <CourseList searchInput={searchInput} />
       </div>
+      <CourseList searchInput={searchInput} />
     </div>
   );
 }

@@ -20,9 +20,9 @@
   color: #262b30;
 }
 .courselist-search-input {
-  background: antiquewhite;
+  background: whitesmoke;
 }
-#CourseSearchInput + button {
+#CourseSearchInput + a {
   color: #42d786;
   border-color: #42d786;
   border-top-left-radius: 0;
@@ -31,7 +31,7 @@
   max-width: 50%;
   outline: none;
 }
-#CourseSearchInput + button:hover {
+#CourseSearchInput + a:hover {
   background: #42d786;
   border-left-width: 3px;
   border-left-color: #262b30;

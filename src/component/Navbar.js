@@ -31,7 +31,10 @@ export default function navbar(props) {
               id="navUl"
             >
               <li className="nav-item active mnav-i" id="navUl">
-                <a className="nav-link mnav-link" href="/">
+                <a
+                  className="nav-link mnav-link"
+                  href={"/" + (props.username ? props.username : "user")}
+                >
                   Home<span className="sr-only">(current)</span>
                 </a>
               </li>

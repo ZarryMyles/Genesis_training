@@ -5,6 +5,7 @@ import CourseDisplay from "./CourseDisplay";
 
 export default function CourseLIst(props) {
   const [courseList, setCourseList] = useState([]);
+  // const [searchTerm, setSearchTerm] = useState(props.searchInput);
   useEffect(() => {
     getData();
   }, []);
@@ -51,7 +52,17 @@ export default function CourseLIst(props) {
         id="CourseView"
         className="p-3 mx d-flex  flex-wrap justify-content-center"
       >
-        {courseList.map((course) => coursePreview(course))}
+        {courseList
+          .filter((course) => {
+            if (props.searchInput === "") return course;
+            else if (
+              course.name
+                .toLowerCase()
+                .includes(props.searchInput.toLowerCase())
+            )
+              return course;
+          })
+          .map((course) => coursePreview(course))}
       </div>
     </div>
   );

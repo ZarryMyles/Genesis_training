@@ -72,22 +72,18 @@ export default function Login(props) {
     password !== confirmPassword
       ? setPasswordsMatch(false)
       : setPasswordsMatch(true);
-      if (userMail && password && username && password && confirmPassword) {
-        let userInfo = users.filter((user) => {
-          return user.email == userMail;
-        });
-        console.log(userMail, password, userInfo[0]);
-        if (userInfo[0] !== undefined && password == userInfo[0].password) {
-          userInfo = userInfo[0];
-          setUsername(userInfo.username);
-          setredirect(true);
-        } else setWrongpassword(true);
-      }
-    
+    if (userMail && password && username && password && confirmPassword) {
+      let userInfo = users.filter((user) => {
+        return user.email == userMail;
+      });
+      console.log(userMail, password, userInfo[0]);
+      if (userInfo[0] !== undefined && password == userInfo[0].password) {
+        userInfo = userInfo[0];
+        setUsername(userInfo.username);
+        setredirect(true);
+      } else setWrongpassword(true);
+    }
   }
-
-
-
 
   // sign in and sign Up input screens
   function signIn() {

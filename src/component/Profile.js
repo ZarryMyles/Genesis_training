@@ -46,15 +46,15 @@ export default function Profile(props) {
           <div id="userProfileImg">
             <img src={ProfileImg} alt="profile-pic" height="150px" />
           </div>
-          <h3 id="username" className="text-light text-center ">
+          <h3 id="username" className=" text-center ">
             {user ? user.username : ""}{" "}
-            <img
+            {/* <img
               id="editProfileIcon"
               src={EditImg}
               alt="edit-icon"
               width="30px"
               className="my-auto"
-            />
+            /> */}
           </h3>
         </div>
       </div>

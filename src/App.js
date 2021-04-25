@@ -22,8 +22,8 @@ function App() {
           <Route path="/catalog/:username" component={catalog} />
           <Route path="/course/:coursename" component={coursedisplay} />
           <Route path="/login" component={loginUser} />
-          <Route path="/test/:id" component={TestId} />
           <Route path="/profile/:username" component={profile} />
+          {/* <Route path="/test/:id" component={TestId} /> */}
         </Switch>
       </div>
     </Router>
