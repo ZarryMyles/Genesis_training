@@ -20,7 +20,9 @@ export default function Login(props) {
   });
 
   let getData = async () => {
-    await fetch(`/json/userLogin.json`).then((response) => {
+    await fetch(
+      `https://genesis-strapi-mongodb.herokuapp.com/login-infos`
+    ).then((response) => {
       response.json().then((data) => {
         users = data;
       });

@@ -13,7 +13,9 @@ export default function Profile(props) {
 
   useEffect(() => {
     let getData = async () => {
-      await fetch(`/json/userProfile.json`).then((response) => {
+      await fetch(
+        `https://genesis-strapi-mongodb.herokuapp.com/profile-Data`
+      ).then((response) => {
         response.json().then((settings) => {
           let userFilter = settings.filter((user) => {
             return user.username == props.username;

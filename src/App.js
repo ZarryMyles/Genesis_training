@@ -12,6 +12,7 @@ import TestId from "./component/Testid";
 import Profile from "./component/Profile";
 //others
 import "bootstrap/dist/css/bootstrap.min.css";
+import navbar from "./component/Navbar";
 
 function App() {
   return (
