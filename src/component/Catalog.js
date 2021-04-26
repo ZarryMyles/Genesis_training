@@ -100,7 +100,7 @@ export default function Catalog(props) {
           />
         </div>
       </div>
-      <CourseList searchInput={searchInput} />
+      <CourseList searchInput={searchInput.trim()} />
     </div>
   );
 }

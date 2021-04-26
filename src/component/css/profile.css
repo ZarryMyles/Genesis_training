@@ -1,8 +1,10 @@
 .profile-display {
-  width: fit-content;
   margin-right: 20px;
   border-radius: 15px;
   background: #6268e1;
+}
+#userProfileImg > img {
+  height: 150px;
 }
 #username {
   background: #6268e1;
@@ -81,7 +83,15 @@
   cursor: pointer;
 }
 
-@media (max-width: 1024) {
+@media (max-width: 1024px) {
+  #userProfileImg > img {
+    height: 100px;
+  }
+  .profile-display {
+    /* margin-right: 20px; */
+    /* border-radius: 15px; */
+    background: #6268e1;
+  }
   #CompletedCourses {
     /* width: 200%; */
   }

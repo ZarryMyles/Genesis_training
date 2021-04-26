@@ -18,7 +18,6 @@ export default function CourseDisplay(props) {
         let coursetagFilter = settings.filter((value) => {
           return value.courseTag === courseName;
         });
-        console.log("api : ", coursetagFilter[0]);
         SetCourseContent(coursetagFilter[0]);
       });
     });

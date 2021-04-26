@@ -44,7 +44,7 @@ export default function Profile(props) {
       <div>
         <div className="profile-display d-flex flex-column p-2">
           <div id="userProfileImg">
-            <img src={ProfileImg} alt="profile-pic" height="150px" />
+            <img src={ProfileImg} alt="profile-pic" />
           </div>
           <h3 id="username" className=" text-center ">
             {user ? user.username : ""}{" "}
