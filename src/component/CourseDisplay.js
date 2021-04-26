@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Collapsible from "react-collapsible";
-import sampleData from "../json/courseContent.json";
+// import sampleData from "https://genesis-strapi-mongodb.herokuapp.com/course-contents";
 import axios from "axios";
 import "./css/coursedisplay.css";
 export default function CourseDisplay(props) {
   const [courseName, SetCourseName] = useState(props.coursename);
-  const [courseContent, SetCourseContent] = useState(sampleData[0]);
+  const [courseContent, SetCourseContent] = useState([]);
   useEffect(() => {
     window.scrollTo(0, 0);
     getData();
@@ -51,7 +51,6 @@ export default function CourseDisplay(props) {
             width: "581px",
           }}
         ></div>
-        {/* <img src={`url('${path}')`} alt={path} srcset="" /> */}
       </div>
     );
   }
