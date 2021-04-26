@@ -250,9 +250,11 @@ export default function CourseDisplay(props) {
           <div id="description">{courseContent.description}</div>
         </div>
         <div id="sectionBlocksWrapper" className="text-light">
-          {courseContent.sectionBlocks.map((section) =>
-            displaySectionBlocks(section)
-          )}
+          {courseContent.sectionBlocks
+            ? courseContent.sectionBlocks.map((section) =>
+                displaySectionBlocks(section)
+              )
+            : ""}
         </div>
       </div>
     </div>
