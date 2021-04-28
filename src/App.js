@@ -1,6 +1,7 @@
 import "./App.css";
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ProtectedRoute from "./component/ProtectedRoute";
 // Other components
 import Navbar from "./component/Navbar";
 import Homepage from "./component/Homepage";
@@ -13,19 +14,22 @@ import Profile from "./component/Profile";
 //others
 import "bootstrap/dist/css/bootstrap.min.css";
 import navbar from "./component/Navbar";
+// testing
+import LandingPage from "./component/landingpage";
 
 function App() {
+  const [isAuth, setIsAuth] = useState(false);
   return (
     <Router>
       <div className="App">
-        <Switch>
-          <Route path="/" exact component={homepage} />
-          <Route path="/catalog/:username" component={catalog} />
-          <Route path="/course/:coursename" component={coursedisplay} />
-          <Route path="/login" component={loginUser} />
-          <Route path="/profile/:username" component={profile} />
-          {/* <Route path="/test/:id" component={TestId} /> */}
-        </Switch>
+        <Route path="/" exact component={homepage} />
+        <Route path="/catalog/:username" component={catalog} />
+        <Route path="/course/:coursename" component={coursedisplay} />
+        <Route path="/login" component={loginUser} />
+        <Route path="/profile/:username" component={profile} />
+        {/* <ProtectedRoute path="/profile" component={Profile} isAuth={isAuth} /> */}
+        <ProtectedRoute exact path="/test" component={TestId} />
+        <Route path="/land" component={LandingPage} />
       </div>
     </Router>
   );

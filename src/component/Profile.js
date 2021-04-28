@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./css/profile.css";
+
 // images
 import IMAGES from "./Images";
 import ProfileImg from "../images/icons/profile-pic.png";
 import EditImg from "../images/icons/edit-icon.png";
-
 export default function Profile(props) {
   const [user, setUser] = useState();
   const [courselist, setcourslist] = useState();
   let [userscore, setUserscore] = useState(0);
+  const [displayCompleted, setDisplayCompleted] = useState(false);
 
   useEffect(() => {
     let getData = async () => {
@@ -32,11 +33,15 @@ export default function Profile(props) {
           );
         });
       });
-      await fetch(`/json/course.json`).then((response) => {
-        response.json().then((list) => {
-          setcourslist(list);
-        });
-      });
+      // fetching courselist
+      await fetch(`https://genesis-strapi-mongodb.herokuapp.com/courses`).then(
+        (response) => {
+          response.json().then((list) => {
+            setcourslist(list);
+            setDisplayCompleted(true);
+          });
+        }
+      );
     };
     getData();
   }, []);
@@ -68,11 +73,7 @@ export default function Profile(props) {
     let image_path = "../" + course.preview_img;
 
     return (
-      <Link
-        to={coursePath}
-        // onClick={coursedisplay}
-        style={{ textDecoration: "none", padding: "5px" }}
-      >
+      <Link to={coursePath} style={{ textDecoration: "none", padding: "5px" }}>
         <div className="preview-img-container overflow-hidden">
           <div
             id="preview-img"
@@ -182,13 +183,15 @@ export default function Profile(props) {
             Ongoing Courses . . . You gotta finish 'em.
           </h4>
           <div id="CompletedCourses" className="d-flex flex-wrap">
-            {user && courselist
-              ? courselist.map((course) => {
-                  if (user.currentCourseId.includes(course.courseId)) {
-                    return displayCourseImg(course);
-                  }
-                })
-              : ""}
+            {user && courselist ? (
+              courselist.map((course) => {
+                if (user.currentCourseId.includes(parseInt(course.courseId))) {
+                  return displayCourseImg(course);
+                }
+              })
+            ) : (
+              <h6>Loading data wait ....</h6>
+            )}
           </div>
         </div>
         <div className="completedCourse-wrapper p-3 m-2">
@@ -196,13 +199,17 @@ export default function Profile(props) {
             You have finished these so far . . . more to go!
           </h4>
           <div id="CompletedCourses" className="d-flex flex-wrap">
-            {user && courselist
-              ? courselist.map((course) => {
-                  if (user.completedCourseId.includes(course.courseId)) {
-                    return displayCourseImg(course);
-                  }
-                })
-              : ""}
+            {user && courselist ? (
+              courselist.map((course) => {
+                if (
+                  user.completedCourseId.includes(parseInt(course.courseId))
+                ) {
+                  return displayCourseImg(course);
+                }
+              })
+            ) : (
+              <h6>Loading data wait ....</h6>
+            )}
           </div>
         </div>
       </div>
