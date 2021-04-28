@@ -78,9 +78,10 @@ export default function Login(props) {
       if (userInfo[0] !== undefined && password === userInfo[0].password) {
         userInfo = userInfo[0];
         setUsername(userInfo.username);
-        LoginAuth.login(() => {
-          // props.history.push("/category");
-        });
+        // LoginAuth.login(() => {
+        //   // props.history.push("/category");
+        // });
+        console.log("loggin in");
         setredirect(true);
       } else setWrongpassword(true);
     }
@@ -90,18 +91,13 @@ export default function Login(props) {
     return <Redirect to={path} />;
   }
   function signingUp() {
-    password !== confirmPassword
-      ? setPasswordsMatch(false)
-      : setPasswordsMatch(true);
-    if (userMail && password && username && password === confirmPassword) {
-      let userInfo = users.filter((user) => {
-        return user.email == userMail;
-      });
-      if (userInfo[0] !== undefined && password == userInfo[0].password) {
-        userInfo = userInfo[0];
-        setUsername(userInfo.username);
+    if (password !== confirmPassword) setPasswordsMatch(false);
+    else {
+      setPasswordsMatch(true);
+      if (userMail && password && username && password === confirmPassword) {
+        postData();
         setredirect(true);
-      } else setWrongpassword(true);
+      }
     }
   }
 
