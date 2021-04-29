@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import API from "./API";
 import CourseDisplay from "./CourseDisplay";
 
 export default function CourseLIst(props) {
@@ -10,13 +10,11 @@ export default function CourseLIst(props) {
     getData();
   }, []);
   let getData = async () => {
-    await fetch("https://genesis-strapi-mongodb.herokuapp.com/courses/").then(
-      (response) => {
-        response.json().then((list) => {
-          setCourseList(list);
-        });
-      }
-    );
+    await fetch(API.courseList).then((response) => {
+      response.json().then((list) => {
+        setCourseList(list);
+      });
+    });
   };
   function coursePreview(course) {
     let coursePath = course.link;

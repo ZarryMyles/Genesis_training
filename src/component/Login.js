@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 import LoginAuth from "./LoginAuth";
+import API from "./API";
+import DATA from "./DATA";
 // images
 import LoginImg from "../images/img/undraw-login.png";
 import UserImg from "../images/icons/user-icon.png";
-
 // css
 import "./css/login.css";
 export default function Login(props) {
+  // state vars
   const [signInStatus, setStatus] = useState(true);
   const [userMail, setUserMail] = useState();
   const [password, setPassword] = useState();
@@ -18,19 +20,46 @@ export default function Login(props) {
   const [wrongPassword, setWrongpassword] = useState(false);
   const [passwordsMatch, setPasswordsMatch] = useState(true);
   const [users, setUser] = useState();
+
   useEffect(() => {
     getData();
+    // testing();
   });
+  let testing = async () => {
+    console.log(DATA.getUserData(API.loginInfo));
+  };
 
   let getData = async () => {
-    await fetch(
-      `https://genesis-strapi-mongodb.herokuapp.com/login-infos`
-    ).then((response) => {
+    await fetch(API.loginInfo).then((response) => {
       response.json().then((data) => {
         setUser(data);
       });
     });
   };
+  // posting new user data
+  function postData() {
+    axios
+      .post(API.loginInfo, {
+        userId: 0,
+        name: username,
+        username: username,
+        email: userMail,
+        password: password,
+      })
+      .then((response) => {
+        console.log(response);
+      });
+    axios.post(API.userProfile, {
+      userId: null,
+      name: username,
+      username: username,
+      email: userMail,
+      score: 0,
+      password: password,
+      completedCourseId: [],
+      currentCourseId: [],
+    });
+  }
   function toggleStat() {
     setStatus((prevStat) => !prevStat);
   }
@@ -54,21 +83,7 @@ export default function Login(props) {
       </div>
     );
   }
-  // posting new user data
-  function postData() {
-    axios
-      .post("https://genesis-strapi-mongodb.herokuapp.com/login-infos", {
-        userId: 0,
-        name: username,
-        username: username,
-        email: userMail,
-        password: password,
-      })
-      .then((response) => {
-        console.log(response);
-      });
-    console.log("posting data");
-  }
+
   // redirecting to catalog on logging in
   function loginHandler() {
     if (userMail && password) {

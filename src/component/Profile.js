@@ -1,51 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./css/profile.css";
-
+import API from "./API";
 // images
-import IMAGES from "./Images";
+import IMAGES from "./IMAGES";
 import ProfileImg from "../images/icons/profile-pic.png";
 import EditImg from "../images/icons/edit-icon.png";
 export default function Profile(props) {
   const [user, setUser] = useState();
   const [courselist, setcourslist] = useState();
-  let [userscore, setUserscore] = useState(0);
-  const [displayCompleted, setDisplayCompleted] = useState(false);
 
   useEffect(() => {
-    let getData = async () => {
-      await fetch(
-        `https://genesis-strapi-mongodb.herokuapp.com/profile-Data`
-      ).then((response) => {
-        response.json().then((settings) => {
-          let userFilter = settings.filter((user) => {
-            return user.username == props.username;
-          });
-          setUser(userFilter[0]);
-          // user score is being set before user is fetched--resolve later
-          setUserscore(
-            user
-              ? user.completedCourses.reduce(
-                  (score, course) => course.score + score,
-                  0
-                )
-              : 0
-          );
-        });
-      });
-      // fetching courselist
-      await fetch(`https://genesis-strapi-mongodb.herokuapp.com/courses`).then(
-        (response) => {
-          response.json().then((list) => {
-            setcourslist(list);
-            setDisplayCompleted(true);
-          });
-        }
-      );
-    };
     getData();
   }, []);
-
+  let getData = async () => {
+    await fetch(API.userProfile).then((response) => {
+      response.json().then((settings) => {
+        let userFilter = settings.filter((user) => {
+          return user.username == props.username;
+        });
+        setUser(userFilter[0]);
+        // user score is being set before user is fetched--resolve later
+      });
+    });
+    // fetching courselist
+    await fetch(API.courseList).then((response) => {
+      response.json().then((list) => {
+        setcourslist(list);
+      });
+    });
+  };
   function displayProfileCard() {
     return (
       <div>
@@ -111,7 +95,16 @@ export default function Profile(props) {
         <div className="score-img-quote d-flex ">
           <div className="pointsImg align-self-center">
             <img
-              src={userLevelImg(user ? userscore : 0)}
+              src={userLevelImg(
+                user &&
+                  user.completedCourses &&
+                  user.completedCourses.length > 0
+                  ? user.completedCourses.reduce(
+                      (score, course) => course.score + score,
+                      0
+                    )
+                  : 0
+              )}
               alt="user-badge"
               height="50px"
             />
@@ -125,7 +118,7 @@ export default function Profile(props) {
             <h5 className="text-light">Recent Tests</h5>
             <div className="completed-test-list  text-light">
               <div className="test-name d-flex flex-column ">
-                {user
+                {user && user.completedCourses
                   ? user.completedCourses.map(({ name, score }) => {
                       return (
                         <div>
@@ -151,7 +144,7 @@ export default function Profile(props) {
   }
   return (
     <div className="d-md-flex  mt-5 mx-2 pt-4 p-1 mb-5 pb-5">
-      {displayProfileCard()}
+      /{displayProfileCard()}
       <div className="profileWrapper  d-flex flex-wrap justify-content-center m-2">
         {displayPointsCard()}
         <div id="courses-details">
@@ -183,14 +176,14 @@ export default function Profile(props) {
             Ongoing Courses . . . You gotta finish 'em.
           </h4>
           <div id="CompletedCourses" className="d-flex flex-wrap">
-            {user && courselist ? (
+            {user && courselist && user.currentCourseId.length > 0 ? (
               courselist.map((course) => {
                 if (user.currentCourseId.includes(parseInt(course.courseId))) {
                   return displayCourseImg(course);
                 }
               })
             ) : (
-              <h6>Loading data wait ....</h6>
+              <h6 className="text-light">Loading data wait ....</h6>
             )}
           </div>
         </div>
@@ -199,7 +192,7 @@ export default function Profile(props) {
             You have finished these so far . . . more to go!
           </h4>
           <div id="CompletedCourses" className="d-flex flex-wrap">
-            {user && courselist ? (
+            {user && courselist && user.currentCourseId.length > 0 ? (
               courselist.map((course) => {
                 if (
                   user.completedCourseId.includes(parseInt(course.courseId))
@@ -208,7 +201,7 @@ export default function Profile(props) {
                 }
               })
             ) : (
-              <h6>Loading data wait ....</h6>
+              <h6 className="text-light">Loading data wait ....</h6>
             )}
           </div>
         </div>

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // css
 import "./css/navbar.css";
-export default function navbar(props) {
+export default function Navbar(props) {
+  const [username, setUsername] = useState(props.username);
   return (
     <header>
       <div className="container">
@@ -36,12 +37,7 @@ export default function navbar(props) {
                 </a>
               </li>
               <li className="nav-item mnav-i" id="navUl">
-                <a
-                  className="nav-link mnav-link"
-                  href={
-                    "/catalog/" + (props.username ? props.username : "user")
-                  }
-                >
+                <a className="nav-link mnav-link" href={"/catalog/" + username}>
                   Catalog
                 </a>
               </li>
@@ -50,17 +46,17 @@ export default function navbar(props) {
                   Contact
                 </a>
               </li> */}
-              {props.username === undefined || props.username === "user" ? (
+              {username === undefined || username === "user" ? (
                 <li className="nav-item mnav-i" id="navUl">
                   <a className="nav-link mnav-link" href="/login">
-                    Sign In{console.log("undefined username", props.username)}
+                    Sign In
                   </a>
                 </li>
               ) : (
                 <li className="nav-item mnav-i" id="navUl">
                   <a
                     className="nav-link mnav-link"
-                    href={"/profile/" + props.username}
+                    href={"/profile/" + username}
                   >
                     Profile
                   </a>

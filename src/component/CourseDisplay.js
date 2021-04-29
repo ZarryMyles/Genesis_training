@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
 import Collapsible from "react-collapsible";
+import API from "./api";
 // import sampleData from "https://genesis-strapi-mongodb.herokuapp.com/course-contents";
 import axios from "axios";
 import "./css/coursedisplay.css";
 export default function CourseDisplay(props) {
   const [courseName, SetCourseName] = useState(props.coursename);
   const [courseContent, SetCourseContent] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     window.scrollTo(0, 0);
+    // loading flase
+    setLoading(false);
     getData();
   }, []);
 
   let getData = async () => {
-    await fetch(
-      `https://genesis-strapi-mongodb.herokuapp.com/course-contents`
-    ).then((response) => {
+    await fetch(API.courseContent).then((response) => {
       response.json().then((settings) => {
         // instead of setting state you can use it any other way
         let coursetagFilter = settings.filter((value) => {
@@ -23,6 +25,8 @@ export default function CourseDisplay(props) {
         SetCourseContent(coursetagFilter[0]);
       });
     });
+    // loading true
+    setLoading(true);
   };
 
   function displayBulletPoints(point) {
@@ -240,24 +244,29 @@ export default function CourseDisplay(props) {
     );
   }
   return (
-    <div id="course-display-wrapper" className="col-8  mb-5 mx-auto">
-      <h2 className="text-light text-center my-3 course-title">
-        <span id="leftBracket">&#123;</span> {courseContent.title}{" "}
-        <span id="rightBracket">&#125;</span>
-      </h2>
-      <div className="">
-        <div className="text-light text-center mt-4">
-          <div id="description">{courseContent.description}</div>
-        </div>
-        <div id="sectionBlocksWrapper" className="text-light">
-          {courseContent.sectionBlocks
-            ? courseContent.sectionBlocks.map((section) =>
-                displaySectionBlocks(section)
-              )
-            : ""}
+    // condition
+    loading ? (
+      <div id="course-display-wrapper" className="col-8  mb-5 mx-auto">
+        <h2 className="text-light text-center my-3 course-title">
+          <span id="leftBracket">&#123;</span> {courseContent.title}{" "}
+          <span id="rightBracket">&#125;</span>
+        </h2>
+        <div className="">
+          <div className="text-light text-center mt-4">
+            <div id="description">{courseContent.description}</div>
+          </div>
+          <div id="sectionBlocksWrapper" className="text-light">
+            {courseContent.sectionBlocks
+              ? courseContent.sectionBlocks.map((section) =>
+                  displaySectionBlocks(section)
+                )
+              : ""}
+          </div>
         </div>
       </div>
-    </div>
+    ) : (
+      <h4>Loading</h4>
+    )
   );
   // return "";
 }
