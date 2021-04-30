@@ -7,6 +7,10 @@
   src: url("../fonts/Baufra-Medium.woff");
 }
 @font-face {
+  font-family: Baufra-Bold;
+  src: url("../fonts/Baufra-Bold.ttf");
+}
+@font-face {
   font-family: Montserrat;
   src: url("../fonts/Montserrat-Regular.ttf");
 }
@@ -24,7 +28,7 @@
   letter-spacing: 2px;
   margin-top: 25px;
   color: rgb(33, 201, 33);
-  font-family: Baufra;
+  font-family: Baufra-Bold;
 }
 .carousel-caption p {
   width: 60%;
@@ -97,13 +101,17 @@
 .w-100 {
   height: 100vh;
 }
+.nav-item a {
+  font-family: Baufra-Bold !important;
+  font-size: 20px !important;
+  font-weight: 200 !important;
+}
 @media only screen and (max-width: 767px) {
   .navbar-nav.ml-auto {
     background: rgba(0, 0, 0, 0.5);
   }
   .navbar-nav a {
     font-size: 14px;
-    font-weight: normal;
   }
 }
 

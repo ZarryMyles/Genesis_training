@@ -13,7 +13,7 @@ export default function Homepage() {
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
           <div class="container">
             <a class="navbar-brand homeLogo" href="#">
-              Zarrix
+              Zarix
             </a>{" "}
             <button
               aria-controls="navbarSupportedContent"
@@ -27,23 +27,23 @@ export default function Homepage() {
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+              <ul class="navbar-nav ml-auto ">
+                <li class="nav-item active pronto">
                   <a class="nav-link" href="/">
                     Home
                   </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item pronto">
                   <a class="nav-link" href="/catalog/user">
                     Catalog
                   </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item pronto">
                   <a class="nav-link" href="/login">
                     Sign-up
                   </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item pronto">
                   <a class="nav-link" href="/login">
                     Log-in
                   </a>
@@ -86,8 +86,8 @@ export default function Homepage() {
                 isVisible={true}
               >
                 <p>
-                  Here, at Zarrix Tutorials, we strive to help you learn the
-                  very essentials of Web Development without confusion.
+                  Here, at Zarix Tutorials, we strive to help you learn the very
+                  essentials of Web Development without confusion.
                 </p>
               </Animated>
               <Animated
@@ -137,11 +137,7 @@ export default function Homepage() {
             </div>
           </div>
           <div class="carousel-item">
-            <img
-              alt="Third slide"
-              class="d-block w-100"
-              src="https://i.postimg.cc/Jh4x3cH5/3.jpg"
-            />
+            <img alt="Third slide" class="d-block w-100" src={home3} />
             <div class="carousel-caption d-block">
               <Animated
                 animationIn="zoomIn"
