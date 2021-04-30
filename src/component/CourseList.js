@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import API from "./API";
 import CourseDisplay from "./CourseDisplay";
-
+import Preloader from "./Preloader";
 export default function CourseLIst(props) {
   const [courseList, setCourseList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -49,7 +49,7 @@ export default function CourseLIst(props) {
   return (
     <div className="mx-auto">
       {loading ? (
-        <h5 className="text-light">Loading . . .</h5>
+        <Preloader />
       ) : (
         <div
           id="CourseView"

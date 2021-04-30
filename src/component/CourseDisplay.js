@@ -4,6 +4,7 @@ import API from "./API";
 // import sampleData from "https://genesis-strapi-mongodb.herokuapp.com/course-contents";
 import axios from "axios";
 import "./css/coursedisplay.css";
+import Preloader from "./Preloader";
 export default function CourseDisplay(props) {
   const [courseName, SetCourseName] = useState(props.coursename);
   const [courseContent, SetCourseContent] = useState([]);
@@ -274,8 +275,9 @@ export default function CourseDisplay(props) {
         </div>
       </div>
     ) : (
-      <h4 className="mx-auto text-center text-light pt-5">Loading</h4>
+      <div>
+        <Preloader />
+      </div>
     )
   );
-  // return "";
 }

@@ -7,15 +7,19 @@ import API from "./API";
 import IMAGES from "./IMAGES";
 import ProfileImg from "../images/icons/profile-pic.png";
 import EditImg from "../images/icons/edit-icon.png";
+import Preloader from "./Preloader";
 export default function Profile(props) {
   const [user, setUser] = useState();
   const [courselist, setcourslist] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getData();
+    setLoading(false);
   }, []);
 
   let getData = async () => {
+    // fetching user profile info
     await fetch(API.userProfile).then((response) => {
       response.json().then((settings) => {
         let userFilter = settings.filter((user) => {
@@ -134,73 +138,78 @@ export default function Profile(props) {
       </div>
     );
   }
-  return (
-    <div className="d-md-flex flex-column  mt-5 mx-2 pt-4 p-1 mb-5 pb-5">
-      <div className="d-md-flex flex-md-row flex-column justify-content-center ">
-        {" "}
-        {displayProfileCard()}
-        {displayPointsCard()}
-        <div id="courses-details">
-          <div className="d-flex flex-column align-items-center text-light">
-            <div>
-              <h5>Enrolled Courses</h5>
-              <h5 className="text-primary">
-                {user
-                  ? user.completedCourseId.length + user.currentCourseId.length
-                  : 0}
-              </h5>
+  if (loading) return <Preloader />;
+  else
+    return (
+      <div className="d-md-flex flex-column  mt-5 mx-2 pt-4 p-1 mb-5 pb-5">
+        <div className="d-md-flex flex-md-row flex-column justify-content-center ">
+          {" "}
+          {displayProfileCard()}
+          {displayPointsCard()}
+          <div id="courses-details">
+            <div className="d-flex flex-column align-items-center text-light">
+              <div>
+                <h5>Enrolled Courses</h5>
+                <h5 className="text-primary">
+                  {user
+                    ? user.completedCourseId.length +
+                      user.currentCourseId.length
+                    : 0}
+                </h5>
+              </div>
+              <div>
+                <h5>Completed Courses</h5>
+                <h5 className="text-success">
+                  {user ? user.completedCourseId.length : 0}
+                </h5>
+              </div>
+              <div>
+                <h5>Ongoing Courses</h5>
+                <h5 className="text-danger">
+                  {user ? user.currentCourseId.length : 0}
+                </h5>
+              </div>
             </div>
-            <div>
-              <h5>Completed Courses</h5>
-              <h5 className="text-success">
-                {user ? user.completedCourseId.length : 0}
-              </h5>
+          </div>
+        </div>
+        <div className="profileWrapper  d-flex flex-wrap justify-content-center m-2">
+          <div className="completedCourse-wrapper p-3 m-2">
+            <h4 className="text-success text-center">
+              Ongoing Courses . . . You gotta finish 'em.
+            </h4>
+            <div id="CompletedCourses" className="d-flex flex-wrap">
+              {user && courselist && user.currentCourseId.length > 0 ? (
+                courselist.map((course) => {
+                  if (
+                    user.currentCourseId.includes(parseInt(course.courseId))
+                  ) {
+                    return displayCourseImg(course);
+                  }
+                })
+              ) : (
+                <h6 className="text-light">Loading data wait ....</h6>
+              )}
             </div>
-            <div>
-              <h5>Ongoing Courses</h5>
-              <h5 className="text-danger">
-                {user ? user.currentCourseId.length : 0}
-              </h5>
+          </div>
+          <div className="completedCourse-wrapper p-3 m-2">
+            <h4 className="text-light text-center">
+              You have finished these so far . . . more to go!
+            </h4>
+            <div id="CompletedCourses" className="d-flex flex-wrap">
+              {user && courselist && user.currentCourseId.length > 0 ? (
+                courselist.map((course) => {
+                  if (
+                    user.completedCourseId.includes(parseInt(course.courseId))
+                  ) {
+                    return displayCourseImg(course);
+                  }
+                })
+              ) : (
+                <h6 className="text-light">Loading data wait ....</h6>
+              )}
             </div>
           </div>
         </div>
       </div>
-      <div className="profileWrapper  d-flex flex-wrap justify-content-center m-2">
-        <div className="completedCourse-wrapper p-3 m-2">
-          <h4 className="text-success text-center">
-            Ongoing Courses . . . You gotta finish 'em.
-          </h4>
-          <div id="CompletedCourses" className="d-flex flex-wrap">
-            {user && courselist && user.currentCourseId.length > 0 ? (
-              courselist.map((course) => {
-                if (user.currentCourseId.includes(parseInt(course.courseId))) {
-                  return displayCourseImg(course);
-                }
-              })
-            ) : (
-              <h6 className="text-light">Loading data wait ....</h6>
-            )}
-          </div>
-        </div>
-        <div className="completedCourse-wrapper p-3 m-2">
-          <h4 className="text-light text-center">
-            You have finished these so far . . . more to go!
-          </h4>
-          <div id="CompletedCourses" className="d-flex flex-wrap">
-            {user && courselist && user.currentCourseId.length > 0 ? (
-              courselist.map((course) => {
-                if (
-                  user.completedCourseId.includes(parseInt(course.courseId))
-                ) {
-                  return displayCourseImg(course);
-                }
-              })
-            ) : (
-              <h6 className="text-light">Loading data wait ....</h6>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    );
 }

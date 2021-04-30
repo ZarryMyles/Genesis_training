@@ -15,8 +15,6 @@ import Preloader from "./component/Preloader";
 //others
 import "bootstrap/dist/css/bootstrap.min.css";
 import navbar from "./component/Navbar";
-// testing
-import LandingPage from "./component/landingpage";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -28,6 +26,7 @@ function App() {
         <Route path="/course/:coursename" component={coursedisplay} />
         <Route path="/login" component={loginUser} />
         <Route path="/profile/:username" component={profile} />
+        <Route path="/pre" component={preLoader} />
       </div>
     </Router>
   );
