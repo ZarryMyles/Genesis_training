@@ -11,9 +11,9 @@ import CourseSidebar from "./component/CourseSidebar";
 import Login from "./component/Login";
 import TestId from "./component/Testid";
 import Profile from "./component/Profile";
+import Preloader from "./component/Preloader";
 //others
 import "bootstrap/dist/css/bootstrap.min.css";
-import navbar from "./component/Navbar";
 // testing
 import LandingPage from "./component/landingpage";
 
@@ -30,13 +30,13 @@ function App() {
         {/* <ProtectedRoute path="/profile" component={Profile} isAuth={isAuth} /> */}
         <ProtectedRoute exact path="/test" component={TestId} />
         <Route path="/land" component={LandingPage} />
+        <Route path="/pre" component={preLoader} />
       </div>
     </Router>
   );
 }
 const homepage = () => (
   <Fragment>
-    <Navbar />
     <Homepage />
   </Fragment>
 );
@@ -72,6 +72,11 @@ const profile = (props) => (
   <Fragment>
     <Navbar username={props.match.params.username} />
     <Profile username={props.match.params.username} />
+  </Fragment>
+);
+const preLoader = () => (
+  <Fragment>
+    <Preloader />
   </Fragment>
 );
 

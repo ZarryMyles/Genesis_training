@@ -1,5 +1,9 @@
 * {
-  background-color: #262b30;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #262b30 !important;
   padding: 0;
   margin: 0;
 }
@@ -12,5 +16,5 @@ ul {
 #HomepageNav,
 #navbarSupportedContent,
 #navUl {
-  background-color: #5c6268 !important;
+  background-color: #5c6268;
 }

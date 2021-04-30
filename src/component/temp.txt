@@ -1,0 +1,208 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import "./css/homepage.css";
+import { Animated } from "react-animated-css";
+import home1 from "../images/img/home1.jpg";
+import home2 from "../images/img/home2.jpg";
+import home3 from "../images/img/home3.jpg";
+
+export default function Homepage() {
+  return (
+    <div id="homeBody">
+      <header>
+        <nav className="navbar navbar-expand-lg navbar-light navbar-inverse navbar-fixed-top navbar-custom">
+          <div className="container-fluid">
+            <a className="navbar-brand brandHome" href="#">
+              Zarix
+            </a>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+
+            <div
+              className="collapse navbar-collapse navContentHome"
+              id="navbarSupportedContent"
+            >
+              <ul className="nav navbar-nav justify-content-end ml-auto">
+                <li className="nav-item active mx-2 my-2 my-lg-0">
+                  <a className="nav-link" href="#">
+                    Home <span className="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li className="nav-item my-0 mx-2">
+                  <a className="nav-link" href="/catalog/user">
+                    Catalog
+                  </a>
+                </li>
+                <li>
+                  <a href="/login">
+                    <button
+                      className="btn btn-outline-success mx-0 my-2 my-lg-0 mx-lg-2"
+                      role="button"
+                      href="/login"
+                    >
+                      Sign-up
+                    </button>
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a href="/login">
+                    <button
+                      className="btn btn-outline-info mx-0 my-2 my-lg-0 mx-lg-2"
+                      role="button"
+                      href="/login"
+                    >
+                      Log-in
+                    </button>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div
+          id="carouselExampleIndicators"
+          className="carousel slide carousel-fade"
+          data-ride="carousel"
+        >
+          <ol className="carousel-indicators">
+            <li
+              data-target="#carouselExampleIndicators"
+              data-slide-to="0"
+              className="active"
+            ></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div className="carousel-inner d-flex float-center">
+            <div className="carousel-item active text-center">
+              <img src={home1} alt="First slide " />
+              <div class="carousel-caption text-dark d-md-block">
+                <h2 className="homeGreen">We are Zarix Tutorials</h2>
+                <p>Quality Web Development Course designs</p>
+              </div>
+            </div>
+            <div className="carousel-item text-center ">
+              <img src={home2} alt="Second slide" />
+              <div class="carousel-caption text-dark d-md-block">
+                <h2 className="homeGreen">Better Code</h2>
+                <p>Learn how to code things the efficient way</p>
+              </div>
+            </div>
+            <div className="carousel-item">
+              <img src={home3} alt="Third slide" />
+              <div class="carousel-caption d-md-block">
+                <h2 className="homeGreen">All things Web</h2>
+                <p>Learn everything from Front to Back</p>
+              </div>
+            </div>
+          </div>
+          <a
+            className="carousel-control-prev"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="prev"
+          >
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="sr-only">Previous</span>
+          </a>
+          <a
+            className="carousel-control-next"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="next"
+          >
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="sr-only">Next</span>
+          </a>
+        </div>
+      </header>
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@font-face {
+  font-family: HandyCheera;
+  src: url("../fonts/Handycheera.otf");
+}
+@font-face {
+  font-family: Baufra;
+  src: url("../fonts/Baufra-Bold.ttf");
+}
+
+.brandHome {
+  font-family: HandyCheera;
+}
+.navbar-custom {
+  background: #eceff5;
+}
+
+.navContentHome {
+  background: #eceff5 !important;
+}
+
+header .carousel-inner .carousel-item {
+  height: 100vh;
+  width: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel-caption {
+  padding-bottom: 250px;
+}
+
+.homeGreen {
+  font-family: Baufra;
+  color: rgb(37, 228, 37);
+}
+
+#homeBody {
+  background: #dae3f1 !important;
+}

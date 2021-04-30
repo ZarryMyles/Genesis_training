@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Collapsible from "react-collapsible";
-import API from "./api";
+import API from "./API";
 // import sampleData from "https://genesis-strapi-mongodb.herokuapp.com/course-contents";
 import axios from "axios";
 import "./css/coursedisplay.css";
