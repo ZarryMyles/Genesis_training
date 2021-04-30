@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Collapsible from "react-collapsible";
-import API from "./api";
+import API from "./API";
 // import sampleData from "https://genesis-strapi-mongodb.herokuapp.com/course-contents";
 import axios from "axios";
 import "./css/coursedisplay.css";
@@ -11,8 +11,8 @@ export default function CourseDisplay(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
     // loading flase
-    setLoading(false);
     getData();
+    setLoading(false);
   }, []);
 
   let getData = async () => {
@@ -29,9 +29,9 @@ export default function CourseDisplay(props) {
     setLoading(true);
   };
 
-  function displayBulletPoints(point) {
+  function displayBulletPoints(point, index) {
     return (
-      <li className="py-1" style={{ listStyle: "disc" }}>
+      <li key={index} className="py-1" style={{ listStyle: "disc" }}>
         {point}
       </li>
     );
@@ -71,7 +71,7 @@ export default function CourseDisplay(props) {
         <h5>{iframe.header}</h5>
         <div className="row">
           <iframe
-            className="col-8"
+            className="col-md-8 col-12"
             height={iframe.height}
             style={{ width: iframe.width, margin: "auto" }}
             scrolling="no"
@@ -83,14 +83,14 @@ export default function CourseDisplay(props) {
             allowfullscreen="true"
           >
             See the Pen{" "}
-            <a href={"https://codepen.io/richinrix/pen/" + iframe.titleCode}>
+            <a href={API.IFRAME.richinrix + iframe.titleCode}>
               {iframe.titleCode}
             </a>
           </iframe>
-          <div className="col-4 my-auto">
+          <div className="col-md-4 col-11 mx-md-auto mx-1 my-auto">
             {iframe.description
               .split("\n")
-              .map((line) => displayBulletPoints(line))}
+              .map((line, index) => displayBulletPoints(line, index))}
           </div>
         </div>
       </div>
@@ -122,18 +122,21 @@ export default function CourseDisplay(props) {
   function displayMiniCodeBlock(codeblock) {
     return (
       <div className="row m-2 mt-3 py-3">
-        <div id="code" className="col-4">
+        <div id="code" className="col-md-4 col-sm-10 mx-sm-auto">
           <h5 className="text-center">{codeblock.header}</h5>
           <div className=" p-3 codeblock">
             {codeblock.code.split("\n").map((line) => displayLine(line))}
           </div>
         </div>
-        <div id="codeDescription" className="col-8 my-auto mx-auto">
+        <div
+          id="codeDescription"
+          className="col-md-8 col-sm-12 my-auto mx-md-auto ml-1"
+        >
           <p>
             {codeblock.description
               ? codeblock.description
                   .split("\n")
-                  .map((line) => displayBulletPoints(line))
+                  .map((line, index) => displayBulletPoints(line, index))
               : ""}
           </p>
         </div>
@@ -162,7 +165,6 @@ export default function CourseDisplay(props) {
     );
   }
   function displaySectionBlocks(section) {
-    let blocktype;
     switch (section.type) {
       case "normal":
         return displayNormalSection(section);
@@ -196,7 +198,9 @@ export default function CourseDisplay(props) {
                   {subsection.content
                     ? subsection.content
                         .split("\n")
-                        .map((point) => displayBulletPoints(point))
+                        .map((point, index) =>
+                          displayBulletPoints(point, index)
+                        )
                     : ""}
                 </div>
               );
@@ -212,7 +216,9 @@ export default function CourseDisplay(props) {
                       <div style={{ listStyleType: "none" }}>
                         {subsection.content
                           .split("\n")
-                          .map((point) => displayBulletPoints(point))}
+                          .map((point, index) =>
+                            displayBulletPoints(point, index)
+                          )}
                       </div>
                     </div>
                   );
@@ -246,7 +252,10 @@ export default function CourseDisplay(props) {
   return (
     // condition
     loading ? (
-      <div id="course-display-wrapper" className="col-8  mb-5 mx-auto">
+      <div
+        id="course-display-wrapper"
+        className="col-md-8 col-12  mb-5 mx-auto"
+      >
         <h2 className="text-light text-center my-3 course-title">
           <span id="leftBracket">&#123;</span> {courseContent.title}{" "}
           <span id="rightBracket">&#125;</span>
@@ -265,7 +274,7 @@ export default function CourseDisplay(props) {
         </div>
       </div>
     ) : (
-      <h4>Loading</h4>
+      <h4 className="mx-auto text-center text-light pt-5">Loading</h4>
     )
   );
   // return "";

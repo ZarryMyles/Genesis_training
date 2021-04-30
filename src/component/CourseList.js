@@ -5,9 +5,11 @@ import CourseDisplay from "./CourseDisplay";
 
 export default function CourseLIst(props) {
   const [courseList, setCourseList] = useState([]);
-  // const [searchTerm, setSearchTerm] = useState(props.searchInput);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     getData();
+    setLoading(false);
+    console.log(loading);
   }, []);
   let getData = async () => {
     await fetch(API.courseList).then((response) => {
@@ -46,22 +48,26 @@ export default function CourseLIst(props) {
   }
   return (
     <div className="mx-auto">
-      <div
-        id="CourseView"
-        className="p-3 mx d-flex  flex-wrap justify-content-center"
-      >
-        {courseList
-          .filter((course) => {
-            if (props.searchInput === "") return course;
-            else if (
-              course.name
-                .toLowerCase()
-                .includes(props.searchInput.toLowerCase())
-            )
-              return course;
-          })
-          .map((course) => coursePreview(course))}
-      </div>
+      {loading ? (
+        <h5 className="text-light">Loading . . .</h5>
+      ) : (
+        <div
+          id="CourseView"
+          className="p-3 mx d-flex  flex-wrap justify-content-center"
+        >
+          {courseList
+            .filter((course) => {
+              if (props.searchInput === "") return course;
+              else if (
+                course.name
+                  .toLowerCase()
+                  .includes(props.searchInput.toLowerCase())
+              )
+                return course;
+            })
+            .map((course) => coursePreview(course))}
+        </div>
+      )}
     </div>
   );
 }

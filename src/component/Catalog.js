@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, createRef } from "react";
 import "./css/catalog.css";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 // routes
@@ -11,6 +11,11 @@ import ScrollDownImg from "../images/icons/scrolldown.png";
 import SearchIconImg from "../images/icons/search-icon.png";
 
 export default function Catalog(props) {
+  // trying to get the page to scroll to list on enter click
+  const listDiv = createRef();
+  function scrollToList() {
+    listDiv.current.scrollIntoView({ behavior: "smooth" });
+  }
   const [searchInput, setSearchInput] = useState("");
   return (
     <div className="mb-5 pb-5">
@@ -50,7 +55,7 @@ export default function Catalog(props) {
             aspernatur sequi sit voluptatem sed doloribus quos voluptate modi
             veniam, voluptates cum non veritatis ipsa consequatur quisquam?
           </p>
-          <div id="catalog-input" class="input-group mx-4 mx my-5 row ">
+          <div id="catalog-input" class="input-group mx-4  my-5 row ">
             <input
               id="CourseSearchInput"
               type="text"
@@ -61,7 +66,7 @@ export default function Catalog(props) {
             />
 
             <a
-              href="#catalogSearchInput"
+              href="#scrollToCourseList"
               type="button"
               class="btn btn-outline col-3 p-1"
             >
@@ -72,11 +77,11 @@ export default function Catalog(props) {
       </div>
       <div
         id="discover-btn"
-        className=" mb-md-5 mb-1 d-flex justify-content-center flex-column"
+        className="  mb-1 d-flex justify-content-center flex-column"
         href="#catalog-browse"
       >
         <div id="scrollDown" className="mx-auto">
-          <a href="#catalog-browse">
+          <a href="#scrollToCourseList">
             <img
               src={ScrollDownImg}
               alt="scroll-down"
@@ -87,14 +92,14 @@ export default function Catalog(props) {
         </div>
       </div>
 
-      <div class="input-group justify-content-center mx-auto">
+      <div id="scrollToCourseList" style={{ paddingTop: "100px" }}></div>
+      <div class="input-group justify-content-center mx-auto ">
         <div class="input-group mb-md-3 mb-1 col-md-4 col-sm-2 ">
           <input
             id="catalogSearchInput"
             type="text"
             class="form-control text-color-dark-blue courselist-search-input"
             placeholder="Search for course"
-            aria-label="Search for course"
             aria-describedby="button-addon2"
             onChange={(e) => setSearchInput(e.target.value)}
           />

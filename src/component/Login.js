@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
+import "./css/login.css";
 import axios from "axios";
-import LoginAuth from "./LoginAuth";
 import API from "./API";
+// trying
 import DATA from "./DATA";
+import LoginAuth from "./LoginAuth";
 // images
 import LoginImg from "../images/img/undraw-login.png";
 import UserImg from "../images/icons/user-icon.png";
-// css
-import "./css/login.css";
+
 export default function Login(props) {
-  // state vars
+  // state variables
   const [signInStatus, setStatus] = useState(true);
   const [userMail, setUserMail] = useState();
   const [password, setPassword] = useState();
@@ -25,9 +26,6 @@ export default function Login(props) {
     getData();
     // testing();
   });
-  let testing = async () => {
-    console.log(DATA.getUserData(API.loginInfo));
-  };
 
   let getData = async () => {
     await fetch(API.loginInfo).then((response) => {
@@ -58,15 +56,23 @@ export default function Login(props) {
       password: password,
       completedCourseId: [],
       currentCourseId: [],
+      completedCourses: [],
     });
   }
   function toggleStat() {
     setStatus((prevStat) => !prevStat);
   }
-  function handleKeypress(e) {
+  function handleKeypress(e, choice) {
     let key = e.keyCode || e.which;
     if (key === 13) {
-      loginHandler();
+      switch (choice) {
+        case "signIn":
+          loginHandler();
+          break;
+        case "signUp":
+          signUpHandler();
+          break;
+      }
     }
   }
   function displayWrongPassword() {
@@ -105,7 +111,7 @@ export default function Login(props) {
     let path = "/catalog/" + username;
     return <Redirect to={path} />;
   }
-  function signingUp() {
+  function signUpHandler() {
     if (password !== confirmPassword) setPasswordsMatch(false);
     else {
       setPasswordsMatch(true);
@@ -136,7 +142,7 @@ export default function Login(props) {
             type="password"
             placeholder="Enter your password"
             onChange={(e) => setPassword(e.target.value)}
-            onKeyPress={(e) => handleKeypress(e)}
+            onKeyPress={(e) => handleKeypress(e, "signIn")}
             name="password"
           />
 
@@ -183,11 +189,12 @@ export default function Login(props) {
             type="password"
             placeholder="Confirm your password"
             onChange={(e) => setConfirmPassword(e.target.value)}
+            onKeyPress={(e) => handleKeypress(e, "signUp")}
             name="confirmPassword"
           />
           <button
             className=" bg-outline-btn logging-btn-blue  mt-3"
-            onClick={signingUp}
+            onClick={signUpHandler}
           >
             Sign Up
           </button>

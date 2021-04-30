@@ -14,8 +14,6 @@ import Profile from "./component/Profile";
 //others
 import "bootstrap/dist/css/bootstrap.min.css";
 import navbar from "./component/Navbar";
-// testing
-import LandingPage from "./component/landingpage";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -27,9 +25,6 @@ function App() {
         <Route path="/course/:coursename" component={coursedisplay} />
         <Route path="/login" component={loginUser} />
         <Route path="/profile/:username" component={profile} />
-        {/* <ProtectedRoute path="/profile" component={Profile} isAuth={isAuth} /> */}
-        <ProtectedRoute exact path="/test" component={TestId} />
-        <Route path="/land" component={LandingPage} />
       </div>
     </Router>
   );

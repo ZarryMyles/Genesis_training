@@ -4,7 +4,11 @@
   background: #6268e1;
 }
 #userProfileImg > img {
+  background: #6268e1;
   height: 150px;
+}
+#userProfileImg {
+  height: fit-content;
 }
 #username {
   background: #6268e1;
@@ -13,10 +17,7 @@
   font-family: Baufra-Bold;
   text-transform: capitalize;
 }
-#userProfileImg > img {
-  background: #6268e1;
-  /* width: 30px; */
-}
+
 #username > img {
   background: #6268e1;
 }
@@ -83,16 +84,20 @@
   cursor: pointer;
 }
 
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   #userProfileImg > img {
-    height: 100px;
+    height: 80px;
+    width: 100%;
+    align-self: center;
   }
   .profile-display {
-    /* margin-right: 20px; */
-    /* border-radius: 15px; */
-    background: #6268e1;
+    width: 100px;
   }
-  #CompletedCourses {
-    /* width: 200%; */
+  .profile-display > h3 {
+    font-size: 20px;
   }
-}
+  #points-display {
+    width: 250px;
+  }
+  
+} */

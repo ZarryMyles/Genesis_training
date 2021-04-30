@@ -1,10 +1,10 @@
 const DATA = {
   getUserData(api) {
     let data;
-    data = fetch(api)
+    fetch(api)
       .then((response) => response.json())
-      .then((data) => data);
-    console.log(data);
+      .then((info) => (data = info));
+    console.log(api);
     // return data;
   },
 };

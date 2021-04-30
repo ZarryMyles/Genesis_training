@@ -20,9 +20,12 @@
   padding: 10px 10px;
   font-family: "Cairo", sans-serif;
 }
-.codeblock > div {
+.codeblock > div,
+.codeblock > p,
+.codeblock > li {
   background-color: #243646;
 }
+
 .color-green {
   color: #42d786;
   font-weight: bold;
@@ -85,10 +88,40 @@
   }
 }
 @media (max-width: 376px) {
+  .codeblock > div,
+  .codeblock > li,
+  .codeblock > p {
+    font: size 10px;
+  }
+  .sectionBlocks p,
+  .sectionBlocks li {
+    font-size: 10px;
+    background-color: none;
+  }
   .course-title {
     font-size: 16px;
   }
   .collapsible-trigger {
+    font-size: 15px;
+  }
+  .collapsible-trigger-opened {
+    color: #42d786;
+    font-size: 15px;
+    font-weight: bolder;
+
+    padding-bottom: 20px;
+  }
+  .sectionBlocks h3 {
+    font-weight: bold;
+  }
+  .sectionBlocks h4 {
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .sections h4 {
+    font-size: 15px;
+  }
+  .sectionBlocks h5 {
     font-size: 15px;
   }
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./css/profile.css";
 import API from "./API";
+
 // images
 import IMAGES from "./IMAGES";
 import ProfileImg from "../images/icons/profile-pic.png";
@@ -13,6 +14,7 @@ export default function Profile(props) {
   useEffect(() => {
     getData();
   }, []);
+
   let getData = async () => {
     await fetch(API.userProfile).then((response) => {
       response.json().then((settings) => {
@@ -20,7 +22,6 @@ export default function Profile(props) {
           return user.username == props.username;
         });
         setUser(userFilter[0]);
-        // user score is being set before user is fetched--resolve later
       });
     });
     // fetching courselist
@@ -32,22 +33,13 @@ export default function Profile(props) {
   };
   function displayProfileCard() {
     return (
-      <div>
-        <div className="profile-display d-flex flex-column p-2">
-          <div id="userProfileImg">
-            <img src={ProfileImg} alt="profile-pic" />
-          </div>
-          <h3 id="username" className=" text-center ">
-            {user ? user.username : ""}{" "}
-            {/* <img
-              id="editProfileIcon"
-              src={EditImg}
-              alt="edit-icon"
-              width="30px"
-              className="my-auto"
-            /> */}
-          </h3>
+      <div className="profile-display align-items-center  flex-grow d-flex flex-column p-2">
+        <div id="userProfileImg">
+          <img src={ProfileImg} alt="profile-pic" />
         </div>
+        <h3 id="username" className=" text-center ">
+          {user ? user.username : ""}{" "}
+        </h3>
       </div>
     );
   }
@@ -143,9 +135,10 @@ export default function Profile(props) {
     );
   }
   return (
-    <div className="d-md-flex  mt-5 mx-2 pt-4 p-1 mb-5 pb-5">
-      /{displayProfileCard()}
-      <div className="profileWrapper  d-flex flex-wrap justify-content-center m-2">
+    <div className="d-md-flex flex-column  mt-5 mx-2 pt-4 p-1 mb-5 pb-5">
+      <div className="d-md-flex flex-md-row flex-column justify-content-center ">
+        {" "}
+        {displayProfileCard()}
         {displayPointsCard()}
         <div id="courses-details">
           <div className="d-flex flex-column align-items-center text-light">
@@ -171,6 +164,8 @@ export default function Profile(props) {
             </div>
           </div>
         </div>
+      </div>
+      <div className="profileWrapper  d-flex flex-wrap justify-content-center m-2">
         <div className="completedCourse-wrapper p-3 m-2">
           <h4 className="text-success text-center">
             Ongoing Courses . . . You gotta finish 'em.
