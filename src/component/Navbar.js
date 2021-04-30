@@ -12,7 +12,7 @@ export default function Navbar(props) {
           id="HomepageNav"
         >
           <a className="navbar-brand gen" href="#">
-            Genesis Tutorials
+            Zarrix Tutorials
           </a>
           <button
             className="navbar-toggler mnavbar-toggler"

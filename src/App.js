@@ -11,9 +11,12 @@ import CourseSidebar from "./component/CourseSidebar";
 import Login from "./component/Login";
 import TestId from "./component/Testid";
 import Profile from "./component/Profile";
+import Preloader from "./component/Preloader";
 //others
 import "bootstrap/dist/css/bootstrap.min.css";
 import navbar from "./component/Navbar";
+// testing
+import LandingPage from "./component/landingpage";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -31,7 +34,6 @@ function App() {
 }
 const homepage = () => (
   <Fragment>
-    <Navbar />
     <Homepage />
   </Fragment>
 );
@@ -67,6 +69,11 @@ const profile = (props) => (
   <Fragment>
     <Navbar username={props.match.params.username} />
     <Profile username={props.match.params.username} />
+  </Fragment>
+);
+const preLoader = () => (
+  <Fragment>
+    <Preloader />
   </Fragment>
 );
 
