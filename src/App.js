@@ -12,6 +12,7 @@ import Login from "./component/Login";
 import TestId from "./component/Testid";
 import Profile from "./component/Profile";
 import Preloader from "./component/Preloader";
+import Quiz from "./component/Quiz";
 //others
 import "bootstrap/dist/css/bootstrap.min.css";
 import navbar from "./component/Navbar";
@@ -27,6 +28,7 @@ function App() {
         <Route path="/login" component={loginUser} />
         <Route path="/profile/:username" component={profile} />
         <Route path="/pre" component={preLoader} />
+        <Route path="/quiz" component={quiz} />
       </div>
     </Router>
   );
@@ -73,6 +75,11 @@ const profile = (props) => (
 const preLoader = () => (
   <Fragment>
     <Preloader />
+  </Fragment>
+);
+const quiz = () => (
+  <Fragment>
+    <Quiz />
   </Fragment>
 );
 
