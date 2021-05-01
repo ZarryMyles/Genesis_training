@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
-import Collapsible from "react-collapsible";
-import API from "./API";
-// import sampleData from "https://genesis-strapi-mongodb.herokuapp.com/course-contents";
-import axios from "axios";
 import "./css/coursedisplay.css";
 import Preloader from "./Preloader";
+import Collapsible from "react-collapsible";
+import API from "./API";
+import Quiz from "./Quiz";
+import axios from "axios";
 export default function CourseDisplay(props) {
   const [courseName, SetCourseName] = useState(props.coursename);
   const [courseContent, SetCourseContent] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     window.scrollTo(0, 0);
-    // loading flase
     getData();
     setLoading(false);
   }, []);
@@ -250,7 +249,9 @@ export default function CourseDisplay(props) {
       </div>
     );
   }
-  return loading ? (
+  return !loading ? (
+    <Preloader size={"big"} color={"green"} />
+  ) : (
     <div id="course-display-wrapper" className="col-md-8 col-12  mb-5 mx-auto">
       <h2 className="text-light text-center my-3 course-title">
         <span id="leftBracket">&#123;</span> {courseContent.title}{" "}
@@ -268,10 +269,11 @@ export default function CourseDisplay(props) {
             : ""}
         </div>
       </div>
-    </div>
-  ) : (
-    <div>
-      <Preloader />
+      {courseContent.courseId ? (
+        <Quiz courseId={parseInt(courseContent.courseId)} />
+      ) : (
+        ""
+      )}
     </div>
   );
 }

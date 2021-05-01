@@ -25,7 +25,7 @@ export default function Login() {
 
   let getData = async () => {
     const { data: info } = await axios.get(API.loginInfo);
-    setUsers({ info });
+    setUsers(info);
   };
   function postData() {
     const newUser = {

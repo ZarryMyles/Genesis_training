@@ -10,7 +10,6 @@ export default function CourseLIst(props) {
   useEffect(() => {
     getData();
     setLoading(false);
-    console.log(loading);
   }, []);
   let getData = async () => {
     const { data: fetchCourseList } = await axios.get(API.courseList);
@@ -64,6 +63,7 @@ export default function CourseLIst(props) {
       </div>
     );
   }
+
   return (
     <div className="mx-auto ">
       {loading ? (

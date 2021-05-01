@@ -1,9 +1,16 @@
-.preload-position-fixed {
+.preload-position-big {
   position: fixed;
 }
-.preload-position-relative {
+.preload-position-small {
   position: relative;
 }
+.preloader-color-green {
+  background-color: #19bb62;
+}
+.preloader-color-purple {
+  background-color: #4747c2;
+}
+
 .preLoad {
   /* left: 0;
   top: 0; */
@@ -20,7 +27,7 @@
   display: block;
   height: 60px;
   width: 60px;
-  background-color: #19bb62;
+  /* background-color: #19bb62; */
   border-radius: 50%;
   animation: zoomInfinite 1s infinite;
 }
