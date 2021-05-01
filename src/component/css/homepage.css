@@ -27,7 +27,7 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-top: 25px;
-  color: rgb(33, 201, 33);
+  color: #21c921;
   font-family: Baufra-Bold;
 }
 .carousel-caption p {
@@ -40,8 +40,13 @@
 }
 .carousel-caption a {
   text-transform: uppercase;
-  background: red;
+  /* background: red; */
+  /* me testing */
+  border: 3px solid #6268e160;
+  border-radius: 15px;
+  /*  */
   font-family: Montserrat;
+  font-weight: bold;
   padding: 10px 30px;
   display: inline-block;
   color: #fff;
@@ -50,7 +55,9 @@
 .carousel-caption a:hover {
   text-decoration: none;
   color: white;
-  background: rgb(185, 0, 0);
+  /* background: rgb(185, 0, 0); */
+  /* ME TESTING */
+  background-color: #6268e160;
 }
 .homeLogo {
   font-family: HandyCheera;

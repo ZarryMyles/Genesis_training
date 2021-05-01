@@ -43,11 +43,11 @@ export default function Homepage() {
                     Sign-up
                   </a>
                 </li>
-                <li class="nav-item pronto">
+                {/* <li class="nav-item pronto">
                   <a class="nav-link" href="/login">
                     Log-in
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>

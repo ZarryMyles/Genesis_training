@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import API from "./API";
 import CourseDisplay from "./CourseDisplay";
 import Preloader from "./Preloader";
+import axios from "axios";
 export default function CourseLIst(props) {
   const [courseList, setCourseList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,11 +13,8 @@ export default function CourseLIst(props) {
     console.log(loading);
   }, []);
   let getData = async () => {
-    await fetch(API.courseList).then((response) => {
-      response.json().then((list) => {
-        setCourseList(list);
-      });
-    });
+    const { data: fetchCourseList } = await axios.get(API.courseList);
+    setCourseList(fetchCourseList);
   };
   function coursePreview(course) {
     let coursePath = course.link;
@@ -46,27 +44,34 @@ export default function CourseLIst(props) {
       </div>
     );
   }
+  function displayCourseList() {
+    return (
+      <div
+        id="CourseView"
+        className="p-3 mx d-flex  flex-wrap justify-content-center"
+      >
+        {courseList
+          .filter((course) => {
+            if (props.searchInput === "") return course;
+            else if (
+              course.name
+                .toLowerCase()
+                .includes(props.searchInput.toLowerCase())
+            )
+              return course;
+          })
+          .map((course) => coursePreview(course))}
+      </div>
+    );
+  }
   return (
-    <div className="mx-auto">
+    <div className="mx-auto ">
       {loading ? (
-        <Preloader />
+        <h5 className="text-light text-center my-5 py-5">
+          Loading Courses . . .
+        </h5>
       ) : (
-        <div
-          id="CourseView"
-          className="p-3 mx d-flex  flex-wrap justify-content-center"
-        >
-          {courseList
-            .filter((course) => {
-              if (props.searchInput === "") return course;
-              else if (
-                course.name
-                  .toLowerCase()
-                  .includes(props.searchInput.toLowerCase())
-              )
-                return course;
-            })
-            .map((course) => coursePreview(course))}
-        </div>
+        displayCourseList()
       )}
     </div>
   );

@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const DATA = {
   getUserData(api) {
     let data;

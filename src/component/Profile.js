@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./css/profile.css";
 import API from "./API";
-
+import axios from "axios";
 // images
 import IMAGES from "./IMAGES";
 import ProfileImg from "../images/icons/profile-pic.png";
@@ -10,30 +10,31 @@ import EditImg from "../images/icons/edit-icon.png";
 import Preloader from "./Preloader";
 export default function Profile(props) {
   const [user, setUser] = useState();
-  const [courselist, setcourslist] = useState();
-  const [loading, setLoading] = useState(true);
-
+  const [courselist, setCourseList] = useState();
+  const [redirect, setRedirect] = useState(false);
   useEffect(() => {
     getData();
-    setLoading(false);
   }, []);
 
   let getData = async () => {
     // fetching user profile info
+    // trying with axios
+    // const { data: fetchUser } = await axios.get(API.userProfile);
+    // console.log(fetchUser, props.username);
+    // setUser(fetchUser.filter((user) => user.username == props.username));
     await fetch(API.userProfile).then((response) => {
       response.json().then((settings) => {
         let userFilter = settings.filter((user) => {
           return user.username == props.username;
         });
-        setUser(userFilter[0]);
+        userFilter[0] !== undefined
+          ? setUser(userFilter[0])
+          : setRedirect(true);
       });
     });
     // fetching courselist
-    await fetch(API.courseList).then((response) => {
-      response.json().then((list) => {
-        setcourslist(list);
-      });
-    });
+    const { data: fetchCourseList } = await axios.get(API.courseList);
+    setCourseList(fetchCourseList);
   };
   function displayProfileCard() {
     return (
@@ -138,7 +139,7 @@ export default function Profile(props) {
       </div>
     );
   }
-  if (loading) return <Preloader />;
+  if (redirect) return <Redirect to="/login" />;
   else
     return (
       <div className="d-md-flex flex-column  mt-5 mx-2 pt-4 p-1 mb-5 pb-5">
@@ -179,15 +180,13 @@ export default function Profile(props) {
             </h4>
             <div id="CompletedCourses" className="d-flex flex-wrap">
               {user && courselist && user.currentCourseId.length > 0 ? (
-                courselist.map((course) => {
-                  if (
-                    user.currentCourseId.includes(parseInt(course.courseId))
-                  ) {
-                    return displayCourseImg(course);
-                  }
-                })
+                courselist.map(
+                  (course) =>
+                    user.currentCourseId.includes(parseInt(course.courseId)) &&
+                    displayCourseImg(course)
+                )
               ) : (
-                <h6 className="text-light">Loading data wait ....</h6>
+                <Preloader small={true} />
               )}
             </div>
           </div>
@@ -197,15 +196,14 @@ export default function Profile(props) {
             </h4>
             <div id="CompletedCourses" className="d-flex flex-wrap">
               {user && courselist && user.currentCourseId.length > 0 ? (
-                courselist.map((course) => {
-                  if (
-                    user.completedCourseId.includes(parseInt(course.courseId))
-                  ) {
-                    return displayCourseImg(course);
-                  }
-                })
+                courselist.map(
+                  (course) =>
+                    user.completedCourseId.includes(
+                      parseInt(course.courseId)
+                    ) && displayCourseImg(course)
+                )
               ) : (
-                <h6 className="text-light">Loading data wait ....</h6>
+                <Preloader small={true} />
               )}
             </div>
           </div>

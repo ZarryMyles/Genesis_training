@@ -3,14 +3,11 @@ import { Redirect } from "react-router-dom";
 import "./css/login.css";
 import axios from "axios";
 import API from "./API";
-// trying
-import DATA from "./DATA";
-import LoginAuth from "./LoginAuth";
 // images
 import LoginImg from "../images/img/undraw-login.png";
 import UserImg from "../images/icons/user-icon.png";
 
-export default function Login(props) {
+export default function Login() {
   // state variables
   const [signInStatus, setStatus] = useState(true);
   const [userMail, setUserMail] = useState();
@@ -20,60 +17,41 @@ export default function Login(props) {
   const [redirect, setredirect] = useState(false);
   const [wrongPassword, setWrongpassword] = useState(false);
   const [passwordsMatch, setPasswordsMatch] = useState(true);
-  const [users, setUser] = useState();
+  const [users, setUsers] = useState();
 
-  useEffect(() => {
+  useEffect(async () => {
     getData();
-    // testing();
-  });
+  }, []);
 
   let getData = async () => {
-    await fetch(API.loginInfo).then((response) => {
-      response.json().then((data) => {
-        setUser(data);
-      });
-    });
+    const { data: info } = await axios.get(API.loginInfo);
+    setUsers({ info });
   };
-  // posting new user data
   function postData() {
-    axios
-      .post(API.loginInfo, {
-        userId: 0,
-        name: username,
-        username: username,
-        email: userMail,
-        password: password,
-      })
-      .then((response) => {
-        console.log(response);
-      });
-    axios.post(API.userProfile, {
-      userId: null,
+    const newUser = {
+      userId: 20,
       name: username,
       username: username,
       email: userMail,
-      score: 0,
       password: password,
+    };
+    const newUserProfile = {
+      userId: 21,
+      name: username.toString(),
+      username: username.toString(),
+      email: userMail.toString(),
+      score: 0,
+      password: password.toString(),
       completedCourseId: [],
       currentCourseId: [],
       completedCourses: [],
-    });
+    };
+    axios.post(API.loginInfo, newUser);
+    axios.post(API.userProfile, newUserProfile);
   }
+  // toggling b/w sigin in and singup
   function toggleStat() {
     setStatus((prevStat) => !prevStat);
-  }
-  function handleKeypress(e, choice) {
-    let key = e.keyCode || e.which;
-    if (key === 13) {
-      switch (choice) {
-        case "signIn":
-          loginHandler();
-          break;
-        case "signUp":
-          signUpHandler();
-          break;
-      }
-    }
   }
   function displayWrongPassword() {
     return (
@@ -91,6 +69,24 @@ export default function Login(props) {
   }
 
   // redirecting to catalog on logging in
+  function redirectingPage() {
+    let path = "/catalog/" + username;
+    return <Redirect to={path} />;
+  }
+  // event handlers
+  function handleKeypress(e, choice) {
+    let key = e.keyCode || e.which;
+    if (key === 13) {
+      switch (choice) {
+        case "signIn":
+          loginHandler();
+          break;
+        case "signUp":
+          signUpHandler();
+          break;
+      }
+    }
+  }
   function loginHandler() {
     if (userMail && password) {
       let userInfo = users.filter((user) => {
@@ -107,10 +103,6 @@ export default function Login(props) {
       } else setWrongpassword(true);
     }
   }
-  function redirectingPage() {
-    let path = "/catalog/" + username;
-    return <Redirect to={path} />;
-  }
   function signUpHandler() {
     if (password !== confirmPassword) setPasswordsMatch(false);
     else {
@@ -121,7 +113,6 @@ export default function Login(props) {
       }
     }
   }
-
   // sign in and sign Up input screens
   function signIn() {
     return (

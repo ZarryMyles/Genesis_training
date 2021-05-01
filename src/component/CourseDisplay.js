@@ -250,34 +250,28 @@ export default function CourseDisplay(props) {
       </div>
     );
   }
-  return (
-    // condition
-    loading ? (
-      <div
-        id="course-display-wrapper"
-        className="col-md-8 col-12  mb-5 mx-auto"
-      >
-        <h2 className="text-light text-center my-3 course-title">
-          <span id="leftBracket">&#123;</span> {courseContent.title}{" "}
-          <span id="rightBracket">&#125;</span>
-        </h2>
-        <div className="">
-          <div className="text-light text-center mt-4">
-            <div id="description">{courseContent.description}</div>
-          </div>
-          <div id="sectionBlocksWrapper" className="text-light">
-            {courseContent.sectionBlocks
-              ? courseContent.sectionBlocks.map((section) =>
-                  displaySectionBlocks(section)
-                )
-              : ""}
-          </div>
+  return loading ? (
+    <div id="course-display-wrapper" className="col-md-8 col-12  mb-5 mx-auto">
+      <h2 className="text-light text-center my-3 course-title">
+        <span id="leftBracket">&#123;</span> {courseContent.title}{" "}
+        <span id="rightBracket">&#125;</span>
+      </h2>
+      <div className="">
+        <div className="text-light text-center mt-4">
+          <div id="description">{courseContent.description}</div>
+        </div>
+        <div id="sectionBlocksWrapper" className="text-light">
+          {courseContent.sectionBlocks
+            ? courseContent.sectionBlocks.map((section) =>
+                displaySectionBlocks(section)
+              )
+            : ""}
         </div>
       </div>
-    ) : (
-      <div>
-        <Preloader />
-      </div>
-    )
+    </div>
+  ) : (
+    <div>
+      <Preloader />
+    </div>
   );
 }
