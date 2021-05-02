@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./css/coursedisplay.css";
 import Preloader from "./Preloader";
 import Collapsible from "react-collapsible";
-import API from "./API";
+import API from "./services/API";
 import Quiz from "./Quiz";
 import axios from "axios";
 export default function CourseDisplay(props) {

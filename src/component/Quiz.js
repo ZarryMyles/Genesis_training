@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import API from "./API";
+import API from "./services/API";
 // css
 import "./css/quiz.css";
 import Preloader from "./Preloader";

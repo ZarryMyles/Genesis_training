@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import "./css/login.css";
 import axios from "axios";
-import API from "./API";
+import API from "./services/API";
+import { register } from "./services/userService";
+import { authLogin } from "./services/authService";
 // images
 import LoginImg from "../images/img/undraw-login.png";
 import UserImg from "../images/icons/user-icon.png";
@@ -27,7 +29,7 @@ export default function Login() {
     const { data: info } = await axios.get(API.loginInfo);
     setUsers(info);
   };
-  function postData() {
+  let postData = async () => {
     const newUser = {
       userId: 20,
       name: username,
@@ -46,9 +48,17 @@ export default function Login() {
       currentCourseId: [],
       completedCourses: [],
     };
-    axios.post(API.loginInfo, newUser);
-    axios.post(API.userProfile, newUserProfile);
-  }
+    try {
+      await axios.post(API.loginInfo, newUser);
+      await axios.post(API.userProfile, newUserProfile);
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        alert("user already exists");
+      }
+    }
+    // http service
+    // register(newUser, newUserProfile);
+  };
   // toggling b/w sigin in and singup
   function toggleStat() {
     setStatus((prevStat) => !prevStat);
@@ -67,7 +77,6 @@ export default function Login() {
       </div>
     );
   }
-
   // redirecting to catalog on logging in
   function redirectingPage() {
     let path = "/catalog/" + username;
@@ -102,6 +111,9 @@ export default function Login() {
         setredirect(true);
       } else setWrongpassword(true);
     }
+    let loginToken = async () => {
+      await authLogin(username, password);
+    };
   }
   function signUpHandler() {
     if (password !== confirmPassword) setPasswordsMatch(false);

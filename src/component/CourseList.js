@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import API from "./API";
+import API from "./services/API";
 import CourseDisplay from "./CourseDisplay";
 import Preloader from "./Preloader";
 import axios from "axios";
@@ -64,16 +64,10 @@ export default function CourseLIst(props) {
     );
   }
 
-  return (
-    <div className="mx-auto ">
-      {loading ? (
-        <h5 className="text-light text-center my-5 py-5">
-          Loading Courses . . .
-        </h5>
-      ) : (
-        displayCourseList()
-      )}
-    </div>
+  return loading ? (
+    <Preloader size={"small"} color={"green"} />
+  ) : (
+    <div className="mx-auto ">{displayCourseList()}</div>
   );
 }
 const coursedisplay = () => <CourseDisplay />;

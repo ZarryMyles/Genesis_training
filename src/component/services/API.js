@@ -7,5 +7,6 @@ const API = {
   IFRAME: {
     richinrix: "https://codepen.io/richinrix/pen/",
   },
+  auth: "",
 };
 export default API;

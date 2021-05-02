@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import "./css/profile.css";
-import API from "./API";
+import API from "./services/API";
 import axios from "axios";
 // images
 import IMAGES from "./IMAGES";
@@ -15,13 +15,13 @@ export default function Profile(props) {
   useEffect(() => {
     getData();
   }, []);
-
   let getData = async () => {
     // fetching user profile info
     // trying with axios
     // const { data: fetchUser } = await axios.get(API.userProfile);
     // console.log(fetchUser, props.username);
     // setUser(fetchUser.filter((user) => user.username == props.username));
+
     await fetch(API.userProfile).then((response) => {
       response.json().then((settings) => {
         let userFilter = settings.filter((user) => {
@@ -32,6 +32,7 @@ export default function Profile(props) {
           : setRedirect(true);
       });
     });
+
     // fetching courselist
     const { data: fetchCourseList } = await axios.get(API.courseList);
     setCourseList(fetchCourseList);
@@ -203,7 +204,7 @@ export default function Profile(props) {
                     ) && displayCourseImg(course)
                 )
               ) : (
-                <Preloader small={true} />
+                <Preloader size={"small"} />
               )}
             </div>
           </div>
