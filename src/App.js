@@ -15,6 +15,7 @@ import TestId from "./component/Testid";
 import Profile from "./component/Profile";
 import Preloader from "./component/Preloader";
 import Quiz from "./component/Quiz";
+import PrivateRoute from "./component/ProtectedRoute";
 //others
 import "bootstrap/dist/css/bootstrap.min.css";
 import navbar from "./component/Navbar";
@@ -28,7 +29,7 @@ function App() {
         <Route path="/catalog/:username" component={catalog} />
         <Route path="/course/:coursename" component={coursedisplay} />
         <Route path="/login" component={loginUser} />
-        <Route path="/profile/:username" component={profile} />
+        <PrivateRoute path="/profile/:username" component={profile} />
         <Route path="/pre" component={preLoader} />
         <Route path="/quiz" component={quiz} />
       </div>

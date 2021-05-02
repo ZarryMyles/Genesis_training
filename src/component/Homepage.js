@@ -43,11 +43,6 @@ export default function Homepage() {
                     Sign-up
                   </a>
                 </li>
-                {/* <li class="nav-item pronto">
-                  <a class="nav-link" href="/login">
-                    Log-in
-                  </a>
-                </li> */}
               </ul>
             </div>
           </div>
@@ -86,8 +81,8 @@ export default function Homepage() {
                 isVisible={true}
               >
                 <p>
-                  Here, at Zarix Tutorials, we strive to help you learn the very
-                  essentials of Web Development without confusion.
+                  Here, at Zarix Tutorials, we'll help you learn the very
+                  essentials of Web Development.
                 </p>
               </Animated>
               <Animated
@@ -154,8 +149,8 @@ export default function Homepage() {
                 isVisible={true}
               >
                 <p>
-                  Code efficiency and Readability is a thing most tutorials skip
-                  on. Not us
+                  Code Efficiency and Readability is a thing most tutorials skip
+                  on. Not us.
                 </p>
               </Animated>
               <Animated
