@@ -112,7 +112,7 @@ export default function Profile(props) {
               height="50px"
             />
           </div>
-          <div className="points-quote text-light align-self-center ">
+          <div className="points-quote text-light align-self-center">
             <h6 className="p-2 my-auto">Keep up the good work!</h6>
           </div>
         </div>
@@ -126,11 +126,12 @@ export default function Profile(props) {
                       return (
                         <div>
                           <span>{name}</span>{" "}
-                          <span className="text-primary">
+                          <span className="text-primary ">
                             <img
-                              className="ml-1 "
+                              className="ml-1"
                               src={testScoreImg(score)}
                               alt="score"
+                              id="profStars"
                               height="25px"
                             />{" "}
                           </span>
@@ -183,9 +184,7 @@ export default function Profile(props) {
         </div>
         <div className="profileWrapper  d-flex flex-wrap justify-content-center m-2">
           <div className="completedCourse-wrapper p-3 m-2">
-            <h4 className="text-success text-center">
-              Ongoing Courses . . . You gotta finish 'em.
-            </h4>
+            <h4 className="text-success text-center">On-going Courses</h4>
             <div id="CompletedCourses" className="d-flex flex-wrap">
               {user && courselist && user.currentCourseId.length > 0 ? (
                 courselist.map(
@@ -199,9 +198,7 @@ export default function Profile(props) {
             </div>
           </div>
           <div className="completedCourse-wrapper p-3 m-2">
-            <h4 className="text-light text-center">
-              You have finished these so far . . . more to go!
-            </h4>
+            <h4 className="text-light text-center">Completed courses</h4>
             <div id="CompletedCourses" className="d-flex flex-wrap">
               {user && courselist && user.completedCourseId.length > 0 ? (
                 courselist.map(

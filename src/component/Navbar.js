@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import auth from "./services/Auth";
-import store from "store";
 // css
 import "./css/navbar.css";
 export default function Navbar(props) {

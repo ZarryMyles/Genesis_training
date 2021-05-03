@@ -2,7 +2,6 @@ import "./App.css";
 import React, { Component, Fragment, useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import store from "store";
 // Other components
 import Navbar from "./component/Navbar";
 import Homepage from "./component/Homepage";

@@ -80,24 +80,34 @@
 #CompletedCourses > img {
   border-radius: 10px;
 }
-#editProfileIcon:hover {
-  cursor: pointer;
-}
 
-/* @media (max-width: 1024px) {
-  #userProfileImg > img {
-    height: 80px;
+@media (max-width: 600px) {
+  #points-display {
+    padding-left: 0;
+    margin-left: 0;
     width: 100%;
-    align-self: center;
+  }
+  .points-quote {
+    margin-left: 100px;
+  }
+  .points-quote h6 {
+    font-size: 15px;
+    text-align: center;
+  }
+  .completed-test-list {
+    padding-left: 90px;
+    font-size: 15px;
+  }
+  .test-name {
+    margin-left: 0;
+  }
+  .test-name > div {
+    width: 300px;
+  }
+  .completed-test-list {
+    padding-left: 0;
   }
   .profile-display {
-    width: 100px;
+    width: 100%;
   }
-  .profile-display > h3 {
-    font-size: 20px;
-  }
-  #points-display {
-    width: 250px;
-  }
-  
-} */
+}
