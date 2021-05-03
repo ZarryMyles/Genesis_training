@@ -36,7 +36,7 @@
   font-family: Montserrat;
   font-size: 22px;
   line-height: 1.9;
-  font-family: poppins;
+  font-weight: 400;
 }
 .carousel-caption a {
   text-transform: uppercase;
@@ -124,4 +124,41 @@
 
 #navbarSupportedContent {
   background-color: transparent !important;
+}
+
+.hom1 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../../images/img/home1.jpg);
+}
+.hom2 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../../images/img/home2.jpg);
+}
+.hom3 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../../images/img/home3.jpg);
+}
+
+.tryPic {
+  height: 100vh;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* responsiveness */
+
+@media (max-width: 600px) {
+  .carousel-item p {
+    /* display: none; */
+    line-height: 30px;
+    margin-top: 20px;
+    width: fit-content;
+  }
+  .carousel-item h5 {
+    font-size: 30px;
+  }
+  .navbar-dark {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
 }

@@ -64,7 +64,7 @@ export default function Homepage() {
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img alt="First slide" class="d-block w-100" src={home1} />
+            <div className="d-block w-100 tryPic hom1"></div>
             <div class="carousel-caption d-block">
               <Animated
                 animationIn="bounceInRight"
@@ -81,8 +81,8 @@ export default function Homepage() {
                 isVisible={true}
               >
                 <p>
-                  Here, at Zarix Tutorials, we'll help you learn the very
-                  essentials of Web Development.
+                  Here, we'll only be teaching you the very essentials of
+                  Web-Development.
                 </p>
               </Animated>
               <Animated
@@ -91,14 +91,12 @@ export default function Homepage() {
                 animationInDelay="3s"
                 isVisible={true}
               >
-                <p>
-                  <a href="/catalog/user">Explore</a>
-                </p>
+                <a href="/catalog/user">Explore</a>
               </Animated>
             </div>
           </div>
           <div class="carousel-item">
-            <img alt="Second slide" class="d-block w-100" src={home2} />
+            <div className="d-block w-100 tryPic hom2"></div>
             <div class="carousel-caption d-block">
               <Animated
                 animationIn="slideInDown"
@@ -115,7 +113,7 @@ export default function Homepage() {
                 isVisible={true}
               >
                 <p>
-                  Learn the essentials of UI and UX design with Hands-on
+                  Learn the essentials of UI and UX design with a Hands-on
                   approach.
                 </p>
               </Animated>
@@ -125,14 +123,12 @@ export default function Homepage() {
                 animationInDelay="3s"
                 isVisible={true}
               >
-                <p>
-                  <a href="/catalog/user">Explore</a>
-                </p>
+                <a href="/catalog/user">Explore</a>
               </Animated>
             </div>
           </div>
           <div class="carousel-item">
-            <img alt="Third slide" class="d-block w-100" src={home3} />
+            <div className="d-block w-100 tryPic hom3"></div>
             <div class="carousel-caption d-block">
               <Animated
                 animationIn="zoomIn"
@@ -159,9 +155,7 @@ export default function Homepage() {
                 animationInDelay="3s"
                 isVisible={true}
               >
-                <p>
-                  <a href="/catalog/user">Explore</a>
-                </p>
+                <a href="/catalog/user">Explore</a>
               </Animated>
             </div>
           </div>
