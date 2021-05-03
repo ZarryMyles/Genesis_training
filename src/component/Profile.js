@@ -1,38 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import "./css/profile.css";
+// services
 import API from "./services/API";
 import axios from "axios";
 // images
 import IMAGES from "./IMAGES";
 import ProfileImg from "../images/icons/profile-pic.png";
-import EditImg from "../images/icons/edit-icon.png";
 import Preloader from "./Preloader";
 export default function Profile(props) {
   const [user, setUser] = useState();
   const [courselist, setCourseList] = useState();
   const [redirect, setRedirect] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [localUsername, setLocalUsername] = useState(
+    localStorage.getItem("username")
+  );
   useEffect(() => {
     getData();
+    setLoading(false);
   }, []);
+
   let getData = async () => {
     // fetching user profile info
     // trying with axios
     // const { data: fetchUser } = await axios.get(API.userProfile);
     // console.log(fetchUser, props.username);
-    // setUser(fetchUser.filter((user) => user.username == props.username));
+    // setUser(fetchUser.filter((user) => user.username == props.username;));
 
     await fetch(API.userProfile).then((response) => {
       response.json().then((settings) => {
         let userFilter = settings.filter((user) => {
-          return user.username == props.username;
+          // return user.username == props.username;
+          return user.username === localUsername;
         });
         userFilter[0] !== undefined
           ? setUser(userFilter[0])
           : setRedirect(true);
       });
     });
-
     // fetching courselist
     const { data: fetchCourseList } = await axios.get(API.courseList);
     setCourseList(fetchCourseList);
@@ -49,7 +55,6 @@ export default function Profile(props) {
       </div>
     );
   }
-
   function displayCourseImg(course) {
     let coursePath = course.link;
     let image_path = "../" + course.preview_img;
@@ -142,7 +147,9 @@ export default function Profile(props) {
   }
   if (redirect) return <Redirect to="/login" />;
   else
-    return (
+    return loading ? (
+      <Preloader size="big" color="purple" />
+    ) : (
       <div className="d-md-flex flex-column  mt-5 mx-2 pt-4 p-1 mb-5 pb-5">
         <div className="d-md-flex flex-md-row flex-column justify-content-center ">
           {" "}
@@ -187,7 +194,7 @@ export default function Profile(props) {
                     displayCourseImg(course)
                 )
               ) : (
-                <Preloader small={true} />
+                <Preloader size={"small"} />
               )}
             </div>
           </div>
@@ -196,7 +203,7 @@ export default function Profile(props) {
               You have finished these so far . . . more to go!
             </h4>
             <div id="CompletedCourses" className="d-flex flex-wrap">
-              {user && courselist && user.currentCourseId.length > 0 ? (
+              {user && courselist && user.completedCourseId.length > 0 ? (
                 courselist.map(
                   (course) =>
                     user.completedCourseId.includes(

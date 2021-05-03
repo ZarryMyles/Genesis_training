@@ -2,20 +2,13 @@ import React, { Fragment, useState, createRef } from "react";
 import "./css/catalog.css";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 // routes
-
 import CourseList from "./CourseList";
 // images
 import GuySittingImg from "../images/img/webdev-guy-sitting.png";
 import WebScreenImg from "../images/img/webdev-screen.png";
 import ScrollDownImg from "../images/icons/scrolldown.png";
-import SearchIconImg from "../images/icons/search-icon.png";
 
 export default function Catalog(props) {
-  // trying to get the page to scroll to list on enter click
-  const listDiv = createRef();
-  function scrollToList() {
-    listDiv.current.scrollIntoView({ behavior: "smooth" });
-  }
   const [searchInput, setSearchInput] = useState("");
   return (
     <div className="mb-5 pb-5">

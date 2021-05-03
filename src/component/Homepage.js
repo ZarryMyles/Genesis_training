@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./css/homepage.css";
 import { Animated } from "react-animated-css";
@@ -7,12 +7,21 @@ import home2 from "../images/img/home2.jpg";
 import home3 from "../images/img/home3.jpg";
 
 export default function Homepage() {
+  const [localUsername, setLocalUsername] = useState(
+    localStorage.getItem("username")
+  );
+  const [profileAccess, setProfileAcces] = useState(
+    localStorage.getItem("profileAccess") === "true"
+  );
+  const [catalogPath, setCatalogPath] = useState("/catalog");
+  const [profilePath, setProfilePath] = useState("/profile");
+  console.log(profileAccess);
   return (
     <div id="homeBody">
       <header>
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-          <div class="container">
-            <a class="navbar-brand homeLogo" href="#">
+        <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
+          <div className="container">
+            <a className="navbar-brand homeLogo" href="#">
               Zarix
             </a>{" "}
             <button
@@ -26,22 +35,31 @@ export default function Homepage() {
             >
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto ">
-                <li class="nav-item active pronto">
-                  <a class="nav-link" href="/">
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav ml-auto ">
+                <li className="nav-item active pronto">
+                  <a className="nav-link" href="/">
                     Home
                   </a>
                 </li>
-                <li class="nav-item pronto">
-                  <a class="nav-link" href="/catalog/user">
+                <li className="nav-item pronto">
+                  <a className="nav-link" href={catalogPath}>
                     Catalog
                   </a>
                 </li>
-                <li class="nav-item pronto">
-                  <a class="nav-link" href="/login">
-                    Sign-up
-                  </a>
+                <li className="nav-item pronto">
+                  {!profileAccess ? (
+                    <a className="nav-link" href="/login">
+                      Sign-up
+                    </a>
+                  ) : (
+                    <a className="nav-link" href={profilePath}>
+                      Profile
+                    </a>
+                  )}
                 </li>
               </ul>
             </div>
@@ -49,11 +67,11 @@ export default function Homepage() {
         </nav>
       </header>
       <div
-        class="carousel slide"
+        className="carousel slide"
         data-ride="carousel"
         id="carouselExampleIndicators"
       >
-        <ol class="carousel-indicators">
+        <ol className="carousel-indicators">
           <li
             class="active"
             data-slide-to="0"
@@ -62,8 +80,8 @@ export default function Homepage() {
           <li data-slide-to="1" data-target="#carouselExampleIndicators"></li>
           <li data-slide-to="2" data-target="#carouselExampleIndicators"></li>
         </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
+        <div className="carousel-inner">
+          <div className="carousel-item active">
             <div className="d-block w-100 tryPic hom1"></div>
             <div class="carousel-caption d-block">
               <Animated
@@ -91,11 +109,11 @@ export default function Homepage() {
                 animationInDelay="3s"
                 isVisible={true}
               >
-                <a href="/catalog/user">Explore</a>
+                <a href={catalogPath}>Explore</a>
               </Animated>
             </div>
           </div>
-          <div class="carousel-item">
+          <div className="carousel-item">
             <div className="d-block w-100 tryPic hom2"></div>
             <div class="carousel-caption d-block">
               <Animated
@@ -123,11 +141,11 @@ export default function Homepage() {
                 animationInDelay="3s"
                 isVisible={true}
               >
-                <a href="/catalog/user">Explore</a>
+                <a href={catalogPath}>Explore</a>
               </Animated>
             </div>
           </div>
-          <div class="carousel-item">
+          <div className="carousel-item">
             <div className="d-block w-100 tryPic hom3"></div>
             <div class="carousel-caption d-block">
               <Animated
@@ -155,28 +173,28 @@ export default function Homepage() {
                 animationInDelay="3s"
                 isVisible={true}
               >
-                <a href="/catalog/user">Explore</a>
+                <a href={catalogPath}>Explore</a>
               </Animated>
             </div>
           </div>
         </div>
         <a
-          class="carousel-control-prev"
+          className="carousel-control-prev"
           data-slide="prev"
           href="#carouselExampleIndicators"
           role="button"
         >
           <span aria-hidden="true" class="carousel-control-prev-icon"></span>{" "}
-          <span class="sr-only">Previous</span>
+          <span className="sr-only">Previous</span>
         </a>{" "}
         <a
-          class="carousel-control-next"
+          className="carousel-control-next"
           data-slide="next"
           href="#carouselExampleIndicators"
           role="button"
         >
           <span aria-hidden="true" class="carousel-control-next-icon"></span>{" "}
-          <span class="sr-only">Next</span>
+          <span className="sr-only">Next</span>
         </a>
       </div>
     </div>

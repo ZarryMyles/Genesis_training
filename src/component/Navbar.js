@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import auth from "./services/Auth";
+import store from "store";
 // css
 import "./css/navbar.css";
 export default function Navbar(props) {
-  const [username, setUsername] = useState(props.username);
+  // state variables
+  const [profileAccess, setProfileAcces] = useState(
+    localStorage.getItem("profileAccess") === "true"
+  );
+  const [catalogPath, setCatalogPath] = useState("/catalog");
+  const [profilePath, setProfilePath] = useState("/profile");
+
   return (
     <header>
       <div className="container">
@@ -37,28 +45,29 @@ export default function Navbar(props) {
                 </a>
               </li>
               <li className="nav-item mnav-i" id="navUl">
-                <a className="nav-link mnav-link" href={"/catalog/" + username}>
+                <a className="nav-link mnav-link" href={catalogPath}>
                   Catalog
                 </a>
               </li>
-              {/* <li className="nav-item mnav-i" id="navUl">
-                <a className="nav-link mnav-link" href="#">
-                  Contact
-                </a>
-              </li> */}
-              {username === undefined || username === "user" ? (
-                <li className="nav-item mnav-i" id="navUl">
+              <li className="nav-item mnav-i" id="navUl">
+                {!profileAccess ? (
                   <a className="nav-link mnav-link" href="/login">
-                    Sign In
+                    Sign-In
                   </a>
-                </li>
-              ) : (
+                ) : (
+                  <a className="nav-link mnav-link" href={profilePath}>
+                    Profile
+                  </a>
+                )}
+              </li>
+              {profileAccess && (
                 <li className="nav-item mnav-i" id="navUl">
                   <a
                     className="nav-link mnav-link"
-                    href={"/profile/" + username}
+                    href={catalogPath}
+                    onClick={auth.logout}
                   >
-                    Profile
+                    Sign-Out
                   </a>
                 </li>
               )}

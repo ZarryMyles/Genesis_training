@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect, Route } from "react-router";
-import auth from "./Auth";
+import auth from "./services/Auth";
+import store from "store";
+export default function PrivateRoute({ component: Component, ...rest }) {
+  const [access, setAccess] = useState(
+    localStorage.getItem("profileAccess") === "true"
+  );
 
-export default function PrivateRoute({ children, ...rest }) {
   return (
     <Route
       {...rest}
-      render={() => {
-        return auth.isAuthenticated === true ? (
-          children
-        ) : (
-          <Redirect to="/login" />
-        );
-      }}
+      render={(props) =>
+        access ? <Component {...props} /> : <Redirect to="/login" />
+      }
     />
   );
 }

@@ -3,8 +3,7 @@ import { Redirect } from "react-router-dom";
 import "./css/login.css";
 import axios from "axios";
 import API from "./services/API";
-import { register } from "./services/userService";
-import { authLogin } from "./services/authService";
+import auth from "./services/Auth";
 // images
 import LoginImg from "../images/img/undraw-login.png";
 import UserImg from "../images/icons/user-icon.png";
@@ -79,7 +78,7 @@ export default function Login() {
   }
   // redirecting to catalog on logging in
   function redirectingPage() {
-    let path = "/catalog/" + username;
+    let path = "/catalog";
     return <Redirect to={path} />;
   }
   // event handlers
@@ -104,16 +103,11 @@ export default function Login() {
       if (userInfo[0] !== undefined && password === userInfo[0].password) {
         userInfo = userInfo[0];
         setUsername(userInfo.username);
-        // LoginAuth.login(() => {
-        //   // props.history.push("/category");
-        // });
-        console.log("loggin in");
-        setredirect(true);
+        auth.login(userInfo.username)
+          ? setredirect(true)
+          : console.log("unsuccessfull");
       } else setWrongpassword(true);
     }
-    let loginToken = async () => {
-      await authLogin(username, password);
-    };
   }
   function signUpHandler() {
     if (password !== confirmPassword) setPasswordsMatch(false);
@@ -121,7 +115,7 @@ export default function Login() {
       setPasswordsMatch(true);
       if (userMail && password && username && password === confirmPassword) {
         postData();
-        setredirect(true);
+        auth.login(username) ? setredirect(true) : console.log("unsuccessfull");
       }
     }
   }
@@ -136,7 +130,9 @@ export default function Login() {
             className="mx-auto text-light text-center my-4  px-3 py-2"
             type="text"
             placeholder="Enter your  email id"
-            onChange={(e) => setUserMail(e.target.value)}
+            onChange={(e) => {
+              setUserMail(e.target.value);
+            }}
             name="userMail"
             onKeyPress={(e) => handleKeypress(e)}
           />
