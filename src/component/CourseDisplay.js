@@ -8,8 +8,12 @@ import Quiz from "./Quiz";
 import axios from "axios";
 export default function CourseDisplay(props) {
   const [courseName, SetCourseName] = useState(props.coursename);
+  const [quizPath, setQuizPath] = useState();
   const [courseContent, SetCourseContent] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [profileAccess, setProfileAcces] = useState(
+    localStorage.getItem("profileAccess") === "true"
+  );
   useEffect(() => {
     window.scrollTo(0, 0);
     getData();
@@ -24,12 +28,12 @@ export default function CourseDisplay(props) {
           return value.courseTag === courseName;
         });
         SetCourseContent(coursetagFilter[0]);
+        setQuizPath(courseContent.courseId);
       });
     });
     // loading true
     setLoading(true);
   };
-
   function displayBulletPoints(point, index) {
     return (
       <li key={index} className="py-1" style={{ listStyle: "disc" }}>
@@ -40,7 +44,7 @@ export default function CourseDisplay(props) {
   function displayPargraph(text) {
     return <p className="pt-1">{text}</p>;
   }
-  function displayImage(path) {
+  function displayImage(image) {
     return (
       <div className="mx-auto" style={{}}>
         <div
@@ -50,9 +54,9 @@ export default function CourseDisplay(props) {
             backgroundPosition: "center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-            backgroundImage: `url('../${path}')`,
-            height: "344px",
-            width: "581px",
+            backgroundImage: `url('../${image.path}')`,
+            height: `${image.height}`,
+            width: `${image.width}`,
           }}
         ></div>
       </div>
@@ -207,7 +211,9 @@ export default function CourseDisplay(props) {
               );
             })}
             {/* image */}
-            {section.imagePath ? displayImage(section.imagePath[0]) : ""}
+            {section.image
+              ? section.image.map((image) => displayImage(image))
+              : ""}
             {/* sub heading and content */}
             {section.subHeading
               ? section.subHeading.map((subsection) => {
@@ -272,9 +278,18 @@ export default function CourseDisplay(props) {
             )}
         </div>
       </div>
-      {/* {courseContent.courseId &&  (
-        <Quiz courseId={parseInt(courseContent.courseId)} />
-      )} */}
+      {courseContent && profileAccess && (
+        <div class="row ">
+          <div class="col-md-4 col-lg-4" id="quizBtn">
+            <a
+              class="btn btn-primary btn-block"
+              href={"/quiz/" + courseContent.courseId}
+            >
+              Quiz
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -12,6 +12,8 @@ export default function Quiz(props) {
   const [score, setScore] = useState(0);
   const [questions, setQuestions] = useState();
   const [loading, setLoading] = useState(true);
+  const [username, setUsername] = useState(localStorage.getItem("username"));
+  const [userId, setUserId] = useState(localStorage.getItem("user_id"));
   useEffect(() => {
     getData(props.courseId);
     setLoading(false);
@@ -19,19 +21,22 @@ export default function Quiz(props) {
   let getData = async (id) => {
     console.log(id);
     const { data: info } = await axios.get(API.quizzes);
-    setQuestions(info[id - 1].questions);
+    setQuestions(info[id].questions);
   };
 
   const handleButtonClick = (isCorrect) => {
     if (isCorrect === true) {
       setScore(score + 1);
     }
-
+    function postScore(score) {
+      console.log(score);
+    }
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
       setShowScore(true);
+      postScore(score + 1);
     }
   };
 
@@ -59,7 +64,7 @@ export default function Quiz(props) {
               <div className="question-text">
                 {questions
                   ? questions[currentQuestion].questionText
-                  : "Is the question laoding? "}
+                  : "Please wait... "}
               </div>
             </div>
 
@@ -68,7 +73,7 @@ export default function Quiz(props) {
                 ? questions[currentQuestion].answerOptions.map(
                     (answerOptions) => (
                       <button
-                        className="buttonQuiz"
+                        className="buttonQuiz m-1"
                         onClick={() =>
                           handleButtonClick(answerOptions.isCorrect)
                         }
@@ -77,7 +82,7 @@ export default function Quiz(props) {
                       </button>
                     )
                   )
-                : "Yes"}
+                : ""}
             </div>
           </>
         )}

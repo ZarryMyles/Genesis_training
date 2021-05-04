@@ -55,8 +55,6 @@ export default function Login() {
         alert("user already exists");
       }
     }
-    // http service
-    // register(newUser, newUserProfile);
   };
   // toggling b/w sigin in and singup
   function toggleStat() {
@@ -103,7 +101,8 @@ export default function Login() {
       if (userInfo[0] !== undefined && password === userInfo[0].password) {
         userInfo = userInfo[0];
         setUsername(userInfo.username);
-        auth.login(userInfo.username)
+
+        auth.login(userInfo.username, userInfo._id)
           ? setredirect(true)
           : console.log("unsuccessfull");
       } else setWrongpassword(true);

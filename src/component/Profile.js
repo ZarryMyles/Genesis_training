@@ -8,7 +8,7 @@ import axios from "axios";
 import IMAGES from "./IMAGES";
 import ProfileImg from "../images/icons/profile-pic.png";
 import Preloader from "./Preloader";
-export default function Profile(props) {
+export default function Profile() {
   const [user, setUser] = useState();
   const [courselist, setCourseList] = useState();
   const [redirect, setRedirect] = useState(false);
@@ -31,7 +31,6 @@ export default function Profile(props) {
     await fetch(API.userProfile).then((response) => {
       response.json().then((settings) => {
         let userFilter = settings.filter((user) => {
-          // return user.username == props.username;
           return user.username === localUsername;
         });
         userFilter[0] !== undefined
