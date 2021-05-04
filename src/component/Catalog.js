@@ -1,6 +1,5 @@
-import React, { Fragment, useState, createRef } from "react";
+import React, { useState } from "react";
 import "./css/catalog.css";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 // routes
 import CourseList from "./CourseList";
 // images
@@ -23,7 +22,7 @@ export default function Catalog(props) {
           <img
             id="GuySittingImg"
             src={GuySittingImg}
-            alt="sample image"
+            alt="course preview"
             srcset=""
             height="300px"
             className="  position-absolute WebsScreenImg"
@@ -31,7 +30,7 @@ export default function Catalog(props) {
           <img
             id="WebScreenImg"
             src={WebScreenImg}
-            alt="sample image"
+            alt="course preview"
             srcset=""
             height="250px"
             className="  position-absolute"

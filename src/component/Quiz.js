@@ -7,6 +7,7 @@ import Preloader from "./Preloader";
 
 export default function Quiz(props) {
   // state variables
+  const [courseName, setCourseName] = useState(props.courseName);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
@@ -14,22 +15,27 @@ export default function Quiz(props) {
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState(localStorage.getItem("username"));
   const [userId, setUserId] = useState(localStorage.getItem("user_id"));
+  const [userInfo, setUserInfo] = useState();
   useEffect(() => {
     getData(props.courseId);
     setLoading(false);
   }, []);
   let getData = async (id) => {
-    console.log(id);
     const { data: info } = await axios.get(API.quizzes);
     setQuestions(info[id].questions);
+    console.log(id);
+    // const {data:user}=await axios.get(API.userProfile+'/'+userId)
   };
-
   const handleButtonClick = (isCorrect) => {
     if (isCorrect === true) {
       setScore(score + 1);
     }
     function postScore(score) {
+      console.log(courseName);
       console.log(score);
+
+      let api_path = API.userProfile + "/" + userId;
+      axios.put(api_path);
     }
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {

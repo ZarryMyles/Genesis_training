@@ -1,6 +1,6 @@
 import "./App.css";
-import React, { Component, Fragment, useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { Fragment } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 // Other components
 import Navbar from "./component/Navbar";
@@ -25,7 +25,7 @@ function App() {
         <Route path="/login" component={loginUser} />
         <PrivateRoute path="/profile" component={profile} />
         <Route path="/pre" component={preLoader} />
-        <Route path="/quiz/:courseId" component={quiz} />
+        <Route path="/quiz/:courseId/:courseName" component={quiz} />
       </div>
     </Router>
   );
@@ -76,7 +76,10 @@ const preLoader = () => (
 const quiz = (props) => (
   <Fragment>
     <Navbar />
-    <Quiz courseId={props.match.params.courseId} />
+    <Quiz
+      courseId={props.match.params.courseId}
+      courseName={props.match.params.courseName}
+    />
   </Fragment>
 );
 

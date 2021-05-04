@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import "./css/homepage.css";
 import { Animated } from "react-animated-css";
 import home1 from "../images/img/home1.jpg";
@@ -7,9 +6,6 @@ import home2 from "../images/img/home2.jpg";
 import home3 from "../images/img/home3.jpg";
 
 export default function Homepage() {
-  const [localUsername, setLocalUsername] = useState(
-    localStorage.getItem("username")
-  );
   const [profileAccess, setProfileAcces] = useState(
     localStorage.getItem("profileAccess") === "true"
   );

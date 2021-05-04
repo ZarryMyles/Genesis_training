@@ -4,8 +4,6 @@ import "./css/coursedisplay.css";
 import Preloader from "./Preloader";
 import Collapsible from "react-collapsible";
 import API from "./services/API";
-import Quiz from "./Quiz";
-import axios from "axios";
 export default function CourseDisplay(props) {
   const [courseName, SetCourseName] = useState(props.coursename);
   const [quizPath, setQuizPath] = useState();
@@ -283,7 +281,12 @@ export default function CourseDisplay(props) {
           <div class="col-md-4 col-lg-4" id="quizBtn">
             <a
               class="btn btn-primary btn-block"
-              href={"/quiz/" + courseContent.courseId}
+              href={
+                "/quiz/" +
+                courseContent.courseId +
+                "/" +
+                courseContent.courseTag
+              }
             >
               Quiz
             </a>
