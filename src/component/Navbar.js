@@ -42,24 +42,24 @@ export default function Navbar(props) {
                   Home<span className="sr-only">(current)</span>
                 </a>
               </li>
-              <li className="nav-item mnav-i" id="navUl">
+              <li className="nav-item active mnav-i" id="navUl">
                 <a className="nav-link mnav-link" href={catalogPath}>
                   Catalog
                 </a>
               </li>
-              <li className="nav-item mnav-i" id="navUl">
+              <li className="nav-item active mnav-i" id="navUl">
                 {!profileAccess ? (
                   <a className="nav-link mnav-link" href="/login">
                     Sign-In
                   </a>
                 ) : (
-                  <a className="nav-link mnav-link" href={profilePath}>
+                  <a className="nav-link active mnav-link" href={profilePath}>
                     Profile
                   </a>
                 )}
               </li>
               {profileAccess && (
-                <li className="nav-item mnav-i" id="navUl">
+                <li className="nav-item active mnav-i" id="navUl">
                   <a
                     className="nav-link mnav-link"
                     href={catalogPath}

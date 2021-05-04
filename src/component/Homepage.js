@@ -45,12 +45,12 @@ export default function Homepage() {
                     Home
                   </a>
                 </li>
-                <li className="nav-item pronto">
+                <li className="nav-item active pronto">
                   <a className="nav-link" href={catalogPath}>
                     Catalog
                   </a>
                 </li>
-                <li className="nav-item pronto">
+                <li className="nav-item active pronto">
                   {!profileAccess ? (
                     <a className="nav-link" href="/login">
                       Sign-up
