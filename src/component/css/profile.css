@@ -74,7 +74,7 @@
   height: fit-content;
   justify-content: center;
   justify-self: center;
-  margin: 20px;
+  margin: auto;
   padding: 10px;
 }
 #CompletedCourses > img {

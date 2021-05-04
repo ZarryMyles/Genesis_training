@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
 import "./css/coursedisplay.css";
 import Preloader from "./Preloader";
 import Collapsible from "react-collapsible";
@@ -50,7 +51,7 @@ export default function CourseDisplay(props) {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundImage: `url('../${path}')`,
-            height: "404px",
+            height: "344px",
             width: "581px",
           }}
         ></div>
@@ -148,7 +149,7 @@ export default function CourseDisplay(props) {
       <div className="m-2 my-3 py-3">
         <div id="code" className="mb-4">
           <h5 className="">{codeblock.header}</h5>
-          <div className=" p-3 codeblock" style={{ width: codeblock.width }}>
+          <div className=" p-3 codeblock" style={{ width: "90%" }}>
             {codeblock.code.split("\n").map((line) => displayLine(line))}
           </div>
         </div>
@@ -249,12 +250,15 @@ export default function CourseDisplay(props) {
       </div>
     );
   }
-  return !loading ? (
+  return !courseContent ? (
+    <Redirect to="/catalog" />
+  ) : !loading ? (
     <Preloader size={"big"} color={"green"} />
   ) : (
     <div id="course-display-wrapper" className="col-md-8 col-12  mb-5 mx-auto">
       <h2 className="text-light text-center my-3 course-title">
-        <span id="leftBracket">&#123;</span> {courseContent.title}{" "}
+        <span id="leftBracket">&#123;</span>{" "}
+        {courseContent && courseContent.title}{" "}
         <span id="rightBracket">&#125;</span>
       </h2>
       <div className="">
@@ -268,9 +272,9 @@ export default function CourseDisplay(props) {
             )}
         </div>
       </div>
-      {courseContent.courseId && (
+      {/* {courseContent.courseId &&  (
         <Quiz courseId={parseInt(courseContent.courseId)} />
-      )}
+      )} */}
     </div>
   );
 }

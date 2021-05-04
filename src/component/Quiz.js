@@ -13,8 +13,6 @@ export default function Quiz(props) {
   const [questions, setQuestions] = useState();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    // console.log);
-    console.log(props.courseId);
     getData(props.courseId);
     setLoading(false);
   }, []);

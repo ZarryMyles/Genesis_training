@@ -1,0 +1,128 @@
+{
+  "_id": "6085dbfb2344215fc5e9a80e",
+  "sectionBlocks": [
+    {
+      "heading": "REQUIREMENTS",
+      "bulletPoints": [
+        {
+          "header": "",
+          "content": "A browser like the one you are using currently to view this :)  \n A code editor , VS Code is prefered. \n Install Live server and Prettifier extensions."
+        }
+      ]
+    },
+    {
+      "position": 1,
+      "type": "normal",
+      "heading": "Display properties",
+      "description": null,
+      "imagePath": null,
+      "bulletPoints": [
+        {
+          "header": "There are 4 main Display types in HTML and CSS",
+          "content": "Block\n Inline\n Inline-block\n None"
+        },
+        {
+          "header": "Block Display",
+          "content": "The block display type takes up the entire width of the page.\n It forces a new line above and below it.\n The height and width of block elements can be defined but the width will be set to 100% by default.\n Divs are blocks by default."
+        },
+        {
+          "header": "Inline Display",
+          "content": "The elements that are defined by inline type are scalable and only takes up space that is required by it’s contents.\n You can have multiple inline elements in the same line.\n They cannot be resized as they only take up essential space.\n Spans are inline by default."
+        },
+        {
+          "header": "Inline-block Display",
+          "content": "Here, the elements are shown to take up only the space required by the contents but in reality take up the entire line by default.\n A good Example are Images. They can be resized but they still take up the entire width like blocks by default."
+        },
+        {
+          "header": "None Display",
+          "content": "This type removes the element from the visible display of the screen.\n It can be used to hide elements temporarily"
+        }
+      ],
+      "subHeading": [],
+      "moreData": null,
+      "miniCodeblock": [
+        {
+          "header": "Example : ",
+          "code": ".classname1{display: none;}\n.classname2{display: inline;}\n.classname3{display: block;}\n.classname4{display: inline-block;}",
+          "description": null
+        }
+      ]
+    },
+    {
+      "position": 2,
+      "type": "with image",
+      "heading": "CSS Units",
+      "description": null,
+      "imagePath": null,
+      "bulletPoints": [{ "header": "", "content": "" }],
+      "subHeading": [
+        {
+          "header": "Percent",
+          "content": "its relative of the parent element."
+        },
+        {
+          "header": "View width",
+          "content": "its relative to the viewing screen\n 1vw is 1% of the entire viewable screen width\n 1vh = -----||----- "
+        },
+        {
+          "header": "rem and em",
+          "content": "rem=root element,\n 1rem is equal to size of the font of root element \n font-size=10px,2rem=2xthat \n rem is always same throughout the page as its based on the root \n\n 1em is equal to size of the font of the parent element \n em is based on the parent \n its useful to size elements based on the font of the text it has "
+        }
+      ],
+      "moreData": null,
+      "miniCodeblock": null
+    }
+  ],
+  "courseId": 3,
+  "courseTag": "css_units",
+  "title": "CSS : Display, Units and Position",
+  "description": "",
+  "Requirements": "A browser like the one you are using currently to view this :) . \nA code editor , VS Code is prefered.\nInstall Live server and Prettifier extensions.",
+  "published_at": "2021-04-25T21:15:41.788Z",
+  "createdAt": "2021-04-25T21:15:39.210Z",
+  "updatedAt": "2021-04-25T21:15:41.892Z",
+  "__v": 0,
+  "id": "6085dbfb2344215fc5e9a80e",
+  "quz": [
+    {
+      "questions": [
+        {
+          "questionText": "Which selector is used to select all elements?",
+          "answerOptions": [
+            { "answerText": "*", "isCorrect": true },
+            { "answerText": "body", "isCorrect": false },
+            { "answerText": "html", "isCorrect": false },
+            { "answerText": "All of the Above", "isCorrect": false }
+          ]
+        },
+        {
+          "questionText": "<style>.blue{color:blue;}</style> is an example of ",
+          "answerOptions": [
+            { "answerText": "Inline styling", "isCorrect": false },
+            { "answerText": "Style element styling", "isCorrect": true }
+          ]
+        },
+        {
+          "questionText": "Which of the following selectors has the highest preference?",
+          "answerOptions": [
+            { "answerText": "class selector", "isCorrect": false },
+            { "answerText": "element selector", "isCorrect": false },
+            { "answerText": "id selector", "isCorrect": false },
+            { "answerText": "inline styling", "isCorrect": true }
+          ]
+        },
+        {
+          "questionText": "Which property is used to add space between the content and border of the element?",
+          "answerOptions": [
+            { "answerText": "Margin", "isCorrect": false },
+            { "answerText": "Padding", "isCorrect": false },
+            { "answerText": "Margin and Padding both", "isCorrect": false },
+            { "answerText": "None of the above", "isCorrect": true }
+          ]
+        }
+      ],
+      "courseId": 0,
+      "courseTitle": "test"
+    }
+  ]
+}

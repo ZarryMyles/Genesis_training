@@ -121,7 +121,7 @@ export default function Profile(props) {
             <h5 className="text-light">Recent Tests</h5>
             <div className="completed-test-list  text-light">
               <div className="test-name d-flex flex-column ">
-                {user && user.completedCourses
+                {user && user.completedCourses.length > 0
                   ? user.completedCourses.map(({ name, score }) => {
                       return (
                         <div>
@@ -186,11 +186,16 @@ export default function Profile(props) {
           <div className="completedCourse-wrapper p-3 m-2">
             <h4 className="text-success text-center">On-going Courses</h4>
             <div id="CompletedCourses" className="d-flex flex-wrap">
-              {user && courselist && user.currentCourseId.length > 0 ? (
-                courselist.map(
-                  (course) =>
-                    user.currentCourseId.includes(parseInt(course.courseId)) &&
-                    displayCourseImg(course)
+              {user && courselist ? (
+                user.currentCourseId.length > 0 ? (
+                  courselist.map(
+                    (course) =>
+                      user.currentCourseId.includes(
+                        parseInt(course.courseId)
+                      ) && displayCourseImg(course)
+                  )
+                ) : (
+                  <h6 className="text-light">Nothing Completed Yet</h6>
                 )
               ) : (
                 <Preloader size={"small"} />
@@ -200,12 +205,16 @@ export default function Profile(props) {
           <div className="completedCourse-wrapper p-3 m-2">
             <h4 className="text-light text-center">Completed courses</h4>
             <div id="CompletedCourses" className="d-flex flex-wrap">
-              {user && courselist && user.completedCourseId.length > 0 ? (
-                courselist.map(
-                  (course) =>
-                    user.completedCourseId.includes(
-                      parseInt(course.courseId)
-                    ) && displayCourseImg(course)
+              {user && courselist ? (
+                user.completedCourseId.length > 0 ? (
+                  courselist.map(
+                    (course) =>
+                      user.completedCourseId.includes(
+                        parseInt(course.courseId)
+                      ) && displayCourseImg(course)
+                  )
+                ) : (
+                  <h6 className="text-light">Nothing Completed Yet</h6>
                 )
               ) : (
                 <Preloader size={"small"} />

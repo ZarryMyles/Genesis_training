@@ -93,6 +93,9 @@
   .codeblock > p {
     font: size 10px;
   }
+  #code {
+    font-size: 10px;
+  }
   .sectionBlocks p,
   .sectionBlocks li {
     font-size: 10px;
