@@ -25,7 +25,7 @@ function App() {
         <Route path="/login" component={loginUser} />
         <PrivateRoute path="/profile" component={profile} />
         <Route path="/pre" component={preLoader} />
-        <Route path="/quiz" component={quiz} />
+        <Route path="/quiz/:courseId" component={quiz} />
       </div>
     </Router>
   );
@@ -73,9 +73,10 @@ const preLoader = () => (
     <Preloader />
   </Fragment>
 );
-const quiz = () => (
+const quiz = (props) => (
   <Fragment>
-    <Quiz />
+    <Navbar />
+    <Quiz courseId={props.match.params.courseId} />
   </Fragment>
 );
 

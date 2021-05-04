@@ -28,7 +28,6 @@ export default function CourseDisplay(props) {
     // loading true
     setLoading(true);
   };
-
   function displayBulletPoints(point, index) {
     return (
       <li key={index} className="py-1" style={{ listStyle: "disc" }}>
@@ -269,7 +268,11 @@ export default function CourseDisplay(props) {
         </div>
       </div>
       {courseContent.courseId && (
-        <Quiz courseId={parseInt(courseContent.courseId)} />
+        <div class="row ">
+          <div class="col-md-4 col-lg-4" id="quizBtn">
+            <button class="btn btn-primary btn-block">Quiz</button>
+          </div>
+        </div>
       )}
     </div>
   );

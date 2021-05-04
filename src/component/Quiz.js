@@ -21,7 +21,7 @@ export default function Quiz(props) {
   let getData = async (id) => {
     console.log(id);
     const { data: info } = await axios.get(API.quizzes);
-    setQuestions(info[id - 1].questions);
+    setQuestions(info[id].questions);
   };
 
   const handleButtonClick = (isCorrect) => {
@@ -61,7 +61,7 @@ export default function Quiz(props) {
               <div className="question-text">
                 {questions
                   ? questions[currentQuestion].questionText
-                  : "Is the question laoding? "}
+                  : "Please wait... "}
               </div>
             </div>
 
@@ -79,7 +79,7 @@ export default function Quiz(props) {
                       </button>
                     )
                   )
-                : "Yes"}
+                : ""}
             </div>
           </>
         )}
