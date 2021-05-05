@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import API from "./services/API";
-import CourseDisplay from "./CourseDisplay";
 import Preloader from "./Preloader";
 import axios from "axios";
 export default function CourseLIst(props) {
@@ -20,11 +19,7 @@ export default function CourseLIst(props) {
     let image_path = "../" + course.preview_img;
     return (
       <div className="course  m-5">
-        <Link
-          to={coursePath}
-          onClick={coursedisplay}
-          style={{ textDecoration: "none" }}
-        >
+        <Link to={coursePath} style={{ textDecoration: "none" }}>
           <div className="preview-img-container overflow-hidden">
             <div
               id="preview-img"
@@ -70,4 +65,3 @@ export default function CourseLIst(props) {
     <div className="mx-auto ">{displayCourseList()}</div>
   );
 }
-const coursedisplay = () => <CourseDisplay />;

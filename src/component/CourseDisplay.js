@@ -4,7 +4,10 @@ import "./css/coursedisplay.css";
 import Preloader from "./Preloader";
 import Collapsible from "react-collapsible";
 import API from "./services/API";
+import axios from "axios";
 export default function CourseDisplay(props) {
+  const [userId, setUserId] = useState(localStorage.getItem("user_id"));
+  const [displayQuizBtn, setDisplayQuizBtn] = useState(true);
   const [courseName, SetCourseName] = useState(props.coursename);
   const [quizPath, setQuizPath] = useState();
   const [courseContent, SetCourseContent] = useState([]);
@@ -15,13 +18,12 @@ export default function CourseDisplay(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
     getData();
-    setLoading(false);
+    // setLoading(false);
   }, []);
 
   let getData = async () => {
     await fetch(API.courseContent).then((response) => {
       response.json().then((settings) => {
-        // instead of setting state you can use it any other way
         let coursetagFilter = settings.filter((value) => {
           return value.courseTag === courseName;
         });
@@ -29,8 +31,16 @@ export default function CourseDisplay(props) {
         setQuizPath(courseContent.courseId);
       });
     });
-    // loading true
-    setLoading(true);
+    let { data: userInfo } = await axios.get(API.userProfile + "/" + userId);
+    console.log(
+      userInfo.completedCourseId,
+      courseContent.courseId,
+      userInfo.completedCourseId.includes(courseContent.courseId)
+    );
+    if (userInfo.completedCourseId.includes(courseContent.courseId)) {
+      setDisplayQuizBtn(false);
+    }
+    setLoading(false);
   };
   function displayBulletPoints(point, index) {
     return (
@@ -177,7 +187,6 @@ export default function CourseDisplay(props) {
         return displayNormalSection(section);
     }
   }
-
   function displayNormalSection(section) {
     return (
       <div id={section.position} className="sectionBlocks  ">
@@ -256,7 +265,7 @@ export default function CourseDisplay(props) {
   }
   return !courseContent ? (
     <Redirect to="/catalog" />
-  ) : !loading ? (
+  ) : loading ? (
     <Preloader size={"big"} color={"green"} />
   ) : (
     <div id="course-display-wrapper" className="col-md-8 col-12  mb-5 mx-auto">
@@ -276,20 +285,25 @@ export default function CourseDisplay(props) {
             )}
         </div>
       </div>
+      {/* quiz button */}
       {courseContent && profileAccess && (
         <div class="row ">
           <div class="col-md-4 col-lg-4" id="quizBtn">
-            <a
-              class="btn btn-primary btn-block"
-              href={
-                "/quiz/" +
-                courseContent.courseId +
-                "/" +
-                courseContent.courseTag
-              }
-            >
-              Quiz
-            </a>
+            {displayQuizBtn ? (
+              <a
+                class="btn btn-primary btn-block"
+                href={
+                  "/quiz/" +
+                  courseContent.courseId +
+                  "/" +
+                  courseContent.courseTag
+                }
+              >
+                Quiz
+              </a>
+            ) : (
+              <a class="btn btn-success btn-block">Quiz Has Been Completed</a>
+            )}
           </div>
         </div>
       )}

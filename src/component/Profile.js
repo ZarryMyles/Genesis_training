@@ -22,12 +22,6 @@ export default function Profile() {
   }, []);
 
   let getData = async () => {
-    // fetching user profile info
-    // trying with axios
-    // const { data: fetchUser } = await axios.get(API.userProfile);
-    // console.log(fetchUser, props.username);
-    // setUser(fetchUser.filter((user) => user.username == props.username;));
-
     await fetch(API.userProfile).then((response) => {
       response.json().then((settings) => {
         let userFilter = settings.filter((user) => {
@@ -44,7 +38,7 @@ export default function Profile() {
   };
   function displayProfileCard() {
     return (
-      <div className="profile-display align-items-center  flex-grow d-flex flex-column p-2">
+      <div className="profile-display align-items-center  flex-grow d-flex flex-column my-auto p-2">
         <div id="userProfileImg">
           <img src={ProfileImg} alt="profile-pic" />
         </div>
@@ -86,10 +80,10 @@ export default function Profile() {
     else if (score < 200) return IMAGES.userLevel4;
   }
   function testScoreImg(score) {
-    if (score < 5) return IMAGES.stars0;
-    else if (score < 10) return IMAGES.stars1;
-    else if (score < 15) return IMAGES.stars2;
-    else if (score > 15) return IMAGES.stars3;
+    if (score < 2) return IMAGES.stars0;
+    else if (score < 3.33) return IMAGES.stars1;
+    else if (score < 6.66) return IMAGES.stars2;
+    else if (score > 6.66) return IMAGES.stars3;
   }
   function displayPointsCard() {
     return (
@@ -121,7 +115,7 @@ export default function Profile() {
             <div className="completed-test-list  text-light">
               <div className="test-name d-flex flex-column ">
                 {user && user.completedCourses.length > 0
-                  ? user.completedCourses.map(({ name, score }) => {
+                  ? user.completedCourses.slice(-4).map(({ name, score }) => {
                       return (
                         <div>
                           <span>{name}</span>{" "}
@@ -182,25 +176,6 @@ export default function Profile() {
           </div>
         </div>
         <div className="profileWrapper  d-flex flex-wrap justify-content-center m-2">
-          <div className="completedCourse-wrapper p-3 m-2">
-            <h4 className="text-success text-center">On-going Courses</h4>
-            <div id="CompletedCourses" className="d-flex flex-wrap">
-              {user && courselist ? (
-                user.currentCourseId.length > 0 ? (
-                  courselist.map(
-                    (course) =>
-                      user.currentCourseId.includes(
-                        parseInt(course.courseId)
-                      ) && displayCourseImg(course)
-                  )
-                ) : (
-                  <h6 className="text-light">Nothing Completed Yet</h6>
-                )
-              ) : (
-                <Preloader size={"small"} />
-              )}
-            </div>
-          </div>
           <div className="completedCourse-wrapper p-3 m-2">
             <h4 className="text-light text-center">Completed courses</h4>
             <div id="CompletedCourses" className="d-flex flex-wrap">

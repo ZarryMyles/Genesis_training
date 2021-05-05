@@ -2,6 +2,7 @@ import "./App.css";
 import React, { Fragment } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 // Other components
 import Navbar from "./component/Navbar";
 import Homepage from "./component/Homepage";
@@ -12,8 +13,6 @@ import Profile from "./component/Profile";
 import Preloader from "./component/Preloader";
 import Quiz from "./component/Quiz";
 import PrivateRoute from "./component/ProtectedRoute";
-//others
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
@@ -38,21 +37,13 @@ const homepage = () => (
 const catalog = (props) => (
   <Fragment>
     <Navbar username={props.match.params.username} />
-    <Catalog
-      username={
-        props.match.params.username === undefined
-          ? "catalog"
-          : props.match.params.username
-      }
-    />
+    <Catalog />
   </Fragment>
 );
 const coursedisplay = (props) => (
   <Fragment>
-    {/* need to send user info to nav so it updates even whn course is opened */}
     <Navbar />
     <div className="row pt-5 mx-auto">
-      {/* <CourseSidebar /> */}
       <CourseDisplay coursename={props.match.params.coursename} />
     </div>
   </Fragment>
@@ -64,8 +55,8 @@ const loginUser = () => (
 );
 const profile = (props) => (
   <Fragment>
-    <Navbar username={props.match.params.username} />
-    <Profile username={props.match.params.username} />
+    <Navbar />
+    <Profile />
   </Fragment>
 );
 const preLoader = () => (

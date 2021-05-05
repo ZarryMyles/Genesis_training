@@ -25,19 +25,17 @@ export default function Login() {
   }, []);
 
   let getData = async () => {
-    const { data: info } = await axios.get(API.loginInfo);
+    const { data: info } = await axios.get(API.userProfile);
     setUsers(info);
   };
   let postData = async () => {
     const newUser = {
-      userId: 20,
       name: username,
       username: username,
       email: userMail,
       password: password,
     };
     const newUserProfile = {
-      userId: 21,
       name: username.toString(),
       username: username.toString(),
       email: userMail.toString(),
@@ -56,7 +54,7 @@ export default function Login() {
       }
     }
   };
-  // toggling b/w sigin in and singup
+  // toggling b/w sign in and singup
   function toggleStat() {
     setStatus((prevStat) => !prevStat);
   }
@@ -94,15 +92,15 @@ export default function Login() {
     }
   }
   function loginHandler() {
-    if (userMail && password) {
+    if (userMail && password && users) {
       let userInfo = users.filter((user) => {
         return user.email === userMail;
       });
       if (userInfo[0] !== undefined && password === userInfo[0].password) {
         userInfo = userInfo[0];
         setUsername(userInfo.username);
-
-        auth.login(userInfo.username, userInfo._id)
+        console.log(userInfo);
+        auth.login(userInfo.username, userInfo.id)
           ? setredirect(true)
           : console.log("unsuccessfull");
       } else setWrongpassword(true);
