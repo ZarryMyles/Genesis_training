@@ -53,7 +53,7 @@ const loginUser = () => (
     <Login />
   </Fragment>
 );
-const profile = (props) => (
+const profile = () => (
   <Fragment>
     <Navbar />
     <Profile />

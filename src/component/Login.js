@@ -121,7 +121,7 @@ export default function Login() {
     return (
       <div className="login-info mx-auto">
         <div className="user-inputs user-inputs-login text-light d-flex flex-column ">
-          <img className="userImg " src={UserImg} alt="" srcset="" />
+          <img className="userImg " src={UserImg} alt="" />
 
           <input
             className="mx-auto text-light text-center my-4  px-3 py-2"
@@ -157,7 +157,7 @@ export default function Login() {
     return (
       <div className="login-info mx-auto">
         <div className="user-inputs user-inputs-signup text-light d-flex flex-column ">
-          <img className="userImg " src={UserImg} alt="" srcset="" />
+          <img className="userImg " src={UserImg} alt="" />
           <input
             className="mx-auto text-light text-center my-4  px-3 py-2"
             type="text"
@@ -218,7 +218,6 @@ export default function Login() {
           className="d-none d-lg-block"
           src={LoginImg}
           alt=""
-          srcset=""
         />
         {!signInStatus ? signIn() : signUp()}
       </div>

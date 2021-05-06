@@ -7,7 +7,7 @@ import API from "./services/API";
 import axios from "axios";
 export default function CourseDisplay(props) {
   const [userId, setUserId] = useState(localStorage.getItem("user_id"));
-  const [displayQuizBtn, setDisplayQuizBtn] = useState(true);
+  const [quizCompleted, setQuizCompleted] = useState(false);
   const [courseName, SetCourseName] = useState(props.coursename);
   const [quizPath, setQuizPath] = useState();
   const [courseContent, SetCourseContent] = useState([]);
@@ -28,18 +28,18 @@ export default function CourseDisplay(props) {
           return value.courseTag === courseName;
         });
         SetCourseContent(coursetagFilter[0]);
-        setQuizPath(courseContent.courseId);
+        if (coursetagFilter[0]) {
+          setQuizPath(coursetagFilter[0].courseId);
+          fetch(API.userProfile + "/" + userId).then((response) => {
+            response.json().then((profile) => {
+              setQuizCompleted(
+                profile.completedCourseId.includes(coursetagFilter[0].courseId)
+              );
+            });
+          });
+        }
       });
     });
-    let { data: userInfo } = await axios.get(API.userProfile + "/" + userId);
-    console.log(
-      userInfo.completedCourseId,
-      courseContent.courseId,
-      userInfo.completedCourseId.includes(courseContent.courseId)
-    );
-    if (userInfo.completedCourseId.includes(courseContent.courseId)) {
-      setDisplayQuizBtn(false);
-    }
     setLoading(false);
   };
   function displayBulletPoints(point, index) {
@@ -263,21 +263,52 @@ export default function CourseDisplay(props) {
       </div>
     );
   }
+  function displayTitle() {
+    return (
+      <>
+        <h2 className="text-light text-center my-3 course-title">
+          <span id="leftBracket">&#123;</span>{" "}
+          {courseContent && courseContent.title}{" "}
+          <span id="rightBracket">&#125;</span>
+        </h2>
+        <div className="text-light text-center mt-4">
+          <div id="description">{courseContent.description}</div>
+        </div>
+      </>
+    );
+  }
+  function displayQuizBtn() {
+    return (
+      <div className="row ">
+        <div className="col-md-4 col-lg-4" id="quizBtn">
+          {!quizCompleted ? (
+            <a
+              className="btn btn-primary btn-block"
+              href={
+                "/quiz/" +
+                courseContent.courseId +
+                "/" +
+                courseContent.courseTag
+              }
+            >
+              Quiz
+            </a>
+          ) : (
+            <a className="btn btn-success btn-block">Quiz Has Been Completed</a>
+          )}
+        </div>
+      </div>
+    );
+  }
+
   return !courseContent ? (
     <Redirect to="/catalog" />
   ) : loading ? (
     <Preloader size={"big"} color={"green"} />
   ) : (
     <div id="course-display-wrapper" className="col-md-8 col-12  mb-5 mx-auto">
-      <h2 className="text-light text-center my-3 course-title">
-        <span id="leftBracket">&#123;</span>{" "}
-        {courseContent && courseContent.title}{" "}
-        <span id="rightBracket">&#125;</span>
-      </h2>
+      {displayTitle()}
       <div className="">
-        <div className="text-light text-center mt-4">
-          <div id="description">{courseContent.description}</div>
-        </div>
         <div id="sectionBlocksWrapper" className="text-light">
           {courseContent.sectionBlocks &&
             courseContent.sectionBlocks.map((section) =>
@@ -285,28 +316,7 @@ export default function CourseDisplay(props) {
             )}
         </div>
       </div>
-      {/* quiz button */}
-      {courseContent && profileAccess && (
-        <div class="row ">
-          <div class="col-md-4 col-lg-4" id="quizBtn">
-            {displayQuizBtn ? (
-              <a
-                class="btn btn-primary btn-block"
-                href={
-                  "/quiz/" +
-                  courseContent.courseId +
-                  "/" +
-                  courseContent.courseTag
-                }
-              >
-                Quiz
-              </a>
-            ) : (
-              <a class="btn btn-success btn-block">Quiz Has Been Completed</a>
-            )}
-          </div>
-        </div>
-      )}
+      {profileAccess && displayQuizBtn()}
     </div>
   );
 }

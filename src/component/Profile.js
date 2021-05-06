@@ -139,6 +139,42 @@ export default function Profile() {
       </div>
     );
   }
+  function completedCourseNumber() {
+    return (
+      <div id="courses-details">
+        <div className="d-flex flex-column align-items-center text-light">
+          <div>
+            <h5>Completed Courses</h5>
+            <h5 className="text-success">
+              {user ? user.completedCourseId.length : 0}
+            </h5>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  function completedCourseImages() {
+    return (
+      <div className="completedCourse-wrapper p-3 m-2">
+        <h4 className="text-light text-center">Completed courses</h4>
+        <div id="CompletedCourses" className="d-flex flex-wrap">
+          {user && courselist ? (
+            user.completedCourseId.length > 0 ? (
+              courselist.map(
+                (course) =>
+                  user.completedCourseId.includes(parseInt(course.courseId)) &&
+                  displayCourseImg(course)
+              )
+            ) : (
+              <h6 className="text-light">Nothing Completed Yet</h6>
+            )
+          ) : (
+            <Preloader size={"small"} />
+          )}
+        </div>
+      </div>
+    );
+  }
   if (redirect) return <Redirect to="/login" />;
   else
     return loading ? (
@@ -149,52 +185,10 @@ export default function Profile() {
           {" "}
           {displayProfileCard()}
           {displayPointsCard()}
-          <div id="courses-details">
-            <div className="d-flex flex-column align-items-center text-light">
-              <div>
-                <h5>Enrolled Courses</h5>
-                <h5 className="text-primary">
-                  {user
-                    ? user.completedCourseId.length +
-                      user.currentCourseId.length
-                    : 0}
-                </h5>
-              </div>
-              <div>
-                <h5>Completed Courses</h5>
-                <h5 className="text-success">
-                  {user ? user.completedCourseId.length : 0}
-                </h5>
-              </div>
-              <div>
-                <h5>Ongoing Courses</h5>
-                <h5 className="text-danger">
-                  {user ? user.currentCourseId.length : 0}
-                </h5>
-              </div>
-            </div>
-          </div>
+          {completedCourseNumber()}
         </div>
         <div className="profileWrapper  d-flex flex-wrap justify-content-center m-2">
-          <div className="completedCourse-wrapper p-3 m-2">
-            <h4 className="text-light text-center">Completed courses</h4>
-            <div id="CompletedCourses" className="d-flex flex-wrap">
-              {user && courselist ? (
-                user.completedCourseId.length > 0 ? (
-                  courselist.map(
-                    (course) =>
-                      user.completedCourseId.includes(
-                        parseInt(course.courseId)
-                      ) && displayCourseImg(course)
-                  )
-                ) : (
-                  <h6 className="text-light">Nothing Completed Yet</h6>
-                )
-              ) : (
-                <Preloader size={"small"} />
-              )}
-            </div>
-          </div>
+          {completedCourseImages()}
         </div>
       </div>
     );
