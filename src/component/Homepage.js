@@ -1,19 +1,93 @@
 import React, { useState, useEffect } from "react";
 import "./css/homepage.css";
 import { Animated } from "react-animated-css";
-import home1 from "../images/img/home1.jpg";
-import home2 from "../images/img/home2.jpg";
-import home3 from "../images/img/home3.jpg";
 
 export default function Homepage() {
   const [profileAccess, setProfileAcces] = useState(
     localStorage.getItem("profileAccess") === "true"
   );
-  const [catalogPath, setCatalogPath] = useState("/catalog");
-  const [profilePath, setProfilePath] = useState("/profile");
-  console.log(profileAccess);
-  return (
-    <div id="homeBody">
+  const catalogPath = "/catalog";
+  const profilePath = "/profile";
+  const homepageData = [
+    {
+      activeState: "active ",
+      pictureName: "hom1",
+      header: {
+        text: "WEB DEVELOPMENT",
+        animationIn: "bounceInRight",
+        animationOut: "fadeOut",
+        animationInDelay: "1s",
+        isVisible: true,
+      },
+
+      description: {
+        text:
+          "Here, we'll only be teaching you the very essentials of Web-Development.",
+        animationIn: "bounceInLeft",
+        animationOut: "fadeOut",
+        animationInDelay: "2s",
+        isVisible: true,
+      },
+      button: {
+        animationIn: "bounceInRight",
+        animationOut: "fadeOut",
+        animationInDelay: "3s",
+      },
+    },
+    {
+      activeState: " ",
+      pictureName: "hom2",
+      header: {
+        text: "WEB DESIGN",
+        animationIn: "slideInDown",
+        animationOut: "fadeOut",
+        animationInDelay: "1s",
+        isVisible: true,
+      },
+
+      description: {
+        text:
+          "Learn the essentials of UI and UX design with a Hands-on approach.",
+        animationIn: "fadeInUp",
+        animationOut: "fadeOut",
+        animationInDelay: "2s",
+        isVisible: true,
+      },
+      button: {
+        animationIn: "zoomIn",
+        animationOut: "fadeOut",
+        animationInDelay: "3s",
+      },
+    },
+    {
+      activeState: " ",
+      pictureName: "hom3",
+
+      header: {
+        text: "Better Code",
+        animationIn: "zoomIn",
+        animationOut: "fadeOut",
+        animationInDelay: "1s",
+        isVisible: true,
+      },
+
+      description: {
+        text:
+          "Code Efficiency and Readability is a thing most tutorials skip on. Not us.",
+        animationIn: "fadeInLeft",
+        animationOut: "fadeOut",
+        animationInDelay: "2s",
+        isVisible: true,
+      },
+      button: {
+        animationIn: "zoomIn",
+        animationOut: "fadeOut",
+        animationInDelay: "3s",
+      },
+    },
+  ];
+  function navbar() {
+    return (
       <header>
         <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
           <div className="container">
@@ -49,7 +123,7 @@ export default function Homepage() {
                 <li className="nav-item active pronto">
                   {!profileAccess ? (
                     <a className="nav-link" href="/login">
-                      Sign-up
+                      Sign-In
                     </a>
                   ) : (
                     <a className="nav-link" href={profilePath}>
@@ -62,118 +136,46 @@ export default function Homepage() {
           </div>
         </nav>
       </header>
-      <div
-        className="carousel slide"
-        data-ride="carousel"
-        id="carouselExampleIndicators"
-      >
-        <ol className="carousel-indicators">
-          <li
-            class="active"
-            data-slide-to="0"
-            data-target="#carouselExampleIndicators"
-          ></li>
-          <li data-slide-to="1" data-target="#carouselExampleIndicators"></li>
-          <li data-slide-to="2" data-target="#carouselExampleIndicators"></li>
-        </ol>
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <div className="d-block w-100 tryPic hom1"></div>
-            <div class="carousel-caption d-block">
-              <Animated
-                animationIn="bounceInRight"
-                animationOut="fadeOut"
-                animationInDelay="1s"
-                isVisible={true}
-              >
-                <h5>Web Development</h5>
-              </Animated>
-              <Animated
-                animationIn="bounceInLeft"
-                animationOut="fadeOut"
-                animationInDelay="2s"
-                isVisible={true}
-              >
-                <p>
-                  Here, we'll only be teaching you the very essentials of
-                  Web-Development.
-                </p>
-              </Animated>
-              <Animated
-                animationIn="bounceInRight"
-                animationOut="fadeOut"
-                animationInDelay="3s"
-                isVisible={true}
-              >
-                <a href={catalogPath}>Explore</a>
-              </Animated>
-            </div>
-          </div>
-          <div className="carousel-item">
-            <div className="d-block w-100 tryPic hom2"></div>
-            <div class="carousel-caption d-block">
-              <Animated
-                animationIn="slideInDown"
-                animationOut="fadeOut"
-                animationInDelay="1s"
-                isVisible={true}
-              >
-                <h5>Web Design</h5>
-              </Animated>
-              <Animated
-                animationIn="fadeInUp"
-                animationOut="fadeOut"
-                animationInDelay="2s"
-                isVisible={true}
-              >
-                <p>
-                  Learn the essentials of UI and UX design with a Hands-on
-                  approach.
-                </p>
-              </Animated>
-              <Animated
-                animationIn="zoomIn"
-                animationOut="fadeOut"
-                animationInDelay="3s"
-                isVisible={true}
-              >
-                <a href={catalogPath}>Explore</a>
-              </Animated>
-            </div>
-          </div>
-          <div className="carousel-item">
-            <div className="d-block w-100 tryPic hom3"></div>
-            <div class="carousel-caption d-block">
-              <Animated
-                animationIn="zoomIn"
-                animationOut="fadeOut"
-                animationInDelay="1s"
-                isVisible={true}
-              >
-                <h5>Better Code</h5>
-              </Animated>
-              <Animated
-                animationIn="fadeInLeft"
-                animationOut="fadeOut"
-                animationInDelay="2s"
-                isVisible={true}
-              >
-                <p>
-                  Code Efficiency and Readability is a thing most tutorials skip
-                  on. Not us.
-                </p>
-              </Animated>
-              <Animated
-                animationIn="zoomIn"
-                animationOut="fadeOut"
-                animationInDelay="3s"
-                isVisible={true}
-              >
-                <a href={catalogPath}>Explore</a>
-              </Animated>
-            </div>
-          </div>
+    );
+  }
+  function displayCarouselItem(data) {
+    let pictureClassname = "d-block w-100 tryPic " + data.pictureName;
+    let itemClassName = "carousel-item " + data.activeState;
+    return (
+      <div className={itemClassName}>
+        <div className={pictureClassname}></div>
+        <div class="carousel-caption d-block">
+          <Animated
+            animationIn={data.header.animationIn}
+            animationOut={data.header.animationOut}
+            animationInDelay={data.header.animationInDelay}
+            isVisible={true}
+          >
+            <h5>{data.header.text}</h5>
+          </Animated>
+          <Animated
+            animationIn={data.description.animationIn}
+            animationOut={data.description.animationOut}
+            animationInDelay={data.description.animationInDelay}
+            isVisible={true}
+          >
+            <p>{data.description.text}</p>
+          </Animated>
+          <Animated
+            animationIn={data.button.animationIn}
+            animationOut={data.button.animationOut}
+            animationInDelay={data.button.animationInDelay}
+            isVisible={true}
+          >
+            <a href={catalogPath}>Explore</a>
+          </Animated>
         </div>
+      </div>
+    );
+  }
+  function displayNavButtons() {
+    return (
+      <>
         <a
           className="carousel-control-prev"
           data-slide="prev"
@@ -192,6 +194,30 @@ export default function Homepage() {
           <span aria-hidden="true" class="carousel-control-next-icon"></span>{" "}
           <span className="sr-only">Next</span>
         </a>
+      </>
+    );
+  }
+  return (
+    <div id="homeBody">
+      {navbar()}
+      <div
+        className="carousel slide"
+        data-ride="carousel"
+        id="carouselExampleIndicators"
+      >
+        <ol className="carousel-indicators">
+          <li
+            class="active"
+            data-slide-to="0"
+            data-target="#carouselExampleIndicators"
+          ></li>
+          <li data-slide-to="1" data-target="#carouselExampleIndicators"></li>
+          <li data-slide-to="2" data-target="#carouselExampleIndicators"></li>
+        </ol>
+        <div className="carousel-inner">
+          {homepageData.map((item) => displayCarouselItem(item))}
+        </div>
+        {displayNavButtons()}
       </div>
     </div>
   );

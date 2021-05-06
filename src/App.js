@@ -10,7 +10,6 @@ import Catalog from "./component/Catalog";
 import CourseDisplay from "./component/CourseDisplay";
 import Login from "./component/Login";
 import Profile from "./component/Profile";
-import Preloader from "./component/Preloader";
 import Quiz from "./component/Quiz";
 import PrivateRoute from "./component/ProtectedRoute";
 
@@ -23,7 +22,6 @@ function App() {
         <Route path="/course/:coursename" component={coursedisplay} />
         <Route path="/login" component={loginUser} />
         <PrivateRoute path="/profile" component={profile} />
-        <Route path="/pre" component={preLoader} />
         <Route path="/quiz/:courseId/:courseName" component={quiz} />
       </div>
     </Router>
@@ -57,11 +55,6 @@ const profile = () => (
   <Fragment>
     <Navbar />
     <Profile />
-  </Fragment>
-);
-const preLoader = () => (
-  <Fragment>
-    <Preloader />
   </Fragment>
 );
 const quiz = (props) => (
