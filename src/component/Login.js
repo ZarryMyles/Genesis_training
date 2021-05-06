@@ -5,7 +5,6 @@ import axios from "axios";
 import API from "./services/API";
 import auth from "./services/Auth";
 // images
-import LoginImg from "../images/img/undraw-login.png";
 import UserImg from "../images/icons/user-icon.png";
 
 export default function Login() {
@@ -216,7 +215,7 @@ export default function Login() {
         <img
           id="LoginUndrawImg"
           className="d-none d-lg-block"
-          src={LoginImg}
+          src="https://res.cloudinary.com/zarry/image/upload/v1620308383/undraw-login/undraw-login.png"
           alt=""
         />
         {!signInStatus ? signIn() : signUp()}

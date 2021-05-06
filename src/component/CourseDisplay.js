@@ -65,7 +65,7 @@ export default function CourseDisplay(props) {
             backgroundPosition: "center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-            backgroundImage: `url('../${image.path}')`,
+            backgroundImage: `url('${image.path}')`,
             height: `${image.height}`,
             width: `${image.width}`,
           }}
