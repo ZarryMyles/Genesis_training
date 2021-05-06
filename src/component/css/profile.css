@@ -12,7 +12,7 @@
 }
 #username {
   background: #6268e1;
-  color: #262b30;
+  color: #0f0f11;
   font-weight: bold;
   font-family: Baufra-Bold;
   text-transform: capitalize;
@@ -30,8 +30,8 @@
   width: 500px;
   border-radius: 15px;
   /* border: 2px solid white; */
-  background: #262b30;
-  box-shadow: -19px 19px 38px #202428, 19px -19px 38px #2c3238;
+  background: #0f0f11;
+  box-shadow: 32px 32px 65px #060607, -32px -32px 65px #18181b;
 }
 .points-quote {
   margin-left: 200px;
@@ -51,9 +51,8 @@
   height: fit-content;
   align-self: center;
   border-radius: 15px;
-  background: #262b30;
-  box-shadow: -19px 19px 38px #202428, 19px -19px 38px #2c3238;
-  /* border: 2px solid white; */
+  background: #0f0f11;
+  box-shadow: 32px 32px 65px #060607, -32px -32px 65px #18181b; /* border: 2px solid white; */
   margin: 20px;
   padding: 10px;
 }
@@ -64,8 +63,8 @@
   justify-content: space-between;
 }
 .completedCourse-wrapper {
-  background: #262b30;
-  box-shadow: -19px 19px 38px #202428, 19px -19px 38px #2c3238;
+  background: #0f0f11;
+  box-shadow: 32px 32px 65px #060607, -32px -32px 65px #18181b;
   border-radius: 15px;
   width: 80%;
 }

@@ -10,7 +10,7 @@
 }
 
 .quizContainer {
-  background-color: #262b30;
+  background-color: #0f0f11;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -146,9 +146,6 @@ button svg {
     height: min-content;
     width: 80%;
     height: 100%;
-  }
-  .question-section span {
-    /* font-size: 50px; */
   }
   .question-count span {
     font-size: 20px;

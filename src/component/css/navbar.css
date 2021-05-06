@@ -4,7 +4,7 @@
   margin: 0;
   opacity: 0.8;
   border-bottom: 1px aliceblue solid;
-  height: 65px;
+  height: 50px;
   background-color: #262b30;
 }
 .mnav-i {
@@ -24,4 +24,10 @@
 .gen {
   font-family: "Josefin Sans", sans-serif;
   font-size: 30px !important;
+}
+
+@media (max-width: 600px) {
+  .mnavbar {
+    height: 65px !important;
+  }
 }

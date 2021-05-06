@@ -12,21 +12,6 @@ export default function Preloader(props) {
     );
   }, []);
 
-  // return (
-  //   <div>
-  //     <div className="preLoad">
-  //       <span></span>
-  //     </div>
-  //     {/* Use this With the following code on other components:
-
-  //     $(window).on("load",function() {
-  //         $(".Preloader").fadeOut("slow");
-  //     });
-
-  //     */}
-  //   </div>
-  // );
-
   return (
     <div className={size}>
       <span className={preloaderColor}></span>

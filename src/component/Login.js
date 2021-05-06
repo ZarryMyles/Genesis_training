@@ -67,7 +67,7 @@ export default function Login() {
   function displayPasswordMismatch() {
     return (
       <div className="wrongpassword my-3">
-        <div className="text-danger">Your Passwords donot match!</div>
+        <div className="text-danger">Your Passwords don't match!</div>
       </div>
     );
   }
@@ -205,9 +205,9 @@ export default function Login() {
         <div class="toggle-switch-container ">
           <div className="login-checkbox-text">
             {signInStatus ? (
-              <div className="text-green">Sign In</div>
+              <div className="text-green">Sign Up</div>
             ) : (
-              <div className="text-blue">Sign Up</div>
+              <div className="text-blue">Sign In</div>
             )}
           </div>
           <input type="checkbox" onClick={toggleStat} />
