@@ -30,13 +30,16 @@ export default function CourseDisplay(props) {
         SetCourseContent(coursetagFilter[0]);
         if (coursetagFilter[0]) {
           setQuizPath(coursetagFilter[0].courseId);
-          fetch(API.userProfile + "/" + userId).then((response) => {
-            response.json().then((profile) => {
-              setQuizCompleted(
-                profile.completedCourseId.includes(coursetagFilter[0].courseId)
-              );
+          profileAccess &&
+            fetch(API.userProfile + "/" + userId).then((response) => {
+              response.json().then((profile) => {
+                setQuizCompleted(
+                  profile.completedCourseId.includes(
+                    coursetagFilter[0].courseId
+                  )
+                );
+              });
             });
-          });
         }
       });
     });
@@ -54,7 +57,7 @@ export default function CourseDisplay(props) {
   }
   function displayImage(image) {
     return (
-      <div className="mx-auto" style={{}}>
+      <div className="mx-auto d-none d-md-block" style={{}}>
         <div
           id="section-img"
           className="my-4 mx-auto"
@@ -111,7 +114,7 @@ export default function CourseDisplay(props) {
   }
   function displayIframe(iframe) {
     return (
-      <div className="mx-auto">
+      <div className="text-center">
         <h5>{iframe.header}</h5>
         <iframe
           height={iframe.height}
@@ -177,12 +180,47 @@ export default function CourseDisplay(props) {
       </div>
     );
   }
+  function displayTitle() {
+    return (
+      <>
+        <h2 className="text-light text-center my-3 course-title">
+          <span id="leftBracket">&#123;</span>{" "}
+          {courseContent && courseContent.title}{" "}
+          <span id="rightBracket">&#125;</span>
+        </h2>
+        <div className="text-light text-center mt-4">
+          <div id="description">{courseContent.description}</div>
+        </div>
+      </>
+    );
+  }
+  function displayQuizBtn() {
+    return (
+      <div className="row ">
+        <div className="col-md-4 col-lg-4" id="quizBtn">
+          {!quizCompleted ? (
+            <a
+              className="btn btn-primary btn-block"
+              href={
+                "/quiz/" +
+                courseContent.courseId +
+                "/" +
+                courseContent.courseTag
+              }
+            >
+              Quiz
+            </a>
+          ) : (
+            <a className="btn btn-success btn-block">Quiz Has Been Completed</a>
+          )}
+        </div>
+      </div>
+    );
+  }
   function displaySectionBlocks(section) {
     switch (section.type) {
       case "normal":
         return displayNormalSection(section);
-      case " ":
-
       default:
         return displayNormalSection(section);
     }
@@ -260,43 +298,6 @@ export default function CourseDisplay(props) {
               : ""}
           </div>
         </Collapsible>
-      </div>
-    );
-  }
-  function displayTitle() {
-    return (
-      <>
-        <h2 className="text-light text-center my-3 course-title">
-          <span id="leftBracket">&#123;</span>{" "}
-          {courseContent && courseContent.title}{" "}
-          <span id="rightBracket">&#125;</span>
-        </h2>
-        <div className="text-light text-center mt-4">
-          <div id="description">{courseContent.description}</div>
-        </div>
-      </>
-    );
-  }
-  function displayQuizBtn() {
-    return (
-      <div className="row ">
-        <div className="col-md-4 col-lg-4" id="quizBtn">
-          {!quizCompleted ? (
-            <a
-              className="btn btn-primary btn-block"
-              href={
-                "/quiz/" +
-                courseContent.courseId +
-                "/" +
-                courseContent.courseTag
-              }
-            >
-              Quiz
-            </a>
-          ) : (
-            <a className="btn btn-success btn-block">Quiz Has Been Completed</a>
-          )}
-        </div>
       </div>
     );
   }

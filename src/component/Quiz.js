@@ -59,7 +59,7 @@ export default function Quiz(props) {
     } else {
       setShowScore(true);
       setdisplayDone(true);
-      postScore(score + 1);
+      postScore(score);
     }
   };
   function displayQuizBlock() {

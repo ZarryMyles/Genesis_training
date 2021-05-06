@@ -9,6 +9,8 @@ class Auth {
   }
   logout() {
     localStorage.setItem("profileAccess", "false");
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("username");
   }
 }
 
