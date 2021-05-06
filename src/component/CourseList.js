@@ -16,7 +16,7 @@ export default function CourseLIst(props) {
   };
   function coursePreview(course) {
     let coursePath = course.link;
-    let image_path = "../" + course.preview_img;
+    let image_path = course.preview_img;
     return (
       <div className="course  m-5">
         <Link to={coursePath} style={{ textDecoration: "none" }}>

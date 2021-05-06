@@ -30,13 +30,16 @@ export default function CourseDisplay(props) {
         SetCourseContent(coursetagFilter[0]);
         if (coursetagFilter[0]) {
           setQuizPath(coursetagFilter[0].courseId);
-          fetch(API.userProfile + "/" + userId).then((response) => {
-            response.json().then((profile) => {
-              setQuizCompleted(
-                profile.completedCourseId.includes(coursetagFilter[0].courseId)
-              );
+          profileAccess &&
+            fetch(API.userProfile + "/" + userId).then((response) => {
+              response.json().then((profile) => {
+                setQuizCompleted(
+                  profile.completedCourseId.includes(
+                    coursetagFilter[0].courseId
+                  )
+                );
+              });
             });
-          });
         }
       });
     });
@@ -62,7 +65,7 @@ export default function CourseDisplay(props) {
             backgroundPosition: "center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-            backgroundImage: `url('../${image.path}')`,
+            backgroundImage: `url('${image.path}')`,
             height: `${image.height}`,
             width: `${image.width}`,
           }}
