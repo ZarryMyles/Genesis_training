@@ -38,7 +38,7 @@ export default function Catalog() {
         id="CatelogDesc"
         className="text-light my-md-5 my-3 col-11  col-md-5 "
       >
-        <h2 className="mx-4 catalog-header">Lorem ipsum dolor sit amet.</h2>
+        <h2 className="mx-4 catalog-header">Sic Semper Tyrannis</h2>
         <p className=" mx-4 py-3 lh-base catalog-content">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla harum
           neque eius similique facere libero, hic repellat nemo aspernatur sequi

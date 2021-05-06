@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #262b30 !important;
+  background-color: #0f0f11 !important;
   padding: 0;
   margin: 0;
 }
@@ -16,5 +16,5 @@ ul {
 #HomepageNav,
 #navbarSupportedContent,
 #navUl {
-  background-color: #5c6268;
+  background-color: #2b2c2e;
 }

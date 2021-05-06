@@ -12,13 +12,13 @@ export default function Navbar(props) {
 
   return (
     <header>
-      <div className="container">
-        <nav
-          className="navbar navbar-expand-lg navbar-dark fixed-top mnavbar"
-          id="HomepageNav"
-        >
+      <nav
+        className="navbar navbar-expand-lg navbar-dark fixed-top mnavbar"
+        id="HomepageNav"
+      >
+        <div className="container-fluid">
           <a className="navbar-brand gen" href="#">
-            Zarrix Tutorials
+            Zarix Tutorials
           </a>
           <button
             className="navbar-toggler mnavbar-toggler"
@@ -26,18 +26,15 @@ export default function Navbar(props) {
             data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
-            aria-expanded="false"
+            aria-expanded="true"
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul
-              className="d-flex align-items-end navbar-nav ml-lg-auto mnavbar-nav"
-              id="navUl"
-            >
-              <li className="nav-item active mnav-i" id="navUl">
+            <ul className="navbar-nav ml-auto navUli">
+              <li className="nav-item active pronto mnav-i" id="navUl">
                 <a className="nav-link mnav-link" href="/">
                   Home<span className="sr-only">(current)</span>
                 </a>
@@ -71,8 +68,8 @@ export default function Navbar(props) {
               )}
             </ul>
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
     </header>
   );
 }
