@@ -96,7 +96,7 @@ export default function Homepage() {
             </a>{" "}
             <button
               aria-controls="navbarSupportedContent"
-              aria-expanded="false"
+              aria-expanded="true"
               aria-label="Toggle navigation"
               class="navbar-toggler"
               data-target="#navbarSupportedContent"

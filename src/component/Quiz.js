@@ -44,7 +44,7 @@ export default function Quiz(props) {
     }
     const postScore = async (score) => {
       let newScore = {
-        name: toTitleCase(props.courseName),
+        name: toTitleCase(props.courseName.toLowerCase()),
         courseId: props.courseId,
         score: (score / questions.length) * 10,
         completed: true,

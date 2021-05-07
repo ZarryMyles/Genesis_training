@@ -38,12 +38,14 @@ export default function Catalog() {
         id="CatelogDesc"
         className="text-light my-md-5 my-3 col-11  col-md-5 "
       >
-        <h2 className="mx-4 catalog-header">Lorem ipsum dolor sit amet.</h2>
+        <h2 className="mx-4 catalog-header">Course Catalog</h2>
         <p className=" mx-4 py-3 lh-base catalog-content">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla harum
-          neque eius similique facere libero, hic repellat nemo aspernatur sequi
-          sit voluptatem sed doloribus quos voluptate modi veniam, voluptates
-          cum non veritatis ipsa consequatur quisquam?
+          Take a look at some of our courses.
+          <br />
+          You can get started right away for free.
+          <br />
+          To access quizzes and to save progress, however, you need to sign up.
+          It only takes a minute.
         </p>
         {displaySearchbar(true)}
       </div>

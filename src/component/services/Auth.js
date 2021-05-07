@@ -13,5 +13,4 @@ class Auth {
     localStorage.removeItem("username");
   }
 }
-
 export default new Auth();

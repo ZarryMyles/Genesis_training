@@ -50,8 +50,7 @@ export default function Profile() {
   }
   function displayCourseImg(course) {
     let coursePath = course.link;
-    let image_path = "../" + course.preview_img;
-
+    let image_path = course.preview_img;
     return (
       <Link to={coursePath} style={{ textDecoration: "none", padding: "5px" }}>
         <div className="preview-img-container overflow-hidden">

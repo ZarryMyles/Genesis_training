@@ -18,7 +18,6 @@ export default function CourseDisplay(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
     getData();
-    // setLoading(false);
   }, []);
 
   let getData = async () => {
@@ -45,6 +44,18 @@ export default function CourseDisplay(props) {
     });
     setLoading(false);
   };
+  function toTitleCase(text) {
+    let rg = /(^\w{1}|\.\s*\w{1})/gi;
+    if (text) {
+      text = text.toLowerCase();
+      let title = text.replaceAll("_", " ");
+      console.log(text, title);
+      title = title.replace(rg, (toReplace) => {
+        return toReplace.toUpperCase();
+      });
+      return title;
+    }
+  }
   function displayBulletPoints(point, index) {
     return (
       <li key={index} className="py-1" style={{ listStyle: "disc" }}>
@@ -229,7 +240,7 @@ export default function CourseDisplay(props) {
     return (
       <div id={section.position} className="sectionBlocks  ">
         <Collapsible
-          trigger={"> " + section.heading}
+          trigger={"> " + toTitleCase(section.heading)}
           classParentString="collapsible-section"
           triggerClassName="collapsible-trigger"
           triggerOpenedClassName="collapsible-trigger-opened"
