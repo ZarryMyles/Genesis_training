@@ -149,7 +149,7 @@ export default function CourseDisplay(props) {
   function displayMiniCodeBlock(codeblock) {
     return (
       <div className="row m-2 mt-3 py-3">
-        <div id="code" className="col-md-4 col-sm-10 mx-sm-auto">
+        <div id="code" className="col-lg-4 col-sm-10 mx-sm-auto">
           <h5 className="text-center">{codeblock.header}</h5>
           <div className=" p-3 codeblock">
             {codeblock.code.split("\n").map((line) => displayLine(line))}
@@ -194,7 +194,7 @@ export default function CourseDisplay(props) {
   function displayTitle() {
     return (
       <>
-        <h2 className="text-light text-center my-3 course-title">
+        <h2 className="text-light text-center mt-md-3 mt-5 course-title">
           <span id="leftBracket">&#123;</span>{" "}
           {courseContent && courseContent.title}{" "}
           <span id="rightBracket">&#125;</span>

@@ -79,12 +79,30 @@
 #CompletedCourses > img {
   border-radius: 10px;
 }
-
+@media (max-width: 768px) {
+  .points-quote {
+    margin-left: 100px;
+  }
+  .points-quote h6 {
+    font-size: 15px;
+    text-align: center;
+  }
+  .test-name > div {
+    width: 300px;
+  }
+  .completed-test-list {
+    padding-left: 0;
+  }
+  .profile-display {
+    width: 100%;
+  }
+}
 @media (max-width: 600px) {
   #points-display {
     padding-left: 0;
     margin-left: 0;
     width: 100%;
+    box-shadow: 32px 32px 65px #060607, -10px -15px 20px #18181b;
   }
   .points-quote {
     margin-left: 100px;

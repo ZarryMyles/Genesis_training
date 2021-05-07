@@ -103,6 +103,9 @@
   }
 }
 @media (max-width: 376px) {
+  .course-title {
+    margin-top: 150px;
+  }
   .codeblock > div,
   .codeblock > li,
   .codeblock > p {
